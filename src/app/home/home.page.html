@@ -1,14 +1,193 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+	
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+
+  <div class="wrapper ">
+      
+      <div class="wrapper-inline" (scroll)="doSomethingOnScroll($event)">
+     
+          <app-menu></app-menu>
+           <!-- Header area start -->
+        
+          <app-notifications lugar="{{lugar}}"></app-notifications>
+   
+        <!-- Page content start -->
+        <main class="margin mt-0">
+  
+            <div class="dash-balance">
+              <div class="dash-content relative">
+                <h3 class="w-text">Home</h3>
+              
+              </div>
+            </div>
+  
+            <section class="bal-section container">
+            
+                <img style="width: 100%;" class="bordesInferioresRedondeados" src="assets/img/magnoevento.png" alt="">
+             
+           
+            </section>
+          
+          
+            <section class="container">
+                <div class="content"> 
+                  <!-- <h4 class="title-main">Balance Split</h4> -->
+                <div class="c-panel">
+                  
+                    <div class="row align-items-center">
+                      <div class="col-4 col-sm-4">
+                            <div class="split-list text-center">
+                                <span style="font-size:30px" class="fa fa-calculator"></span>
+                                <a href="javascript:void(0);" routerLink="/calcular-proteccion"><h6 style="font-size:12px" class="info-label">Calcular Protección </h6></a>
+                            </div>
+                          </div>
+                      <div class="col-4 col-sm-4 ">
+                      
+                        <div class="split-list text-center">
+                            <span style="font-size:30px" class="fa fa-headphones"></span>
+                            <a href="javascript:void(0);" routerLink="/directo"><h6 style="font-size:12px" class="info-label">LGC - Directo</h6></a>
+                        </div>
+                      </div>
+                    
+                      <div class="col-4 col-sm-4">
+                        <div class="split-list text-center">
+                            <span style="font-size:30px" class="fa fa-shield"></span>
+                            <a href="javascript:void(0);" [(routerLink)]="ruta"><h6 style="font-size:12px" class="info-label">Mis Contratos</h6></a>
+                        </div>
+                      </div>
+                      <div class="col-4 col-sm-4">
+                        <div class="split-list text-center">
+                            <span style="font-size:30px" class="fa fa-expeditedssl"></span>
+                            <a href="javascript:void(0);" routerLink="/proteccion-total"><h6 style="font-size:12px" class="info-label">Protección Total</h6></a>
+                        </div>
+                      </div>
+                      <div class="col-4 col-sm-4">
+                        <div class="split-list text-center">
+                            <span style="font-size:30px" class="fa fa-file-text-o"></span>
+                            <a href="javascript:void(0);" routerLink="/proteccion-basica"><h6 style="font-size:12px" class="info-label">Protección Básica</h6></a>
+                        </div>
+                      </div>
+                      <div class="col-4 col-sm-4">
+                        <div class="split-list text-center">
+                            <span style="font-size:30px" class="fa fa-edit"></span>
+                            <a href="javascript:void(0);" routerLink="/solicitar-contrato"><h6 style="font-size:12px" class="info-label">Solicitar Contrato</h6></a>
+                        </div>
+                      </div>
+                      <div class="col-4 col-sm-4">
+                        <div class="split-list text-center">
+                            <span style="font-size:30px" class="fa fa-home"></span>
+                            <a href="javascript:void(0);" routerLink="/credito-hipotecario"><h6 style="font-size:12px" class="info-label">Crédito Hipotecario</h6></a>
+                        </div>
+                      </div>
+                      <div class="col-4 col-sm-4">
+                        <div class="split-list text-center">
+                            <span style="font-size:30px" class="fa fa-money"></span>
+                            <a href="javascript:void(0);" routerLink="/calcular-credito"><h6 style="font-size:12px" class="info-label">Calcular Crédito</h6></a>
+                        </div>
+                      </div>
+                      <div class="col-4 col-sm-4">
+                        <div class="split-list text-center">
+                            <span style="font-size:30px" class="fa fa-table"></span>
+                            <a href="javascript:void(0);" routerLink="/calcular-irs"><h6 style="font-size:12px" class="info-label">Calcular IRS</h6></a>
+                        </div>
+                      </div>
+                      <div class="col-4 col-sm-4">
+                          <div class="split-list text-center">
+                              <span style="font-size:30px" class="fa fa-gears"></span>
+                              <a href="javascript:void(0);" routerLink="/servicios"><h6 style="font-size:12px" class="info-label">Servicios LGC</h6></a>
+                          </div>
+                        </div>
+                        <div class="col-4 col-sm-4">
+                          <div class="split-list text-center">
+                              <span style="font-size:30px" class="fa fa-globe"></span>
+                              <a target="_blank" href="https://www.legalglobalconsulting.com"><h6 style="font-size:12px" class="info-label">Sitio Web LGC</h6></a>
+                          </div>
+                        </div>
+                        <div class="col-4 col-sm-4">
+                          <div class="split-list text-center">
+                              <span style="font-size:30px" class="fa fa-inbox"></span>
+                              <a href="javascript:void(0);" routerLink="/sugerencias"><h6 style="font-size:12px" class="info-label">Buzón de Sugerencias</h6></a>
+                          </div>
+                        </div>
+                        <div class="col-4 col-sm-4">
+                            <div class="split-list text-center">
+                                <span style="font-size:30px" class="fa fa-whatsapp"></span>
+                                <a href="javascript:void(0);" routerLink="/contacto"><h6 style="font-size:12px" class="info-label">Contacto</h6></a>
+                            </div>
+                          </div>
+                      
+                    </div>     
+                </div>
+              </div>
+            </section>
+  
+            <!-- <section class="container">
+              <h4 class="title-main">Recent Transactions</h4>
+              <ul class="transaction-list list-unstyled">
+                <li>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <img class="img-xs" src="assets/img/content/coin1.png" alt="coin image">
+                      <div class="ml-10">
+                        <h4 class="coin-name">Bitcoin</h4>
+                        <small class="text-muted">08-24 <span class="ml-10">20.04PM</span></small>
+                      </div>
+                    </div>
+                    <div>
+                      <small class="d-block mb-0 txt-green">+0.94853</small>
+                      <small class="text-muted d-block">$2,748.94</small>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <img class="img-xs" src="assets/img/content/coin2.png" alt="coin image">
+                      <div class="ml-10">
+                        <h4 class="coin-name">Ethereum</h4>
+                        <small class="text-muted">08-24 <span class="ml-10">20.04PM</span></small>
+                      </div>
+                    </div>
+                    <div>
+                      <small class="d-block mb-0 txt-green">+1.84993</small>
+                      <small class="text-muted d-block">$3,748.94</small>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <img class="img-xs" src="assets/img/content/coin3.png" alt="coin image">
+                      <div class="ml-10">
+                        <h4 class="coin-name">Dashcoin</h4>
+                        <small class="text-muted">08-24 <span class="ml-10">20.04PM</span></small>
+                      </div>
+                    </div>
+                    <div>
+                      <small class="d-block mb-0 txt-red">-23.84523</small>
+                      <small class="text-muted d-block">$1,493.03</small>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <img class="img-xs" src="assets/img/content/coin4.png" alt="coin image">
+                      <div class="ml-10">
+                        <h4 class="coin-name">Ripple</h4>
+                        <small class="text-muted">08-24 <span class="ml-10">20.04PM</span></small>
+                      </div>
+                    </div>
+                    <div>
+                      <small class="d-block mb-0 txt-green">+500.347</small>
+                      <small class="text-muted d-block">$239.94</small>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </section> -->
+  
+            <app-footer></app-footer>
+        </main>
+        <!-- Page content end -->
+      </div>
   </div>
-</ion-content>

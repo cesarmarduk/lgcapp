@@ -2,24 +2,77 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <title>Ionic App</title>
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+	<title>LGCAPP</title>
   <base href="/" />
+	<!-- Google font file. If you want you can change. -->
+	<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,900" rel="stylesheet">
 
-  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="msapplication-tap-highlight" content="no" />
+	<!-- Fontawesome font file css -->
+	<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
 
-  <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+	<!-- Animate css file for css3 animations. for more : https://daneden.github.io/animate.css -->
+	<!-- Only use animate action. If you dont use animation, you don't have to add.-->
+	<link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/cryptocoins.css">
+	<link rel="stylesheet" type="text/css" href="assets/plugins/c3-chart/c3.css">
 
-  <!-- add to homescreen for ios -->
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<!-- Template global css file. Requared all pages -->
+	<link rel="stylesheet" type="text/css" href="assets/css/global.style.css">
+
+	<!-- Swiper slider css file -->
+	<link rel="stylesheet" href="assets/css/swiper.min.css">
+
+	<!--turbo slider plugin css file -->
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/plugins/turbo-slider/turbo.css">
+
 </head>
 
 <body>
   <app-root></app-root>
+
+	<!--Page loader DOM Elements. Requared all pages-->
+	<div class="sweet-loader">
+		<div class="box">
+		  	<div class="circle1"></div>
+		  	<div class="circle2"></div>
+		  	<div class="circle3"></div>
+		</div>
+	</div>
+
+	<!-- JQuery library file. requared all pages -->
+	<script src="assets/js/jquery-3.2.1.min.js">
+	
+	
+	
+	</script>
+
+	<!-- Swiper JS -->
+    <script src="assets/js/swiper.min.js"></script>
+
+	 <!-- Initialize Swiper -->
+ 	
+  	<!-- Flot Charts -->
+	<script src="assets/plugins/c3-chart/c3.min.js"></script>
+	<script src="assets/plugins/c3-chart/d3.min.js"></script>
+	<script src="assets/plugins/c3-chart/c3.custom.js"></script>
+  	<!-- Flot Charts -->
+	<script src="assets/plugins/flot/jquery.flot.min.js"></script>
+	<script src="assets/plugins/flot/jquery.flot.time.min.js"></script>
+	<script src="assets/plugins/flot/jquery.flot.pie.min.js"></script>
+	<script src="assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
+	<script src="assets/plugins/flot/jquery.flot.resize.min.js"></script>
+    <!-- Sparkline-->
+    <script src="assets/plugins/jquery-sparkline/jquery.sparkline.js"></script>
+
+	<!-- Template global script file. requared all pages -->
+	<script src="assets/js/app-charts.js"></script>
+	<script src="assets/js/global.script.js"></script>
+
+
+
 </body>
 
 </html>

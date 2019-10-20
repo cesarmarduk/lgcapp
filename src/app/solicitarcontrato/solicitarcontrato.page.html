@@ -1,0 +1,50 @@
+	
+
+  <div class="wrapper ">
+      
+    <div class="wrapper-inline" (scroll)="doSomethingOnScroll($event)">
+        <app-menu></app-menu>
+        <app-quickmenu title="{{title}}"></app-quickmenu>
+      <!-- Page content start -->
+      <main class="margin mt-0">
+
+          <div class="dash-balance">
+            <div class="dash-content relative">
+              <h3 class="w-text">Solicitar Contrato</h3>
+           
+            </div>
+          </div>
+
+          <section class="bal-section container">
+              <div style="margin:auto" align="center"> <img src="assets/img/logo.png" alt=""></div><br>
+           
+         
+          </section>
+       
+        
+     
+          <section class="bal-section container">
+              <div class="form-row"  align="center">
+  
+                  <a style="text-align: center;background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);color:white" href="Javascript:void(0);" (click)="llamar()"  class="button circle inline block">Llamar</a>
+                
+              </div>
+         
+          </section>
+       
+          <section  class="bal-section container">
+              <div style="text-align: center !important;">
+  
+                  <h3 style="color: black;text-decoration: bold">(55) 5363 6140</h3>
+                </div>
+           
+         
+          </section>
+         
+
+          <app-footer></app-footer>
+      </main>
+      <!-- Page content end -->
+    </div>
+</div>	
+

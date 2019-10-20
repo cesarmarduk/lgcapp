@@ -1,0 +1,28 @@
+<div class="nav-menu" style="position:fixed" (click)="onClose($event)">
+	<nav class="menu ">
+	
+	  <!-- Menu navigation start -->
+	  <div class="nav-container">
+		<ul class="main-menu">
+		 <li class="active">
+			<a href="index.html" ><strong class="special">Calcular Proteccion</strong> </a>
+		  </li>
+	
+		  <li class="">
+			<a href="setting.html"><img src="assets/img/content/icons/11.png" alt=""><strong class="special">Opciones</strong> </a>
+		  </li> 
+		  <li >
+			<a href="javascript:void(0);" (click)="clickMenu($event)"><img src="assets/img/content/icons/9.png" alt=""><strong class="special">Login</strong> <span class="fa fa-angle-down"></span></a>
+			<ul>
+			  <li *ngIf="authenticate"><a href="javascript:void(0);"  (click)="logout()" expand="block">{{titulo}}</a></li>
+				<li *ngIf="!authenticate"><a href="javascript:void(0);" [(routerLink)]="ruta" expand="block">{{titulo}}</a></li>
+			
+			</ul>
+		  </li>
+		  
+		
+		</ul>
+	  </div>
+	<!-- Menu navigation end -->
+	</nav>
+</div>

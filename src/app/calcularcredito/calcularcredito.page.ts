@@ -1,0 +1,21 @@
+import { Component, OnInit } from '@angular/core';
+import { UtilitiesService } from '../services/utilities.service';
+declare var jQuery:any;
+declare var $:any;
+@Component({
+  selector: 'app-calcularcredito',
+  templateUrl: './calcularcredito.page.html',
+  styleUrls: ['./calcularcredito.page.scss'],
+})
+export class CalcularcreditoPage implements OnInit {
+
+  title: string;
+  constructor(private utilities: UtilitiesService) { 
+
+    this.title = 'CALCULAR CRÉDITO';
+  }
+
+  ngOnInit() {
+  }
+
+}
