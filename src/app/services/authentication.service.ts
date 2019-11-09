@@ -52,40 +52,20 @@ export class AuthenticationService {
         "name":name,
         "clave":clave
       }
-    
-   return this.http.post(`${this.url}`,this.data,this.httpOptions).pipe(map(user => {
-      // login successful if there's a jwt token in the response
-      if (user) {
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
-          this.storage.set(TOKEN_KEY, 'KEY');
-          this.storage.set(CURRENTUSER, name).then(() => {
-            this.authenticationState.next(true);
-          });
-      }
-
-      return user;
-  }));
-    
-    /*.subscribe(data => {
-       
-        this.storage.set(TOKEN_KEY, 'KEY');
-        this.storage.set(CURRENTUSER, name).then(() => {
-          this.authenticationState.next(true);
-        });
-        this.retorna = data;
-    
-      
-      },  err => {
-        console.log(err.error)
-      },
-      () => {
-
-      });*/
-  
+      return this.http.post(`${this.url}`,this.data,this.httpOptions).pipe(map(user => {
+          // login successful if there's a jwt token in the response
+          if (user) {
+              // store user details and jwt token in local storage to keep user logged in between page refreshes
+              this.storage.set(TOKEN_KEY, 'KEY');
+              this.storage.set(CURRENTUSER, name).then(() => {
+                this.authenticationState.next(true);
+              });
+          }
+          return user;
+        }));
   }
   checkToken() {
     this.storage.get(TOKEN_KEY).then(res => {
-     
       if (res) {
         this.authenticationState.next(true);
       }

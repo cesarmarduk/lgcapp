@@ -18,5 +18,7 @@ export class ProteccionbasicaPage implements OnInit {
 
   ngOnInit() {
   }
-
+  doSomethingOnScroll($event:Event  ){
+    this.utilities.doSomethingOnScroll($event);
+  }
 }

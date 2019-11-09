@@ -320,6 +320,33 @@ nav.menu ul.main-menu>li li a{
 .relative{
 	position: relative !important
 }
+.font-14{
+	font-size: 14px !important;
+}
+.font-16{
+	font-size: 16px !important;
+}
+.font-20{
+	font-size: 20px !important;
+}
+.font-24{
+	font-size: 24px !important;
+}
+.font-red{
+	color:#B60202 !important;
+}
+.font-bold {
+	font-weight: bold;
+	opacity: 1 !important;
+}
+.font-black {
+	color: black !important;
+	
+}
+.font-redlgc {
+	color: rgb(88,17,15) !important;
+	
+}
 /*end of part 3----------------------------------------------------*/
 
 
@@ -637,7 +664,7 @@ select.form-element{
 	box-shadow: none;
 }
 .button.red{
-	background-color: #d3514b;
+	background-color: rgba(150,16,13,1);
 	color: #FFF;
 	border-color:transparent;
 	-webkit-box-shadow: none;
@@ -1238,15 +1265,42 @@ header.no-background.set-bg .search-button .not-icon1{
 	height: 1px;
 	background-color: #DDD;
 	text-align: center;
-	opacity: 0.5;
+	opacity: 1;
+	color:black;
+}
+
+.form-label-divider-red{
+	display: block;
+	width: 80%;
+	clear: both;
+	height: 1px;
+	background-color: rgb(154, 8, 8);
+	text-align: center;
+	opacity: 1;
+	color:rgb(154, 8, 8);
+	margin: auto auto auto auto;
+	align-self: center;
 }
 .form-label-divider span{
 	position: relative;
-	top: -8px;
-	font-weight: 700;
+	top: -13px;
+	font-weight: bold;
+	font-size: 20px;
 	display: inline-block;
 	background-color: #F5F6F8;
 	padding: 0 10px;
+}
+
+.form-label-divider span.back{
+
+	background-color: #f9fafb !important;
+
+}
+.form-label-divider span.back2{
+
+	background-color: #ffffff !important;
+	font-size: 12px;
+
 }
 /*end of part 15----------------------------------------------------*/
 
@@ -2182,7 +2236,7 @@ White 	/	.white			#FFFFFF
 	background-color: #2eb18d;
 }
 .red{
-	background-color: #F34954;
+	background-color: rgba(150,16,13,1);
 }
 .purple{
 	background-color: #7A5AAD;
@@ -3246,3 +3300,20 @@ footer ul li a i {
 }
 
 /*end of part 31----------------------------------------------------*/
+
+/*
+   server-side-angular-way.component.css
+*/
+.no-data-available {
+	text-align: center !important;
+  }
+  
+  /*
+	 src/styles.css (i.e. your global style)
+  */
+  .dataTables_empty {
+	display: none !important;
+  }
+  .row-border{
+	width:"100%" !important;
+  }

@@ -16,7 +16,7 @@
           </div>
 
           <section class="bal-section container">
-              <div style="margin:auto" align="center"> <img src="assets/img/logo.png" alt=""></div><br>
+              <div style="margin:auto" align="center"> <img src="assets/img/logo.png" alt=""></div>
            
          
           </section>
@@ -26,22 +26,67 @@
                 <div class="wallet-card mr-10 round">
                     <div class="flex-column flex-md-row">
                     
-                      <h1 class="w-text">57</h1>
-                      <p class="g-text mb-0 font-weight-medium">Protecciones </p>
+                      <h1 class="w-text">4</h1>
+                      <p class="g-text mb-0 font-weight-medium"> Pendientes </p>
                     </div>
                 </div>
       
                 <div class="wallet-card ml-10 lgcGradiente">
                     <div class="flex-column flex-md-row">
                    
-                      <h1 class="w-text">4</h1>
-                      <p class="g-text mb-0 font-weight-medium">Renovaciones</p>
+                      <h1 class="w-text">2</h1>
+                      <p class="g-text mb-0 font-weight-medium"> Aprobados</p>
                     </div>
                 </div>
             </div>
           
           </section><br>
-        
+          <section class="container text-right"  >
+           
+                
+          
+                      <a href="Javascript:void(0);"(click)="nuevoContrato()" class="button circle red">+ Contrato</a>
+               
+               
+             
+          </section>
+          <br><br>
+          <section class="container">
+            <div class="content"> 
+              <!-- <h4 class="title-main">Balance Split</h4> -->
+         
+              
+              
+              <div class="table-responsive">
+                  <table datatable [dtOptions]="dtOptions" class="row-border hover" id="polizas-tabla" style="width: 100% !important">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Last name</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngIf="persons?.length != 0">
+                        <tr id="dttr_{{ person.id }}" *ngFor="let person of persons">
+                            <td id="details_button" class="details-control" (click)="seeDetails($event)" orderable="false">&oplus;</td>
+                            <td>{{ person.firstName }}</td>
+                            <td>{{ person.lastName }}</td>
+                            <td>{{ person.lastName }}</td>
+                        </tr>
+                    </tbody>
+                    <tbody *ngIf="persons?.length == 0">
+                      <tr>
+                        <td colspan="3" class="no-data-available">No data!</td>
+                      </tr>
+                    <tbody>
+                  </table>
+             
+              </div>
+           
+          </div>
+        </section>
+
           <section class="container">
               <div class="content"> 
                 <!-- <h4 class="title-main">Balance Split</h4> -->

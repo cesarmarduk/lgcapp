@@ -1,6 +1,8 @@
 {
   "name": "LGCAPP",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "proxies": [
     {

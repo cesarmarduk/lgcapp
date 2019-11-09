@@ -16,32 +16,75 @@
           </div>
 
           <section class="bal-section container">
-              <div style="margin:auto" align="center"> <img src="assets/img/logo.png" alt=""></div><br>
+              <div style="margin:auto" align="center"> <img src="assets/img/logo.png" alt=""></div>
            
          
           </section>
        
         
      
-          <section class="bal-section container">
-              <div class="form-row"  align="center">
-  
-                  <a style="text-align: center;background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);color:white" href="Javascript:void(0);" (click)="llamar()"  class="button circle inline block">Llamar</a>
+          <div class="form-divider"></div>
+          <div class="form-label-divider"><span>Contacto</span></div>
+          <div class="form-divider"></div>
+
+
+          <div class="news-list-item no-image">
+              <div class="list-content  text-center">
+                  <h4 class="text-center font-black">CORPORATIVO</h4>
                 
               </div>
-         
-          </section>
-       
-          <section  class="bal-section container">
-              <div style="text-align: center !important;">
-  
-                  <h3 style="color: black;text-decoration: bold">(55) 5363 6140</h3>
-                </div>
-           
-         
-          </section>
-         
-
+              <div class="list-content text-center">
+                <i class="fa fa-phone font-24 font-red"></i>
+                <span class="font-black text-center font-20"> Teléfonos
+                </span><br><br> 
+                <span class="font-red font-16 text-center">01800 905 0911
+                </span> <br>   
+                 <span class="font-red font-16 text-center">(55) 5363-6140
+                </span> <br>   
+                 <span class="font-red font-16 text-center">(55) 5393-6269
+                </span> <br>   
+                 <span class="font-red font-16 text-center">(55) 5360-6882
+                </span> <br>   
+                 <span class="font-red font-16 text-center">(55) 5360-6883
+                </span> <br>     
+              </div>
+            
+             
+              <div class="list-content text-center">
+                <i class="fa fa-envelope font-24 font-red"></i>
+                <span class="font-black text-center font-20"> Email
+                </span><br><br>
+                <span class="font-red font-16 font-bold text-center">Contacto@lgc.com.mx
+                </span>    
+              </div><br>
+              <div class="form-label-divider-red"></div><br>
+              <div class="list-content text-center">                        
+                    <span class="font-black text-center">Llena este formulario y nosotros te marcaremos.</span><br> <br>  
+                    <div class="form-row-group with-icons">
+                        <div class="form-row no-padding">
+                            <i class="fa fa-user"></i>
+                            <input type="text" id="nombre" name="aaa" class="form-element" required placeholder="Nombre *" value="">
+                        </div>
+                        <div class="form-row no-padding">
+                                <i class="fa fa-phone"></i>
+                                <input type="text" id="telefono" name="aaa" class="form-element" required placeholder="Teléfono *" value="">
+                        </div>
+                        <div class="form-row no-padding">
+                            <i class="fa fa-envelope"></i>
+                            <input type="email" id="email" name="aaa" class="form-element" required placeholder="Email *" value="">
+                        </div>
+                        <div class="form-row no-padding">
+                                <i class="fa fa-align-justify"></i>
+                                <input type="text" id="empresa" name="aaa" class="form-element" required placeholder="Empresa *" value="">
+                        </div>
+                        
+                    </div><br>
+                    <div class="form-row">
+                            <a style="text-align: center;background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);color:white" href="Javascript:void(0);" (click)="mensajeContacto()" class="button circle block">Enviar</a>
+                    </div>
+              </div><br>
+          
+         </div>
           <app-footer></app-footer>
       </main>
       <!-- Page content end -->

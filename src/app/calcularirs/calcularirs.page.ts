@@ -17,5 +17,7 @@ export class CalcularirsPage implements OnInit {
 
   ngOnInit() {
   }
-
+  doSomethingOnScroll($event:Event  ){
+    this.utilities.doSomethingOnScroll($event);
+  }
 }

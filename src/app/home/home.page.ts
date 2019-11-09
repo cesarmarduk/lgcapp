@@ -1,6 +1,8 @@
 import { AuthenticationService } from '../services/authentication.service';
 import { UtilitiesService } from '../services/utilities.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NetworkService } from '../services/network.service';
 // Declaramos las variables para jQuery
 declare var jQuery:any;
 declare var $:any;
@@ -12,18 +14,29 @@ declare var $:any;
 export class HomePage implements OnInit {
   public ruta : string = '/login';
   public lugar : string = 'home';
-  constructor(private authService: AuthenticationService,private utilities: UtilitiesService) {
+  isConnected = false;
+
+  constructor(private authService: AuthenticationService,private utilities: UtilitiesService,  
+              private _activatedRoute: ActivatedRoute,private networkService: NetworkService) {
   
    
+  
    }
 
   ngOnInit() {
-   
-    if((this.authService.isAuthenticated()==true)){
-      console.log(this.authService.isAuthenticated());
-      this.ruta='/members/dashboard';
-
-    }
+    this._activatedRoute.paramMap.subscribe(() => {
+      if((this.authService.isAuthenticated()==true)){
+        this.ruta='/members/dashboard';
+      }else{
+          this.ruta='/login';
+      }
+    })
+    this.networkService.getNetworkStatus().subscribe((connected: boolean) => {
+        this.isConnected = connected;
+        if (!this.isConnected) {
+            console.log('Por favor enciende tu conexión a Internet');
+        }
+    });
   }
  
   
@@ -31,20 +44,6 @@ export class HomePage implements OnInit {
     doSomethingOnScroll($event:Event  ){
 
       this.utilities.doSomethingOnScroll($event);
-    //   var ele=$event.srcElement as HTMLElement; 
-    //   var scrollOffset = ele.scrollTop;
-    //  // let scrollOffset = $event.srcElement.scrollTop;
-    //   var elemento = document.getElementsByClassName('no-background');
-   
-   
-    //    var elemento3=elemento[0];
-    //   if (scrollOffset > 80) {
-    //  //   this.scrolled.emit(true);
     
-    //    elemento3.classList.add("set-bg");
-    //   } else {
-    //   //   this.scrolled.emit(false);
-    //    elemento3.classList.remove("set-bg");
-    //   }
     }
 }
