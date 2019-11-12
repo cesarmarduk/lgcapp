@@ -21,20 +21,6 @@ export class AuthenticationService {
   message = '';
   status = '';
   data;
-  url = 'http://localhost/ApiRestAPP/api/authentication/login/';
-  user='admin';
-  pwd='mexico100';
-       
-      httpOptions = {
-          headers: new HttpHeaders({
-            'Content-Type':  'application/json',
-            'Accept': 'application/json',
-            'Authorization':`Basic ${window.btoa(this.user+':'+this.pwd)}`,
-            'APIKEY':'CODEX@123',
-
-          })
-        };
-  // url = 'http://localhost/ApiRest/api/authentication/login/';
   constructor(private storage: Storage, private plt: Platform,private http: HttpClient,private utilities: UtilitiesService) { 
  
     this.plt.ready().then(() => {
@@ -43,16 +29,13 @@ export class AuthenticationService {
       
     });
   }
-  
-
-
-
+  url = `${this.utilities.baseApiUrl}api/authentication/login/`;
   login(name,clave) {
       this.data= {
         "name":name,
         "clave":clave
       }
-      return this.http.post(`${this.url}`,this.data,this.httpOptions).pipe(map(user => {
+      return this.http.post(`${this.url}`,this.data,this.utilities.httpOptions).pipe(map(user => {
           // login successful if there's a jwt token in the response
           if (user) {
               // store user details and jwt token in local storage to keep user logged in between page refreshes

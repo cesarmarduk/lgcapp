@@ -26,6 +26,7 @@ const routes: Routes = [
   { path: 'contacto', loadChildren: './contacto/contacto.module#ContactoPageModule' },
 
 
+
 ];
  
 @NgModule({

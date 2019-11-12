@@ -10,21 +10,18 @@ declare var $:any;
   providedIn: 'root'
 })
 export class UtilitiesService {
-  user='admin';
-  pwd='mexico100';
-  httpOptions = {
+  public readonly baseApiUrl: string = 'http://192.168.1.102/ApiRestAPP/';
+  public readonly user='admin';
+  public readonly pwd='mexico100';
+  public readonly httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
       'Accept': 'application/json',
       'Authorization':`Basic ${window.btoa(this.user+':'+this.pwd)}`,
-      'APIKEY':'CODEX@123',
-
+      'APIKEY':'CODEX@123'
     })
   };
   constructor (public alertController: AlertController,private http: HttpClient) {
-
-
-    
    }
 
    async presentAlert(header,subtitle,message,buttons,duration=1500) {
@@ -35,9 +32,12 @@ export class UtilitiesService {
       buttons: buttons
     });
     await alert.present();
-    setTimeout(()=>{
-        alert.dismiss();
-    }, duration);
+    if(duration>0){
+      setTimeout(()=>{
+          alert.dismiss();
+      }, duration);
+    }
+   
    }
 
    doSomethingOnScroll($event:Event  ){
@@ -51,33 +51,16 @@ export class UtilitiesService {
         }
       }); 
   }
-  peticionHttp(tipo,url,datos){
-   
+  peticionHttp(tipo,url,datos=null){
     if(tipo=='post'){
       return this.http.post(`${url}`,datos,this.httpOptions).pipe(map(data => {
-        // login successful if there's a jwt token in the response
-        if (data) {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
-        
-        }
-
         return data;
       }));
     }
     if(tipo=='get'){
-   //   return this.http.get('https://randomuser.me/api/?results=25');
       return this.http.get(`${url}`,this.httpOptions).pipe(map(data => {
-        // login successful if there's a jwt token in the response
-        if (data) {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
-        
-        }
-
         return data;
       }));
     }
-  
-  
-  
   }
 }

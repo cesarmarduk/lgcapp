@@ -335,18 +335,7 @@ nav.menu ul.main-menu>li li a{
 .font-red{
 	color:#B60202 !important;
 }
-.font-bold {
-	font-weight: bold;
-	opacity: 1 !important;
-}
-.font-black {
-	color: black !important;
-	
-}
-.font-redlgc {
-	color: rgb(88,17,15) !important;
-	
-}
+
 /*end of part 3----------------------------------------------------*/
 
 
@@ -570,7 +559,7 @@ div.container{
 	width: 100%;
 	border:none;
 	border-bottom: solid 1px #EEE;
-	height: 40px;
+/*	height: 40px;*/
 	outline: none;
 	line-height: 40px;
 	background-color: #FFF;
@@ -3317,3 +3306,34 @@ footer ul li a i {
   .row-border{
 	width:"100%" !important;
   }
+  .borde-bajo-punteado{
+	border-bottom: 1px solid;
+	border-bottom-style: dashed;
+	border-bottom-left-radius: 15px;
+	/*border-bottom-right-radius: 100px;*/
+  }
+  .nuevo-inc{
+	  cursor: pointer;
+  }
+  .border-bottom{
+	border-bottom: 1px solid;
+	border-bottom-style: dashed;
+	border-bottom-width: 50%;
+  }
+
+.font-bold {
+	font-weight: bold;
+	opacity: 1 !important;
+}
+.font-black {
+	color: black !important;
+	
+}
+.font-redlgc {
+	color: rgb(88,17,15) !important;
+	
+}
+
+.font-20{
+	font-size: 20px !important;
+}

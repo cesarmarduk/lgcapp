@@ -1,0 +1,129 @@
+	
+
+  <div class="wrapper ">
+      
+    <div class="wrapper-inline" (scroll)="doSomethingOnScroll($event)">
+        <app-menu></app-menu>
+        <app-quickmenu title="{{title}}"></app-quickmenu>
+      <!-- Page content start -->
+      <main class="margin mt-0">
+
+          <div class="dash-balance">
+            <div class="dash-content relative">
+              <h3 class="w-text">Generar Incumplimiento </h3>
+           
+            </div>
+          </div>
+
+          <section class="bal-section container">
+              <div style="margin:auto" align="center"> <img src="assets/img/logo.png" alt=""></div>
+           
+         
+          </section>
+       
+        
+          <br>
+          <section class="container">
+              
+                <div class="form-divider"></div>
+                <div class="form-label-divider"><span class="back">Datos del Incumplimiento </span></div>
+                <div class="form-divider"></div>
+                
+                <span class="font-redlgc font-bold font-20">Folio: {{folio}} </span>
+                <input type="hidden" id="polId" value="{{polId}}">
+                <h4 class="title-main">Estado del Incumplimiento</h4>
+                <div class="form-row-group with-icons">
+                  <div class="form-row no-padding">
+                          <i class="fa fa-check-square"></i>
+                          <select id="estado_inc" class="form-element" >
+                         
+                          <option value="1">Abierto</option>
+                          <option value="2">Cerrado</option>
+                          <option value="3">Cerrado(Autorización Renovar) </option>
+                    
+                        </select>
+                  </div>
+                </div>
+                <h4 class="title-main">Parte que Incumple</h4>
+                <div class="form-row-group with-icons">
+                  <div class="form-row no-padding">
+                          <i class="fa fa-legal"></i>
+                          <select id="incumple_inc" class="form-element" >
+                          <option value="1">Inquilino</option>
+                          <option value="2">Propietario</option>
+                        </select>
+                  </div>
+                </div>
+                <h4 class="title-main">Acción</h4>
+                <div class="form-row-group with-icons">
+                  <div class="form-row no-padding">
+                          <i class="fa fa-cog"></i>
+                          <select id="accion_inc" class="form-element" >
+                            <option value="1">A Jucio  </option>
+                            <option value="2">Compromiso Pago</option>
+                            <option value="3">Propiedad Entregada</option>
+                            <option value="4">Acta de Entrega</option>
+                            <option value="5">Controversia</option>
+                        </select>
+                  </div>
+                </div>
+                <h4 class="title-main">Asunto</h4>
+                <div class="form-row-group with-icons">
+                    <div class="form-row no-padding">
+                        <i class="fa fa-list-alt"></i>
+                        <input type="text" id="asunto_inc" name="asunto_inc" class="form-element" required placeholder="Asunto" value="">
+                    </div>
+                 
+                </div>
+                <h4 class="title-main">Nombre</h4>
+                <div class="form-row-group with-icons">
+                    <div class="form-row no-padding">
+                        <i class="fa fa-user"></i>
+                        <input type="text" id="nombre_inc" name="nombre_inc" class="form-element" required placeholder="Nombre" value="">
+                    </div>
+                
+                </div>
+                <h4 class="title-main">Teléfono</h4>
+                <div class="form-row-group with-icons">
+                    <div class="form-row no-padding">
+                        <i class="fa fa-phone"></i>
+                        <input type="text" id="telefono_inc" name="telefono_inc" class="form-element" required placeholder="Teléfono" value="">
+                    </div>
+               
+                </div>
+                <h4 class="title-main">Correo</h4>
+                <div class="form-row-group with-icons">
+                    <div class="form-row no-padding">
+                        <i class="fa fa-envelope"></i>
+                        <input type="text" id="correo_inc" name="correo_inc" class="form-element" required placeholder="Correo" value="">
+                    </div>
+                 
+                </div>
+                <h4 class="title-main">Observaciones</h4>
+                <div class="form-row-group with-icons">
+                    <div class="form-row no-padding">
+                        <i class="fa fa-address-book-o"></i>
+                        <textarea id="Observaciones_inc" name="Observaciones_inc" placeholder="Observaciones" class="form-element" rows="10"></textarea>
+                      
+                    </div>
+                 
+                </div>
+
+             
+          
+
+                <div class="form-divider"></div>
+
+                <div class="form-row">
+                    <a style="text-align: center;background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);color:white" href="Javascript:void(0);" (click)="generarIncumplimiento($event)" class="button circle block">Generar Incumplimiento</a>
+                </div>
+
+          </section>      
+         
+
+          <app-footer></app-footer>
+      </main>
+      <!-- Page content end -->
+    </div>
+</div>	
+

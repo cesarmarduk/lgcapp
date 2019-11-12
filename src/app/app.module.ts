@@ -12,6 +12,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthenticationService } from './services/authentication.service';
 import { Network } from '@ionic-native/network/ngx';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 declare var jQuery:any;
 declare var $:any;
 @NgModule({
@@ -19,10 +20,14 @@ declare var $:any;
   ],
   entryComponents: [],
   imports: [
-    BrowserModule,HttpClientModule, DataTablesModule,
+    BrowserModule,
+    HttpClientModule, 
+    DataTablesModule,
     IonicModule.forRoot(), 
     AppRoutingModule,
-    IonicStorageModule.forRoot(),LoginPageModule
+    NgHttpLoaderModule.forRoot(),
+    IonicStorageModule.forRoot(),
+    LoginPageModule
     
   ],
   bootstrap: [AppComponent],

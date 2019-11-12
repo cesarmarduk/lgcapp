@@ -13,6 +13,7 @@ declare var $:any;
 })
 export class HomePage implements OnInit {
   public ruta : string = '/login';
+  public ruta2 : string = '/solicitar-contrato';
   public lugar : string = 'home';
   isConnected = false;
 
@@ -27,8 +28,10 @@ export class HomePage implements OnInit {
     this._activatedRoute.paramMap.subscribe(() => {
       if((this.authService.isAuthenticated()==true)){
         this.ruta='/members/dashboard';
+        this.ruta2='/members/crear-solicitud';
       }else{
           this.ruta='/login';
+          this.ruta2='/solicitar-contrato';
       }
     })
     this.networkService.getNetworkStatus().subscribe((connected: boolean) => {

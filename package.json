@@ -33,6 +33,7 @@
     "datatables.net": "^1.10.20",
     "datatables.net-dt": "^1.10.20",
     "jquery": "^3.4.1",
+    "ng-http-loader": "^6.0.1",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
@@ -71,5 +72,6 @@
     "plugins": {
       "cordova-plugin-network-information": {}
     }
-  },"imports-loader": "^0.7.1"
+  },
+  "imports-loader": "^0.7.1"
 }

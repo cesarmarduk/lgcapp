@@ -51,7 +51,7 @@ export class SugerenciasPage implements OnInit {
     this.telefono=this.telefono.trim();
     this.email=this.email.trim();
     this.sugerencia=this.sugerencia.trim();
-    this.utilities.peticionHttp('post','http://localhost/ApiRestAPP/api/Utilities/enviarSugerencia',{'nombre':this.nombre,
+    this.utilities.peticionHttp('post',`${this.utilities.baseApiUrl}api/Utilities/enviarSugerencia`,{'nombre':this.nombre,
                                             'telefono':this.telefono,
                                             'email':this.email,
                                             'sugerencia':this.sugerencia
@@ -64,21 +64,6 @@ export class SugerenciasPage implements OnInit {
         error => {
             this.utilities.presentAlert('','Ha ocurrido un error al enviar peticion',error['error'],['OK'],4000)
     });
-    /*
-    this.utilities.peticionHttp('get','http://localhost/ApiRestAPP/api/Utilities/obtenerDatos','').pipe()
-    .subscribe(
-      data => {
-      console.log(data);
-      // this.router.navigateByUrl(this.returnUrl);
-      //   if(data['status']==true){
-      //    this.utilities.presentAlert('','Ha iniciado Sesion',data['message'],['OK'])
-      //   }
-      },
-      error => {
-        this.utilities.presentAlert('','Ha ocurrido un error al enviar peticion',error['error'],['OK'])
-    });
-  
    
-  */
   }
 }

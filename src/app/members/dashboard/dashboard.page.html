@@ -40,12 +40,12 @@
                 </div>
             </div>
           
-          </section><br>
+          </section><br><br>
           <section class="container text-right"  >
            
                 
           
-                      <a href="Javascript:void(0);"(click)="nuevoContrato()" class="button circle red">+ Contrato</a>
+                      <a href="Javascript:void(0);" routerLink="/members/crear-solicitud" class="button circle red">+ Contrato</a>
                
                
              
@@ -61,21 +61,25 @@
                   <table datatable [dtOptions]="dtOptions" class="row-border hover" id="polizas-tabla" style="width: 100% !important">
                     <thead>
                       <tr>
-                        <th></th>
-                        <th>First name</th>
-                        <th>Last name</th>
-                        <th>Last name</th>
+                        <th  orderable="false" style="max-width: 40px"></th>
+                        <th class="th">Folio</th>
+                        <th class="th">Renta</th>
+                        <th class="th">Contrato</th>
+                        <th class="th">Pagada</th>
+                        <th class="th">Estado</th>
                       </tr>
                     </thead>
-                    <tbody *ngIf="persons?.length != 0">
-                        <tr id="dttr_{{ person.id }}" *ngFor="let person of persons">
-                            <td id="details_button" class="details-control" (click)="seeDetails($event)" orderable="false">&oplus;</td>
-                            <td>{{ person.firstName }}</td>
-                            <td>{{ person.lastName }}</td>
-                            <td>{{ person.lastName }}</td>
+                    <tbody *ngIf="polizas?.length != 0">
+                        <tr id="dttr_{{ poliza.id }}" *ngFor="let poliza of polizas">
+                            <td id="details_button" class="details-control td_{{ poliza.id }}" (click)="seeDetails($event)">&oplus;</td>
+                            <td class="td_{{ poliza.id }}">{{ poliza.folio }}</td>
+                            <td class="td_{{ poliza.id }}">{{ poliza.monto_renta }}</td>
+                            <td class="td_{{ poliza.id }}">{{ poliza.costo }}</td>
+                            <td class="td_{{ poliza.id }}">{{ poliza.admin_pago }}</td>
+                            <td class="td_{{ poliza.id }}">{{ poliza.estado_pago }}</td>
                         </tr>
                     </tbody>
-                    <tbody *ngIf="persons?.length == 0">
+                    <tbody *ngIf="polizas?.length == 0">
                       <tr>
                         <td colspan="3" class="no-data-available">No data!</td>
                       </tr>

@@ -5,7 +5,7 @@ import { Platform } from '@ionic/angular';
 import { Observable, fromEvent, merge, of, BehaviorSubject } from 'rxjs';
 import { mapTo } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-
+import { UtilitiesService } from './utilities.service';
 
 @Injectable({
     providedIn: 'root'
@@ -16,6 +16,7 @@ export class NetworkService {
     private hasConnection = new BehaviorSubject(false);
 
     constructor(
+        private utilities: UtilitiesService,
         private network: Network,
         private platform: Platform,
         private http: HttpClient) {
@@ -28,6 +29,7 @@ export class NetworkService {
                 return;
             });
             this.network.onDisconnect().subscribe(() => {
+                this.utilities.presentAlert('','Ha perdido la Conexion a Internet','Conexion Perdida :(',['Cerrar'],0)
                 console.log('network was disconnected :-(');
                 this.hasConnection.next(false);
                 return;
@@ -45,6 +47,7 @@ export class NetworkService {
                     this.hasConnection.next(true);
                    console.log('network was connected :-) brow');
                 } else {
+                    this.utilities.presentAlert('','Ha perdido la Conexion a Internet','Conexion Perdida, intente conectarse de nuevo :(',['Cerrar'],0)
                     console.log('network was disconnected :-(');
                     this.hasConnection.next(false);
                     console.log(isOnline);

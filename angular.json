@@ -36,9 +36,6 @@
                 "input": "node_modules/datatables.net-dt/css/jquery.dataTables.css"
               },
               {
-                "input": "https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css"
-              },
-              {
                 "input": "src/theme/variables.scss"
               },
               {

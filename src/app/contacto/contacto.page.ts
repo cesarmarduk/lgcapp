@@ -50,7 +50,7 @@ export class ContactoPage implements OnInit {
     this.telefono=this.telefono.trim();
     this.email=this.email.trim();
     this.empresa=this.empresa.trim();
-    this.utilities.peticionHttp('post','http://localhost/ApiRestAPP/api/Utilities/enviarContacto',{'nombre':this.nombre,
+    this.utilities.peticionHttp('post',`${this.utilities.baseApiUrl}api/Utilities/enviarContacto`,{'nombre':this.nombre,
                                             'telefono':this.telefono,
                                             'email':this.email,
                                             'empresa':this.empresa
