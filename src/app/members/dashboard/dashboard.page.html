@@ -3,7 +3,7 @@
   <div class="wrapper ">
       
     <div class="wrapper-inline" (scroll)="doSomethingOnScroll($event)">
-        <app-menu></app-menu>
+        <app-membersmenu></app-membersmenu>
         <app-notifications></app-notifications>
       <!-- Page content start -->
       <main class="margin mt-0">
@@ -44,13 +44,15 @@
           <section class="container text-right"  >
            
                 
+            <a href="Javascript:void(0);"  routerLink="/members/alertas" class="button circle red float-left"><i class="fa fa-bell-o"></i></a>
           
-                      <a href="Javascript:void(0);" routerLink="/members/crear-solicitud" class="button circle red">+ Contrato</a>
+            <a href="Javascript:void(0);" routerLink="/members/crear-solicitud" class="button circle red float-right">+ Contrato</a>
                
                
              
           </section>
-          <br><br>
+          <div class="form-divider"></div>
+          <div class="form-divider"></div>
           <section class="container">
             <div class="content"> 
               <!-- <h4 class="title-main">Balance Split</h4> -->
@@ -61,7 +63,7 @@
                   <table datatable [dtOptions]="dtOptions" class="row-border hover" id="polizas-tabla" style="width: 100% !important">
                     <thead>
                       <tr>
-                        <th  orderable="false" style="max-width: 40px"></th>
+                        <th class="th sorting_disabled" style="max-width: 40px"></th>
                         <th class="th">Folio</th>
                         <th class="th">Renta</th>
                         <th class="th">Contrato</th>
@@ -81,7 +83,7 @@
                     </tbody>
                     <tbody *ngIf="polizas?.length == 0">
                       <tr>
-                        <td colspan="3" class="no-data-available">No data!</td>
+                        <td colspan="6" class="no-data-available">No data!</td>
                       </tr>
                     <tbody>
                   </table>

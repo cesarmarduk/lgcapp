@@ -2,8 +2,8 @@
 
   <div class="wrapper ">
       
-    <div class="wrapper-inline" (scroll)="doSomethingOnScroll($event)">
-        <app-menu></app-menu>
+    <div class="wrapper-inline">
+        <app-membersmenu></app-membersmenu>
         <app-quickmenu title="{{title}}"></app-quickmenu>
       <!-- Page content start -->
       <main class="margin mt-0">
@@ -66,15 +66,15 @@
                         <input type="text" id="monto_renta" name="monto_renta" class="form-element" required placeholder="Monto de Renta (Opcional)" value="">
                     </div>
                 </div>
-                <div class="form-divider"></div>
-                <div class="form-label-divider"><span class="back2">Fecha Probable de Firma</span></div>
-                <div class="form-divider"></div>
+                <h4 class="title-main font-16 font-bold ">Fecha Probable de Firma</h4>
+              
                 <div class="form-row-group with-icons">
                     <div class="form-row no-padding">
                         <i class="fa fa-calendar"></i>
                         <input type="date" id="fecha_probable" name="fecha_probable" class="form-element" required placeholder="Fecha Probable de Firma (Opcional)" value="">
                     </div>
                 </div>
+               
                 <div class="form-divider"></div>
                 <div class="form-label-divider"><span class="back">Contacto</span></div>
                 <div class="form-divider"></div>

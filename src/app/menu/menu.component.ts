@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from './../services/authentication.service';
 import { UtilitiesService } from './../services/utilities.service';
+import { NetworkService } from '../services/network.service';
+import { ActivatedRoute } from '@angular/router';
 // Declaramos las variables para jQuery
 declare var jQuery:any;
 declare var $:any;
@@ -10,19 +12,33 @@ declare var $:any;
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent implements OnInit {
+  public rutaLog : string = '/login';
   public ruta : string = '/login';
   public titulo : string = 'Iniciar Sesion';
+  public ruta2 : string = '/solicitar-contrato';
+  public lugar : string = 'home';
+  isConnected = false;
   authenticate: boolean = false; 
-  constructor(private authService: AuthenticationService,private utilities: UtilitiesService) { }
+  constructor(private authService: AuthenticationService,private utilities: UtilitiesService,private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    if(this.authService.isAuthenticated()){
-     this.authenticate=true;
-     this.ruta = '';
-     this.titulo  = 'Cerrar Sesion';
-  
-    }
-    console.log();
+    this._activatedRoute.paramMap.subscribe(() => {
+      if((this.authService.isAuthenticated()==true)){
+        this.authenticate=true;
+        this.rutaLog='';
+        this.titulo  = 'Cerrar Sesion';
+        this.ruta='/members/dashboard';
+        this.ruta2='/members/crear-solicitud';
+      }else{
+          this.titulo  = 'Iniciar Sesion';
+          this.authenticate=false;
+          this.rutaLog='/login';
+          this.ruta='/login';
+          this.ruta2='/solicitar-contrato';
+      }
+    })
+    
+   
   }
   onClose(event){
     if ($(event.target).hasClass('nav-menu')){

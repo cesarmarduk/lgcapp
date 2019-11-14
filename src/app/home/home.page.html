@@ -22,9 +22,25 @@
   
             <section class="bal-section container">
             
-                <img style="width: 100%;" class="bordesInferioresRedondeados" src="assets/img/magnoevento.png" alt="">
-             
-           
+               <!-- <img style="width: 100%;" class="bordesInferioresRedondeados" src="assets/img/magnoevento.png" alt=""> -->
+                <swiper [config]="config">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                        <img src="../assets/img/slider/1.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                        <img src="../assets/img/slider/2.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                        <img src="../assets/img/slider/3.jpg" />
+                        </div>
+                    
+                    </div>
+                    <!-- Add Pagination 
+                    <div class="swiper-pagination"></div>
+                    Add Arrows -->
+                 
+                </swiper>
             </section>
           
           
@@ -36,63 +52,63 @@
                     <div class="row align-items-center">
                       <div class="col-4 col-sm-4">
                             <div class="split-list text-center">
-                                <span style="font-size:30px" class="fa fa-calculator"></span>
+                                <span style="font-size:30px" class="fa fa-calculator" routerLink="/calcular-proteccion"></span>
                                 <a href="javascript:void(0);" routerLink="/calcular-proteccion"><h6 style="font-size:12px" class="info-label">Calcular Protección </h6></a>
                             </div>
                           </div>
                       <div class="col-4 col-sm-4 ">
                       
                         <div class="split-list text-center">
-                            <span style="font-size:30px" class="fa fa-headphones"></span>
+                            <span style="font-size:30px" class="fa fa-headphones" routerLink="/directo"></span>
                             <a href="javascript:void(0);" routerLink="/directo"><h6 style="font-size:12px" class="info-label">LGC - Directo</h6></a>
                         </div>
                       </div>
                     
                       <div class="col-4 col-sm-4">
                         <div class="split-list text-center">
-                            <span style="font-size:30px" class="fa fa-shield"></span>
+                            <span style="font-size:30px" class="fa fa-shield" [(routerLink)]="ruta"></span>
                             <a href="javascript:void(0);" [(routerLink)]="ruta"><h6 style="font-size:12px" class="info-label">Mis Contratos</h6></a>
                         </div>
                       </div>
                       <div class="col-4 col-sm-4">
                         <div class="split-list text-center">
-                            <span style="font-size:30px" class="fa fa-expeditedssl"></span>
+                            <span style="font-size:30px" class="fa fa-expeditedssl" routerLink="/proteccion-total"></span>
                             <a href="javascript:void(0);" routerLink="/proteccion-total"><h6 style="font-size:12px" class="info-label">Protección Total</h6></a>
                         </div>
                       </div>
                       <div class="col-4 col-sm-4">
                         <div class="split-list text-center">
-                            <span style="font-size:30px" class="fa fa-file-text-o"></span>
+                            <span style="font-size:30px" class="fa fa-file-text-o" routerLink="/proteccion-basica"></span>
                             <a href="javascript:void(0);" routerLink="/proteccion-basica"><h6 style="font-size:12px" class="info-label">Protección Básica</h6></a>
                         </div>
                       </div>
                       <div class="col-4 col-sm-4">
                         <div class="split-list text-center">
-                            <span style="font-size:30px" class="fa fa-edit"></span>
+                            <span style="font-size:30px" class="fa fa-edit"  [(routerLink)]="ruta2"></span>
                             <a href="javascript:void(0);"  [(routerLink)]="ruta2"><h6 style="font-size:12px" class="info-label">Solicitar Contrato</h6></a>
                         </div>
                       </div>
                       <div class="col-4 col-sm-4">
                         <div class="split-list text-center">
-                            <span style="font-size:30px" class="fa fa-home"></span>
+                            <span style="font-size:30px" class="fa fa-home" routerLink="/credito-hipotecario"></span>
                             <a href="javascript:void(0);" routerLink="/credito-hipotecario"><h6 style="font-size:12px" class="info-label">Crédito Hipotecario</h6></a>
                         </div>
                       </div>
                       <div class="col-4 col-sm-4">
                         <div class="split-list text-center">
-                            <span style="font-size:30px" class="fa fa-money"></span>
+                            <span style="font-size:30px" class="fa fa-money" routerLink="/calcular-credito"></span>
                             <a href="javascript:void(0);" routerLink="/calcular-credito"><h6 style="font-size:12px" class="info-label">Calcular Crédito</h6></a>
                         </div>
                       </div>
                       <div class="col-4 col-sm-4">
                         <div class="split-list text-center">
-                            <span style="font-size:30px" class="fa fa-table"></span>
+                            <span style="font-size:30px" class="fa fa-table" routerLink="/calcular-irs"></span>
                             <a href="javascript:void(0);" routerLink="/calcular-irs"><h6 style="font-size:12px" class="info-label">Calcular IRS</h6></a>
                         </div>
                       </div>
                       <div class="col-4 col-sm-4">
                           <div class="split-list text-center">
-                              <span style="font-size:30px" class="fa fa-gears"></span>
+                              <span style="font-size:30px" class="fa fa-gears" routerLink="/servicios"></span>
                               <a href="javascript:void(0);" routerLink="/servicios"><h6 style="font-size:12px" class="info-label">Servicios LGC</h6></a>
                           </div>
                         </div>
@@ -104,13 +120,13 @@
                         </div>
                         <div class="col-4 col-sm-4">
                           <div class="split-list text-center">
-                              <span style="font-size:30px" class="fa fa-inbox"></span>
+                              <span style="font-size:30px" class="fa fa-inbox"  routerLink="/sugerencias"></span>
                               <a href="javascript:void(0);" routerLink="/sugerencias"><h6 style="font-size:12px" class="info-label">Buzón de Sugerencias</h6></a>
                           </div>
                         </div>
                         <div class="col-4 col-sm-4">
                             <div class="split-list text-center">
-                                <span style="font-size:30px" class="fa fa-whatsapp"></span>
+                                <span style="font-size:30px" class="fa fa-whatsapp" routerLink="/contacto"></span>
                                 <a href="javascript:void(0);" routerLink="/contacto"><h6 style="font-size:12px" class="info-label">Contacto</h6></a>
                             </div>
                           </div>

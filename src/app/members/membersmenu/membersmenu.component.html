@@ -1,3 +1,29 @@
-<p>
-  membersmenu works!
-</p>
+<div class="nav-menu" style="position:fixed" (click)="onClose($event)">
+	<nav class="menu ">
+	
+	  <!-- Menu navigation start -->
+	  <div class="nav-container">
+		<ul class="main-menu">
+		 
+			<li >
+				<a href="javascript:void(0);" routerLink="/members/dashboard"><i style="font-size:20px" class="fa fa-dashboard" ></i><strong class="special">Dashboard</strong> </a>
+			</li>
+			<li >
+				<a href="javascript:void(0);" routerLink="/members/alertas/agregar"><i style="font-size:20px" class="fa fa-clock-o" ></i><strong class="special">Agregar Alerta</strong> </a>
+			</li>
+			<li >
+      <li >
+				<a href="javascript:void(0);" routerLink="/members/settings"><i style="font-size:20px" class="fa fa-cogs" ></i><strong class="special">Ajustes</strong> </a>
+			</li>
+			<li >
+				<a href="javascript:void(0);" (click)="logout()"><i style="font-size:20px" class="fa fa-power-off" ></i><strong class="special">Log Out</strong> </a>
+			</li>
+		
+		 
+		
+		
+		</ul>
+	  </div>
+	<!-- Menu navigation end -->
+	</nav>
+</div>

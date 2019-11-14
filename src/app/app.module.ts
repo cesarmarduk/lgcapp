@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthenticationService } from './services/authentication.service';
 import { Network } from '@ionic-native/network/ngx';
 import { NgHttpLoaderModule } from 'ng-http-loader';
+
 declare var jQuery:any;
 declare var $:any;
 @NgModule({

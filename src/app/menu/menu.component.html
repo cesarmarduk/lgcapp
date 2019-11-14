@@ -4,18 +4,50 @@
 	  <!-- Menu navigation start -->
 	  <div class="nav-container">
 		<ul class="main-menu">
-		 <li class="active">
-			<a href="index.html" ><strong class="special">Calcular Proteccion</strong> </a>
+		 	<li >
+				<a href="javascript:void(0);" routerLink="/calcular-proteccion" ><i style="font-size:20px" class="fa fa-calculator" ></i><strong class="special">Calcular Proteccion</strong> </a>
 		  </li>
-	
-		  <li class="">
-			<a href="setting.html"><img src="assets/img/content/icons/11.png" alt=""><strong class="special">Opciones</strong> </a>
-		  </li> 
+			<li >
+				<a href="javascript:void(0);" routerLink="/directo"><i style="font-size:20px" class="fa fa-headphones" ></i><strong class="special">LGC - Directo</strong> </a>
+			</li>
+			<li >
+				<a href="javascript:void(0);" [(routerLink)]="ruta"><i style="font-size:20px" class="fa fa-shield" ></i><strong class="special">Mis Contratos</strong> </a>
+			</li>
+			<li >
+				<a href="javascript:void(0);" routerLink="/proteccion-total"><i style="font-size:20px" class="fa fa-expeditedssl" ></i><strong class="special">Protección Total</strong> </a>
+			</li>
+			<li >
+				<a href="javascript:void(0);" routerLink="/proteccion-basica"><i style="font-size:20px" class="fa fa-file-text-o" ></i><strong class="special">Protección Básica</strong> </a>
+			</li>
+			<li >
+				<a href="javascript:void(0);" [(routerLink)]="ruta2"><i style="font-size:20px" class="fa fa-edit" ></i><strong class="special">Solicitar Contrato</strong> </a>
+			</li>
+			<li >
+				<a href="javascript:void(0);" routerLink="/credito-hipotecario"><i style="font-size:20px" class="fa fa-home" ></i><strong class="special">Crédito Hipotecario</strong> </a>
+			</li>
+			<li >
+				<a href="javascript:void(0);" routerLink="/calcular-credito"><i style="font-size:20px" class="fa fa-money" ></i><strong class="special">Calcular Crédito</strong> </a>
+			</li>
+			<li >
+				<a href="javascript:void(0);" routerLink="/calcular-irs"><i style="font-size:20px" class="fa fa-table" ></i><strong class="special">Calcular ISR</strong> </a>
+			</li>
+
+			<li >
+				<a href="javascript:void(0);" routerLink="/servicios"><i style="font-size:20px" class="fa fa-gears" ></i><strong class="special">Servicios</strong> </a>
+			</li>
+			<li >
+				<a href="javascript:void(0);" routerLink="/sugerencias"><i style="font-size:20px" class="fa fa-inbox" ></i><strong class="special">Buzón de Sugerencias</strong> </a>
+			</li>
+			<li >
+				<a href="javascript:void(0);" routerLink="/contacto"><i style="font-size:20px" class="fa fa-whatsapp" ></i><strong class="special">Contacto</strong> </a>
+			</li>
+		
+		 
 		  <li >
-			<a href="javascript:void(0);" (click)="clickMenu($event)"><img src="assets/img/content/icons/9.png" alt=""><strong class="special">Login</strong> <span class="fa fa-angle-down"></span></a>
+			<a href="javascript:void(0);" (click)="clickMenu($event)"><i style="font-size:20px" class="fa fa-user-plus" ></i><strong class="special">Login</strong> <span class="fa fa-angle-down"></span></a>
 			<ul>
 			  <li *ngIf="authenticate"><a href="javascript:void(0);"  (click)="logout()" expand="block">{{titulo}}</a></li>
-				<li *ngIf="!authenticate"><a href="javascript:void(0);" [(routerLink)]="ruta" expand="block">{{titulo}}</a></li>
+				<li *ngIf="!authenticate"><a href="javascript:void(0);" [(routerLink)]="rutaLog" expand="block">{{titulo}}</a></li>
 			
 			</ul>
 		  </li>

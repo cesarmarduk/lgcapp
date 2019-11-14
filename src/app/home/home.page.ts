@@ -3,6 +3,7 @@ import { UtilitiesService } from '../services/utilities.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NetworkService } from '../services/network.service';
+
 // Declaramos las variables para jQuery
 declare var jQuery:any;
 declare var $:any;
@@ -12,6 +13,16 @@ declare var $:any;
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  config: any = {
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    centeredSlides: true,
+    slidesPerView: 1,
+    loop: true,
+    spaceBetween: 0
+  };
   public ruta : string = '/login';
   public ruta2 : string = '/solicitar-contrato';
   public lugar : string = 'home';

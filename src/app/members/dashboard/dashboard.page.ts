@@ -72,10 +72,8 @@ export class DashboardPage implements OnInit {
           });
       },
       columns: [{ 
-          data:0,
-          className: 'details-control',
-          orderable:false,
-          defaultContent: ''
+          data:'id',
+       
         }, 
         { data: 'folio' }, 
         { data: 'costo' },
@@ -83,6 +81,9 @@ export class DashboardPage implements OnInit {
         { data: 'admin_pago' }, 
         { data: 'estado_pago'}, ],
        // Use this attribute to enable the responsive extension
+       columnDefs: [
+        { "orderable": false, "targets": [0,1,2,3,4,5] }
+      ],
       responsive: true,
       language:{
         "decimal":        "",
@@ -110,6 +111,11 @@ export class DashboardPage implements OnInit {
       }
     };
    
+  }
+  nuevaAlerta($event){
+    
+    this.utilities.presentAlert('','Generar Alerta','Alerta',['OK']);
+  
   }
   nuevoIncumplimiento($event){
     var polId=$($event.currentTarget).data('id');
@@ -153,8 +159,12 @@ export class DashboardPage implements OnInit {
     return `<tr id="child_${datos.id}" style="display:none">
               <td colspan="6" >
                 <div class="row">
-                  <div class="col-7 text-left borde-bajo-punteado">
+                  <div class="col-6 text-left borde-bajo-punteado">
                       <b>Incumplimientos:</b> ${datos.incumplimientos} <a style="float:right" data-folio="${datos.folio}" data-id="${datos.id}" class="nuevo-inc" href="Javascript:void(0)" >+ Nuevo</a>
+                  </div>
+                  <div class="col-6 text-letf"></div>
+                  <div class="col-7 text-left borde-bajo-punteado">
+                      <b>Fecha de Firma:</b> ${datos.fecha_firma} <a style="float:right" data-folio="${datos.folio}" data-id="${datos.id}" class="nueva-alerta" href="Javascript:void(0)" >Alerta</a>
                   </div>
                   <div class="col-5 text-letf"></div>
                   <div class="col-6 text-left borde-bajo-punteado" >
@@ -163,7 +173,6 @@ export class DashboardPage implements OnInit {
                   <div class="col-6 text-left borde-bajo-punteado">
                       <b>Vencimiento:</b> ${datos.fecha_termino}
                   </div>
-                 
                   <div class="col-6 text-left borde-bajo-punteado">
                       <b>Ejecutivo:</b> ${datos.ejecutivo} 
                   </div>
@@ -236,9 +245,11 @@ export class DashboardPage implements OnInit {
            $(`.td_${id}`).css("font-weight","bold")
            $(`#child_${id}`).show('slow');
            $( `.nuevo-inc`).bind( "click", function(e) {
-            that.nuevoIncumplimiento(e);
-          });
-        
+              that.nuevoIncumplimiento(e);
+           });
+           $( `.nueva-alerta`).bind( "click", function(e) {
+              that.nuevaAlerta(e);
+           });
           },
           error => {
               this.utilities.presentAlert('','Ha ocurrido un error al Autenticar',error['error'],['OK'])

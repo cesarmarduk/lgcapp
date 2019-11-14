@@ -320,21 +320,6 @@ nav.menu ul.main-menu>li li a{
 .relative{
 	position: relative !important
 }
-.font-14{
-	font-size: 14px !important;
-}
-.font-16{
-	font-size: 16px !important;
-}
-.font-20{
-	font-size: 20px !important;
-}
-.font-24{
-	font-size: 24px !important;
-}
-.font-red{
-	color:#B60202 !important;
-}
 
 /*end of part 3----------------------------------------------------*/
 
@@ -3336,4 +3321,34 @@ footer ul li a i {
 
 .font-20{
 	font-size: 20px !important;
+}
+.font-14{
+	font-size: 14px !important;
+}
+.font-16{
+	font-size: 16px !important;
+}
+.font-18{
+	font-size: 18px !important;
+}
+
+.font-20{
+	font-size: 20px !important;
+}
+.font-22{
+	font-size: 22px !important;
+}
+.font-24{
+	font-size: 24px !important;
+}
+.font-red{
+	color:#B60202 !important;
+}
+.float-left{
+	text-align: left!important;
+	float: left;
+}
+.float-right{
+	text-align: right!important;
+	float: right;
 }

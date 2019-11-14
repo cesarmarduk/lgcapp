@@ -1,0 +1,54 @@
+	
+
+  <div class="wrapper ">
+      
+      <div class="wrapper-inline" (scroll)="doSomethingOnScroll($event)">
+          <app-membersmenu></app-membersmenu>
+          <app-quickmenu title="{{title}}"></app-quickmenu>
+        <!-- Page content start -->
+        <main class="margin mt-0">
+  
+            <div class="dash-balance">
+              <div class="dash-content relative">
+                <h3 class="w-text">Ajustes</h3>
+               
+              </div>
+            </div>
+  
+            <section class="bal-section container">
+                <div style="margin:auto" align="center"> <img src="assets/img/logo.png" alt=""></div>
+             
+           
+            </section>
+            <br>
+        
+            <div class="form-divider"></div>
+            <div class="form-divider"></div>
+            <section class="container">
+           
+          </section>
+  
+            <section class="container">
+                <div class="content"> 
+                  <!-- <h4 class="title-main">Balance Split</h4> -->
+                <div class="c-panel">
+                  
+                    <div class="form-row"  style="text-align: center">
+            
+                        <a style="text-align: center" href="Javascript:void(0);" (click)="logout()" class="button circle inline green">Cerrar Sesion</a> | 
+                        <a style="text-align: center" href="Javascript:void(0);" routerLink="/home" class="button circle inline red">Ir al Home</a> 
+                    </div>
+          
+                </div>
+              </div>
+            </section>
+  
+       
+  
+            <app-footer></app-footer>
+        </main>
+        <!-- Page content end -->
+      </div>
+  </div>	
+  
+  

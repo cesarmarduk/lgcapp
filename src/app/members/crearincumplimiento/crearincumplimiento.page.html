@@ -2,8 +2,8 @@
 
   <div class="wrapper ">
       
-    <div class="wrapper-inline" (scroll)="doSomethingOnScroll($event)">
-        <app-menu></app-menu>
+    <div class="wrapper-inline" >
+        <app-membersmenu></app-membersmenu>
         <app-quickmenu title="{{title}}"></app-quickmenu>
       <!-- Page content start -->
       <main class="margin mt-0">
@@ -47,9 +47,9 @@
                 <h4 class="title-main">Parte que Incumple</h4>
                 <div class="form-row-group with-icons">
                   <div class="form-row no-padding">
-                          <i class="fa fa-legal"></i>
+                          <i class="fa fa-balance-scale"></i>
                           <select id="incumple_inc" class="form-element" >
-                          <option value="1">Inquilino</option>
+                          <option value="1"> Inquilino</option>
                           <option value="2">Propietario</option>
                         </select>
                   </div>
@@ -57,9 +57,9 @@
                 <h4 class="title-main">Acción</h4>
                 <div class="form-row-group with-icons">
                   <div class="form-row no-padding">
-                          <i class="fa fa-cog"></i>
+                          <i class="fa fa-legal"></i>
                           <select id="accion_inc" class="form-element" >
-                            <option value="1">A Jucio  </option>
+                            <option value="1"> A Jucio  </option>
                             <option value="2">Compromiso Pago</option>
                             <option value="3">Propiedad Entregada</option>
                             <option value="4">Acta de Entrega</option>

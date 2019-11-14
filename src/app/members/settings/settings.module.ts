@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePage } from './home.page';
-import { SharedModuleModule } from '../shared-module/shared-module.module';
-import { Angular2UsefulSwiperModule } from 'angular2-useful-swiper';
+import { SettingsPage } from './settings.page';
+import { SharedModuleModule } from '../../shared-module/shared-module.module';
 const routes: Routes = [
   {
     path: '',
-    component: HomePage
+    component: SettingsPage
   }
 ];
 
@@ -19,21 +18,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,SharedModuleModule,Angular2UsefulSwiperModule,
+    IonicModule,SharedModuleModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [HomePage]
+  declarations: [SettingsPage]
 })
-export class HomePageModule {
-   
-  constructor() { 
- 
-  }
-
-  ngOnInit() {
-   
-  }
-
- 
-  
-}
+export class SettingsPageModule {}

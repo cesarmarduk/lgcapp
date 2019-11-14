@@ -10,7 +10,7 @@ declare var $:any;
   providedIn: 'root'
 })
 export class UtilitiesService {
-  public readonly baseApiUrl: string = 'http://192.168.1.102/ApiRestAPP/';
+  public readonly baseApiUrl: string = 'http://192.168.43.129/ApiRestAPP/';
   public readonly user='admin';
   public readonly pwd='mexico100';
   public readonly httpOptions = {

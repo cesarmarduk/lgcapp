@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders, HttpRequest, HttpParams, HttpResponse,HttpErro
 import { UtilitiesService } from './utilities.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 declare var jQuery:any;
 declare var $:any;
 const TOKEN_KEY = 'auth-token';
@@ -21,7 +22,7 @@ export class AuthenticationService {
   message = '';
   status = '';
   data;
-  constructor(private storage: Storage, private plt: Platform,private http: HttpClient,private utilities: UtilitiesService) { 
+  constructor(private storage: Storage, private plt: Platform,private http: HttpClient,private utilities: UtilitiesService,  private router: Router) { 
  
     this.plt.ready().then(() => {
     
@@ -60,7 +61,8 @@ export class AuthenticationService {
       
       this.storage.remove(CURRENTUSER);
       this.authenticationState.next(false);
-      this.utilities.presentAlert('','Ha Cerrado Sesion','Hasta Luego',['OK'])
+      this.utilities.presentAlert('','Ha Cerrado Sesion','Hasta Luego',['OK']);
+      this.router.navigate(['home']);
     });
   }
  
