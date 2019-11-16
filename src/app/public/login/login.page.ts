@@ -40,6 +40,7 @@ export class LoginPage implements OnInit {
            }
        },
        error => {
+         console.log(error);
            this.utilities.presentAlert('','Ha ocurrido un error al Autenticar',error['error'],['OK'])
        });;
   

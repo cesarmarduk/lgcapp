@@ -2,7 +2,7 @@ import { AuthenticationService } from '../services/authentication.service';
 import { UtilitiesService } from '../services/utilities.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NetworkService } from '../services/network.service';
+//import { NetworkService } from '../services/network.service';
 
 // Declaramos las variables para jQuery
 declare var jQuery:any;
@@ -29,7 +29,7 @@ export class HomePage implements OnInit {
   isConnected = false;
 
   constructor(private authService: AuthenticationService,private utilities: UtilitiesService,  
-              private _activatedRoute: ActivatedRoute,private networkService: NetworkService) {
+              private _activatedRoute: ActivatedRoute) { //,private networkService: NetworkService
   
    
   
@@ -45,15 +45,22 @@ export class HomePage implements OnInit {
           this.ruta2='/solicitar-contrato';
       }
     })
-    this.networkService.getNetworkStatus().subscribe((connected: boolean) => {
+  /*  this.networkService.getNetworkStatus().subscribe((connected: boolean) => {
         this.isConnected = connected;
         if (!this.isConnected) {
             console.log('Por favor enciende tu conexión a Internet');
         }
-    });
+    });*/
   }
  
-  
+  simpleNotif() {
+    this.utilities.openNotification(
+      2,
+      'Titulo',
+      'Descripcion',
+      'icon.jpg'
+    );
+  }
    
     doSomethingOnScroll($event:Event  ){
 

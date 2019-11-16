@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthenticationService } from './services/authentication.service';
 import { Network } from '@ionic-native/network/ngx';
 import { NgHttpLoaderModule } from 'ng-http-loader';
-
+import { LocalNotifications} from '@ionic-native/local-notifications/ngx'
 declare var jQuery:any;
 declare var $:any;
 @NgModule({
@@ -36,7 +36,7 @@ declare var $:any;
   providers: [
     AuthenticationService,
     StatusBar,
-    SplashScreen,Network,
+    SplashScreen,Network,LocalNotifications,
     { 
       provide: RouteReuseStrategy,
       useClass: IonicRouteStrategy 

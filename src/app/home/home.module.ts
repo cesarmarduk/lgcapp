@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { HomePage } from './home.page';
 import { SharedModuleModule } from '../shared-module/shared-module.module';
 import { Angular2UsefulSwiperModule } from 'angular2-useful-swiper';
+
 const routes: Routes = [
   {
     path: '',

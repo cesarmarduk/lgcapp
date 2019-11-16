@@ -56,6 +56,7 @@ export class AlertasPage implements OnInit {
       serverSide: true,
       processing: true,
       autoWidth: false,
+     
       ajax: (dataTablesParameters: any, callback) => {
         dataTablesParameters.tipo='alertas';
         that.http
@@ -73,11 +74,7 @@ export class AlertasPage implements OnInit {
            
           });
       },
-      columns: [
-        { data:'fecha'}, 
-        { data: 'titulo' }, 
-        { data: 'descripcion' },
-        { data: 'acciones' }, ],
+    
        // Use this attribute to enable the responsive extension
        columnDefs: [
         { "orderable": false, "targets": [0,1,2,3] }
