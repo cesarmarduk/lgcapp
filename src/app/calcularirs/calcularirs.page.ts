@@ -20,4 +20,7 @@ export class CalcularirsPage implements OnInit {
   doSomethingOnScroll($event:Event  ){
     this.utilities.doSomethingOnScroll($event);
   }
+  calcularIrs($event:Event  ){
+    this.utilities.presentAlert('','calcularIrs','click en calcularIrs',['OK'])
+  }
 }

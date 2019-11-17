@@ -2,7 +2,7 @@
 
   <div class="wrapper ">
       
-      <div class="wrapper-inline" (scroll)="doSomethingOnScroll($event)">
+      <div class="wrapper-inline" >
           <app-membersmenu></app-membersmenu>
           <app-quickmenu title="{{title}}"></app-quickmenu>
         <!-- Page content start -->
@@ -35,7 +35,6 @@
                   
                     <div class="form-row"  style="text-align: center">
             
-                        <a style="text-align: center" href="Javascript:void(0);" (click)="logout()" class="button circle inline green">Cerrar Sesion</a> | 
                         <a style="text-align: center" href="Javascript:void(0);" routerLink="/home" class="button circle inline red">Ir al Home</a> 
                     </div>
           

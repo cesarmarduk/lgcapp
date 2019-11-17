@@ -51,7 +51,7 @@
                      
                       </tr>
                     </thead>
-                    <tbody *ngIf="polizas?.length != 0">
+                    <tbody *ngIf="alertas?.length != 0">
                         <tr id="dttr_{{ alerta.id }}" *ngFor="let alerta of alertas">
                       
                             <td class="td_{{ alerta.id }}">{{ alerta.fecha }}</td>
@@ -80,7 +80,7 @@
                 
                   <div class="form-row"  style="text-align: center">
           
-                      <a style="text-align: center" href="Javascript:void(0);" (click)="logout()" class="button circle inline green">Cerrar Sesion</a> | 
+                   
                       <a style="text-align: center" href="Javascript:void(0);" routerLink="/home" class="button circle inline red">Ir al Home</a> 
                   </div>
         

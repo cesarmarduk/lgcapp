@@ -4,9 +4,9 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { DataTablesModule } from 'angular-datatables';
+//import { DataTablesModule } from 'angular-datatables';
 import { AppComponent } from './app.component';
-import { LoginPageModule } from './public/login/login.module';
+//import { LoginPageModule } from './public/login/login.module';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,12 +23,12 @@ declare var $:any;
   imports: [
     BrowserModule,
     HttpClientModule, 
-    DataTablesModule,
+    //DataTablesModule,
     IonicModule.forRoot(), 
     AppRoutingModule,
     NgHttpLoaderModule.forRoot(),
     IonicStorageModule.forRoot(),
-    LoginPageModule
+   // LoginPageModule
     
   ],
   bootstrap: [AppComponent],

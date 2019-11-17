@@ -12,6 +12,8 @@ declare var $:any;
   providedIn: 'root'
 })
 /*
+'Content-Type':  'application/json',
+      'Accept': 'application/json',
 {
   "/ApiRestApp/*": {
     "target": "http://localhost",
@@ -31,14 +33,15 @@ declare var $:any;
 
 */
 export class UtilitiesService {
-  public readonly baseApiUrl: string = 'http://localhost/ApiRestAPP/'; // https://app.legalglobalconsulting.com/  http://localhost/ApiRestAPP/  
+  public readonly baseApiUrl: string = 'http://192.168.1.100/ApiRestAPP/'; // https://app.legalglobalconsulting.com/  http://localhost/ApiRestAPP/  
   public readonly user='admin';
   public readonly pwd='mexico100';
  
   public readonly httpOptions = {
     headers: new HttpHeaders({
    
-     
+      'Content-Type':  'application/json',
+      'Accept': 'application/json',
       'Authorization':`Basic ${window.btoa(this.user+':'+this.pwd)}`,
       'APIKEY':'CODEX@123'
     })
@@ -106,7 +109,7 @@ export class UtilitiesService {
       id: id,
       title: title,
       text: text,
-      sound: this.isCordova ? 'file://sound.mp3': 'file://beep.caf',
+      sound: this.isAndroid ? 'file://sound.mp3': 'file://beep.caf',
       data: data,
       icon: icon,
       trigger: { at: new Date(new Date().getTime() + 5000) },

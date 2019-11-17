@@ -3352,3 +3352,8 @@ footer ul li a i {
 	text-align: right!important;
 	float: right;
 }
+
+  
+* ::-webkit-scrollbar {
+	display: none;
+  }

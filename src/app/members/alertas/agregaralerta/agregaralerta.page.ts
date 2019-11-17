@@ -20,5 +20,7 @@ export class AgregaralertaPage implements OnInit {
 
   ngOnInit() {
   }
-
+  generarAlerta($event:Event  ){
+    this.utilities.presentAlert('','generarAlerta','click en generarAlerta',['OK'])
+  }
 }

@@ -1,4 +1,15 @@
-::-webkit-scrollbar,
-*::-webkit-scrollbar {
+.no-scroll .scroll-content{
+  overflow: hidden;
+}
+ion-scroll.scroll-y .scroll-content::-webkit-scrollbar{
   display: none;
+}
+
+* ::-webkit-scrollbar {
+  display: none;
+}
+
+ion-app {
+  overflow: hidden;
+  --overflow: hidden;
 }

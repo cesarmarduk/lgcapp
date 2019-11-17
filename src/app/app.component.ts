@@ -1,3 +1,4 @@
+
 import { Router } from '@angular/router';
 import { AuthenticationService } from './services/authentication.service';
 import { Component } from '@angular/core';
@@ -25,7 +26,13 @@ export class AppComponent {
  
   initializeApp() {
     this.platform.ready().then(() => {
+      this.statusBar.styleLightContent();
       this.statusBar.styleDefault();
+      if (this.platform.is('android')) {
+        this.statusBar.overlaysWebView(false);
+        this.statusBar.backgroundColorByHexString('#000000');
+        
+      }
       this.splashScreen.hide();
  
       this.authenticationService.authenticationState.subscribe(state => {
