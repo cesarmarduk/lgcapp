@@ -12,6 +12,7 @@ declare var $:any;
 export class NotificationsComponent implements OnInit {
   @Input() valor: number;
   @Input() lugar: string;
+  @Input() bell: boolean;
   constructor() { }
 
   ngOnInit() {}

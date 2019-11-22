@@ -19,15 +19,41 @@ export class MenuComponent implements OnInit {
   public lugar : string = 'home';
   isConnected = false;
   authenticate: boolean = false; 
+  perfilAsesor:boolean;
+  perfilInmo:boolean;
+  perfilPropFis:boolean;
+  perfilPropMor:boolean;
+  perfilInqFis:boolean;
+  perfilInqMor:boolean;
   constructor(private authService: AuthenticationService,private utilities: UtilitiesService,private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this._activatedRoute.paramMap.subscribe(() => {
+      if(localStorage.getItem('inqfisLog')=='true'){
+        this.ruta='/members/dashboard/inqfis';
+      }
+      if(localStorage.getItem('inqmorLog')=='true'){
+        this.ruta='/members/dashboard/inqmor';
+      }
+      if(localStorage.getItem('propfisLog')=='true'){
+        this.ruta='/members/dashboard/propfis';
+      }
+      if(localStorage.getItem('propmorLog')=='true'){
+        this.ruta='/members/dashboard/propmor';
+      }
+      if(localStorage.getItem('inmobiliariaLog')=='true'){
+        this.ruta='/members/dashboard/inmobiliaria';
+      }
+      if(localStorage.getItem('asesorLog')=='true'){
+        this.ruta='/members/dashboard/asesor';
+      }
       if((this.authService.isAuthenticated()==true)){
+        
         this.authenticate=true;
         this.rutaLog='';
         this.titulo  = 'Cerrar Sesion';
-        this.ruta='/members/dashboard';
+    
+      
         this.ruta2='/members/crear-solicitud';
       }else{
           this.titulo  = 'Iniciar Sesion';
@@ -41,12 +67,7 @@ export class MenuComponent implements OnInit {
    
   }
   onClose(event){
-    if ($(event.target).hasClass('nav-menu')){
-			$('.navi-menu-button').removeClass('focused');
-      $('nav.menu').removeClass('opened');
-      $('div.nav-menu').fadeOut(200);
-		}
-  
+    this.authService.cerrarMenu();
   }
 
   logout() {

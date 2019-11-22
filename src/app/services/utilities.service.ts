@@ -8,6 +8,7 @@ import { Platform } from '@ionic/angular';
 import { identifierName } from '@angular/compiler';
 declare var jQuery:any;
 declare var $:any;
+
 @Injectable({
   providedIn: 'root'
 })
@@ -87,14 +88,14 @@ export class UtilitiesService {
         }
       }); 
   }
-  peticionHttp(tipo,url,datos=null){
+  peticionHttp<tipo>(tipo,url,datos=null){
     if(tipo=='post'){
-      return this.http.post(`${url}`,datos,this.httpOptions).pipe(map(data => {
+      return this.http.post<tipo>(`${url}`,datos,this.httpOptions).pipe(map(data => {
         return data;
       }));
     }
     if(tipo=='get'){
-      return this.http.get(`${url}`,this.httpOptions).pipe(map(data => {
+      return this.http.get<tipo>(`${url}`,this.httpOptions).pipe(map(data => {
         return data;
       }));
     }
@@ -118,4 +119,92 @@ export class UtilitiesService {
   cancelNotification(id){
 
   }
+
+  format (datos) {
+    // `d` is the original data object for the row
+    var propietarios=`Sin Informacion`;
+        if(datos.propietarios){
+          propietarios='';
+          $.each(datos.propietarios,function(i, val){
+            propietarios+=val;
+          });
+        }
+    var inquilinos=`Sin Informacion`;
+        if(datos.inquilinos){
+          inquilinos='';
+          $.each(datos.inquilinos,function(i, val){
+            inquilinos+=val;
+          });
+        }
+    var garantes=`Sin Informacion`;
+        if(datos.garantes){
+          garantes='';
+          $.each(datos.garantes,function(i, val){
+            garantes+=val;
+          });
+        }
+    return `<tr id="child_${datos.id}" style="display:none">
+              <td colspan="6" >
+                <div class="row">
+                  <div class="col-6 text-left borde-bajo-punteado">
+                      <b>Incumplimientos:</b> ${datos.incumplimientos} <a style="float:right" data-folio="${datos.folio}" data-id="${datos.id}" class="nuevo-inc" href="Javascript:void(0)" >+ Nuevo</a>
+                  </div>
+                  <div class="col-6 text-letf"></div>
+                  <div class="col-7 text-left borde-bajo-punteado">
+                      <b>Fecha de Firma:</b> ${datos.fecha_firma} <a style="float:right" data-folio="${datos.folio}" data-id="${datos.id}" class="nueva-alerta" href="Javascript:void(0)" >Alerta</a>
+                  </div>
+                  <div class="col-5 text-letf"></div>
+                  <div class="col-6 text-left borde-bajo-punteado" >
+                      <b>Inicio:</b> ${datos.fecha_inicio}
+                  </div>
+                  <div class="col-6 text-left borde-bajo-punteado">
+                      <b>Vencimiento:</b> ${datos.fecha_termino}
+                  </div>
+                  <div class="col-6 text-left borde-bajo-punteado">
+                      <b>Ejecutivo:</b> ${datos.ejecutivo} 
+                  </div>
+                  <div class="col-6 text-left borde-bajo-punteado">
+                      <b>Asesor:</b>  ${datos.asesor}
+                  </div>
+                  <div class="col-12 text-left borde-bajo-punteado">
+                  <b>Dirección:</b>
+                      <div class="col-12 ">
+                        ${datos.direccion}
+                      </div>
+                  </div>
+                  <div class="col-12 text-left borde-bajo-punteado">
+                  <b>Propietarios:</b>
+                      <div class="col-12 ">
+                        ${propietarios}
+                      </div>
+                  </div>
+                  <div class="col-12 text-left borde-bajo-punteado">
+                  <b>Inquilinos:</b>
+                      <div class="col-12 ">
+                        ${inquilinos}
+                      </div>
+                  </div>
+                  <div class="col-12 text-left borde-bajo-punteado">
+                  <b>Garantes:</b>
+                      <div class="col-12 ">
+                        ${garantes}
+                       
+                      </div>
+                  </div>
+                </div>
+                <div class="form-divider"></div>
+                <div class="row">
+                  <div class="col-12 text-left">
+                    <div class="col-8 ">
+                      <a style="text-align: center" href="Javascript:void(0);" class="button circle inline red">Boton</a> 
+                    </div>
+                  </div>
+                </div>
+                <div class="form-divider"></div>
+              </td>
+            
+              
+            </tr>`;
+}
+
 }

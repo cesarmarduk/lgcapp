@@ -1,0 +1,43 @@
+	
+
+  <div class="wrapper ">
+      
+    <div class="wrapper-inline" (scroll)="doSomethingOnScroll($event)">
+        <app-menu></app-menu>
+        <app-quickmenu title="{{title}}"></app-quickmenu>
+      <!-- Page content start -->
+      <main class="margin mt-0">
+
+          <!-- <div class="dash-balance">
+            <div class="dash-content relative">
+              <h3 class="w-text">Noticia {{noticia}}</h3>
+           
+            </div>
+          </div> -->
+          <div class="form-divider"></div>
+          <div class="form-divider"></div>
+          <div class="form-divider"></div>
+          <section class="bal-section container">
+              <div style="margin:auto" align="center"> <img src="assets/img/logo.png" alt=""></div>
+          </section>
+          <div class="form-divider"></div>
+          <div class="news-list-item no-image">
+              <div class="list-content  text-center">
+                  <h4 class="text-center font-black"  [innerHTML]="titulo"></h4>
+              </div>
+              <div class="list-content  text-center">
+                  <img src="{{image}}" alt="">
+              </div>
+              <div class="list-content font-16" [innerHTML]="contenido" >
+                 
+              </div>
+              <div class="list-content font-redlgc font-12" >
+                 Autor: {{autor}} - {{fecha}}
+              </div>
+          </div>
+          <app-footer></app-footer>
+      </main>
+      <!-- Page content end -->
+    </div>
+</div>	
+

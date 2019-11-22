@@ -14,7 +14,7 @@ export class AgregaralertaPage implements OnInit {
     private route: ActivatedRoute,
     private router: Router) { 
 
-    this.title = 'Agregar Alerta';
+    this.title = 'AGREGAR ALERTA';
 
   }
 

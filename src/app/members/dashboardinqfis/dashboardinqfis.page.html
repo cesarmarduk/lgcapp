@@ -4,7 +4,7 @@
       
     <div class="wrapper-inline" (scroll)="doSomethingOnScroll($event)">
         <app-membersmenu></app-membersmenu>
-        <app-notifications></app-notifications>
+        <app-notifications ></app-notifications>
       <!-- Page content start -->
       <main class="margin mt-0">
 
@@ -19,7 +19,15 @@
               <div style="margin:auto" align="center"> <img src="assets/img/logo.png" alt=""></div>
            
          
-          </section>
+          </section><br>
+          <section class="bal-section container">
+            <div class="form-divider"></div>
+            <div class="form-label-divider "><span class="font-24">Contratos Inquilino Físico</span></div>
+            <div class="form-divider"></div>
+            
+           
+        
+          </section><br>
           <section class="bal-section container">
 					
             <div class="resources-card-wrapper">
@@ -60,7 +68,7 @@
               
               
               <div class="table-responsive">
-                  <table datatable [dtOptions]="dtOptions" class="row-border hover" id="polizas-tabla" style="width: 100% !important">
+                  <table datatable [dtOptions]="dtOptions" class="row-border hover" id="inmobiliaria-tabla" style="width: 100% !important">
                     <thead>
                       <tr>
                         <th class="th sorting_disabled" style="max-width: 40px"></th>
@@ -83,7 +91,7 @@
                     </tbody>
                     <tbody *ngIf="polizas?.length == 0">
                       <tr>
-                        <td colspan="6" class="no-data-available">No data!</td>
+                        <td colspan="6" class="no-data-available">No hay Contratos como Inquilino Físico!</td>
                       </tr>
                     <tbody>
                   </table>
@@ -93,24 +101,8 @@
           </div>
         </section>
 
-          <section class="container">
-              <div class="content"> 
-                <!-- <h4 class="title-main">Balance Split</h4> -->
-              <div class="c-panel">
-                
-                  <div class="form-row"  style="text-align: center">
-          
-                      <a style="text-align: center" href="Javascript:void(0);" (click)="logout()" class="button circle inline green">Cerrar Sesion</a> | 
-                      <a style="text-align: center" href="Javascript:void(0);" routerLink="/home" class="button circle inline red">Ir al Home</a> 
-                  </div>
         
-              </div>
-            </div>
-          </section>
-
-     
-
-          <app-footer></app-footer>
+        <app-footer></app-footer>
       </main>
       <!-- Page content end -->
     </div>

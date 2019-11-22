@@ -1,6 +1,6 @@
 import { AuthenticationService } from './../../services/authentication.service';
 import { UtilitiesService } from './../../services/utilities.service';
-
+import { Storage } from '@ionic/storage';
 import { Component, OnInit,ElementRef } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { HttpClient, HttpResponse } from '@angular/common/http';
@@ -24,17 +24,24 @@ class DataTablesResponse {
   recordsFiltered: number;
   recordsTotal: number;
 }
+
+const ASESOR = 'asesorLog';
+const INMOBILIARIA = 'inmobiliariaLog';
+const PROPFIS = 'propfisLog';
+const PROPMOR = 'propmorLog';
+const INQFIS = 'inqfisLog';
+const INQMOR = 'inqmorLog';
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.page.html',
-  styleUrls: ['./dashboard.page.css'],
+  selector: 'app-dashboardinqmor',
+  templateUrl: './dashboardinqmor.page.html',
+  styleUrls: ['./dashboardinqmor.page.scss'],
 })
-export class DashboardPage implements OnInit {
+export class DashboardinqmorPage implements OnInit {
   dt;
   dtOptions: DataTables.Settings = {};
   polizas: Polizas[];
-  
-  constructor(private authService: AuthenticationService,
+  inqmorInfo:any;
+  constructor(private storage: Storage,private authService: AuthenticationService,
               private utilities: UtilitiesService,
               private http: HttpClient,
               private elRef:ElementRef,
@@ -43,9 +50,9 @@ export class DashboardPage implements OnInit {
   ngOnInit() {
     this.authService.checkToken();
     const that = this;
-    	
-    $.fn.DataTable.ext.pager.numbers_length = 7;
    
+    $.fn.DataTable.ext.pager.numbers_length = 7;
+
     
     this.dtOptions = {
       pagingType: 'numbers',
@@ -56,13 +63,14 @@ export class DashboardPage implements OnInit {
       autoWidth: false,
       ajax: (dataTablesParameters: any, callback) => {
         dataTablesParameters.tipo='crm_poliza';
+        this.inqmorInfo=JSON.parse(localStorage.getItem("INFOINQMOR"));
+        dataTablesParameters.inqmor=this.inqmorInfo.idextra; 
         that.http
           .post<DataTablesResponse>(
             `${this.utilities.baseApiUrl}api/polizas/getDatatableCrmPolizas/`, //https://angular-datatables-demo-server.herokuapp.com/
             dataTablesParameters, this.utilities.httpOptions
           ).subscribe(resp => {
             that.polizas = resp.data;
-
             callback({
               recordsTotal: resp.recordsTotal,
               recordsFiltered: resp.recordsFiltered,
@@ -89,7 +97,7 @@ export class DashboardPage implements OnInit {
         "decimal":        "",
         "emptyTable":     "No hay pólizas para mostrar",
         "info":           "Mostrando _START_ a _END_ de _TOTAL_",
-        "infoEmpty":      "Sin datos para mostrar",
+        "infoEmpty":      "",
         "infoFiltered":   "(filtrados de _MAX_ pólizas)",
         "infoPostFix":    "",
         "thousands":      ",",
@@ -132,94 +140,7 @@ export class DashboardPage implements OnInit {
    // this.utilities.presentAlert('','Se va a crear incumplimiento','Crear',['OK']);
   
   }
-  format (datos) {
-    // `d` is the original data object for the row
-   console.log(datos.garantes.length);
-    var propietarios=`Sin Informacion`;
-        if(datos.propietarios){
-          propietarios='';
-          $.each(datos.propietarios,function(i, val){
-            propietarios+=val;
-          });
-        }
-    var inquilinos=`Sin Informacion`;
-        if(datos.inquilinos){
-          inquilinos='';
-          $.each(datos.inquilinos,function(i, val){
-            inquilinos+=val;
-          });
-        }
-    var garantes=`Sin Informacion`;
-        if(datos.garantes){
-          garantes='';
-          $.each(datos.garantes,function(i, val){
-            garantes+=val;
-          });
-        }
-    return `<tr id="child_${datos.id}" style="display:none">
-              <td colspan="6" >
-                <div class="row">
-                  <div class="col-6 text-left borde-bajo-punteado">
-                      <b>Incumplimientos:</b> ${datos.incumplimientos} <a style="float:right" data-folio="${datos.folio}" data-id="${datos.id}" class="nuevo-inc" href="Javascript:void(0)" >+ Nuevo</a>
-                  </div>
-                  <div class="col-6 text-letf"></div>
-                  <div class="col-7 text-left borde-bajo-punteado">
-                      <b>Fecha de Firma:</b> ${datos.fecha_firma} <a style="float:right" data-folio="${datos.folio}" data-id="${datos.id}" class="nueva-alerta" href="Javascript:void(0)" >Alerta</a>
-                  </div>
-                  <div class="col-5 text-letf"></div>
-                  <div class="col-6 text-left borde-bajo-punteado" >
-                      <b>Inicio:</b> ${datos.fecha_inicio}
-                  </div>
-                  <div class="col-6 text-left borde-bajo-punteado">
-                      <b>Vencimiento:</b> ${datos.fecha_termino}
-                  </div>
-                  <div class="col-6 text-left borde-bajo-punteado">
-                      <b>Ejecutivo:</b> ${datos.ejecutivo} 
-                  </div>
-                  <div class="col-6 text-left borde-bajo-punteado">
-                      <b>Asesor:</b>  ${datos.asesor}
-                  </div>
-                  <div class="col-12 text-left borde-bajo-punteado">
-                  <b>Dirección:</b>
-                      <div class="col-12 ">
-                        ${datos.direccion}
-                      </div>
-                  </div>
-                  <div class="col-12 text-left borde-bajo-punteado">
-                  <b>Propietarios:</b>
-                      <div class="col-12 ">
-                        ${propietarios}
-                      </div>
-                  </div>
-                  <div class="col-12 text-left borde-bajo-punteado">
-                  <b>Inquilinos:</b>
-                      <div class="col-12 ">
-                        ${inquilinos}
-                      </div>
-                  </div>
-                  <div class="col-12 text-left borde-bajo-punteado">
-                  <b>Garantes:</b>
-                      <div class="col-12 ">
-                        ${garantes}
-                       
-                      </div>
-                  </div>
-                </div>
-                <div class="form-divider"></div>
-                <div class="row">
-                  <div class="col-12 text-left">
-                    <div class="col-8 ">
-                      <a style="text-align: center" href="Javascript:void(0);" class="button circle inline red">Boton</a> 
-                    </div>
-                  </div>
-                </div>
-                <div class="form-divider"></div>
-              </td>
-            
-              
-            </tr>`;
-}
-
+ 
   seeDetails($event){
     var that=this;
     var td=$event.currentTarget;
@@ -240,7 +161,7 @@ export class DashboardPage implements OnInit {
       .subscribe(
           data => {
         //   console.log(data);
-           $(`#${tr}`).after(this.format(data)); //si no existe lo creo
+           $(`#${tr}`).after(this.utilities.format(data)); //si no existe lo creo
            $(td).html('&CircleMinus;');
            $(`.td_${id}`).css("font-weight","bold")
            $(`#child_${id}`).show('slow');
@@ -256,16 +177,7 @@ export class DashboardPage implements OnInit {
           });;
 
           
-   /*   this.http
-        .get<any>('https://angular-datatables-demo-server.herokuapp.com/')
-        .subscribe((response) => {
-          console.log(response);
-         
-          
-        }, (error) => {
-          alert('Error Found!');
-        });*/
-      
+   
     }
   
   }

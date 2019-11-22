@@ -24,6 +24,8 @@ const routes: Routes = [
   { path: 'servicios', loadChildren: './servicios/servicios.module#ServiciosPageModule' },
   { path: 'sugerencias', loadChildren: './sugerencias/sugerencias.module#SugerenciasPageModule' },
   { path: 'contacto', loadChildren: './contacto/contacto.module#ContactoPageModule' },
+  { path: 'noticia/:id', loadChildren: './noticia/noticia.module#NoticiaPageModule' },
+
 
 
 

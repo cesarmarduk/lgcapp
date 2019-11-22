@@ -31,16 +31,17 @@ export class AppComponent {
       if (this.platform.is('android')) {
         this.statusBar.overlaysWebView(false);
         this.statusBar.backgroundColorByHexString('#000000');
-        
+       
       }
       this.splashScreen.hide();
- 
+      this.router.navigate(['home']);
       this.authenticationService.authenticationState.subscribe(state => {
-         if (state) {
+      //  this.router.navigate(['home']);
+       /*  if (state) {
           this.router.navigate(['members', 'dashboard']);
         } else {
           this.router.navigate(['home']);
-         }
+         }*/
       });
  
     });

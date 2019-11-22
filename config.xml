@@ -1,10 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="3.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="ionic.legalgc.app" version="3.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Legal Global Consulting</name>
     <description>Realiza solicitudes en linea y maneja tus polizas.</description>
     <author email="cesar@netstudios.com.mx" href="https://legalglobalconsulting.com/">Legal Global Consulting Team</author>
     <content src="index.html" />
     <access origin="*" />
+    <access launch-external="yes" origin="whatsapp://*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />

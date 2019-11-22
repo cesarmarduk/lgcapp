@@ -6,20 +6,43 @@ import { UtilitiesService } from './../../services/utilities.service';
   templateUrl: './membersmenu.component.html',
   styleUrls: ['./membersmenu.component.scss'],
 })
-export class MembersmenuComponent implements OnInit {
 
+export class MembersmenuComponent implements OnInit {
+  perfilAsesor:boolean = false;
+  perfilInmo:boolean = false;
+  perfilPropFis:boolean = false;
+  perfilPropMor:boolean = false;
+  perfilInqFis:boolean = false;
+  perfilInqMor:boolean = false;
   constructor(private authService: AuthenticationService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    if(localStorage.getItem('inqfisLog')=='true'){
+      this.perfilInqFis=true;
+    }
+    if(localStorage.getItem('inqmorLog')=='true'){
+      this.perfilInqMor=true;
+    }
+    if(localStorage.getItem('propfisLog')=='true'){
+      this.perfilPropFis=true;
+    }
+    if(localStorage.getItem('propmorLog')=='true'){
+      this.perfilPropMor=true;
+    }
+    if(localStorage.getItem('inmobiliariaLog')=='true'){
+      this.perfilInmo=true;
+    }
+    if(localStorage.getItem('asesorLog')=='true'){
+      this.perfilAsesor=true;
+    }
+
+  }
   logout() {
     this.authService.logout();
   }
   onClose(event){
-    if ($(event.target).hasClass('nav-menu')){
-			$('.navi-menu-button').removeClass('focused');
-      $('nav.menu').removeClass('opened');
-      $('div.nav-menu').fadeOut(200);
-		}
+    this.authService.cerrarMenu();
   
   }
 }

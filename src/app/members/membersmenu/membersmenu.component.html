@@ -5,18 +5,33 @@
 	  <div class="nav-container">
 		<ul class="main-menu">
 		 
-			<li >
-				<a href="javascript:void(0);" routerLink="/members/dashboard"><i style="font-size:20px" class="fa fa-dashboard" ></i><strong class="special">Dashboard</strong> </a>
+			<li *ngIf="perfilAsesor==true" >
+				<a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/asesor"><i style="font-size:20px" class="font-redlgc fa fa-user-circle-o" ></i><strong style="font-size:18px" class="special">Asesor</strong> </a>
+			</li>
+			<li *ngIf="perfilInmo">
+				<a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/inmobiliaria"><i style="font-size:20px" class="font-redlgc fa fa-building-o" ></i><strong style="font-size:18px" class="special">Inmobiliaria</strong> </a>
+			</li>
+			<li *ngIf="perfilPropMor">
+				<a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/propmor"><i style="font-size:20px" class="font-redlgc fa fa-institution" ></i><strong style="font-size:18px" class="special">Propietario Moral</strong> </a>
+			</li>
+			<li *ngIf="perfilPropFis">
+				<a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/propfis"><i style="font-size:20px" class="font-redlgc fa fa-address-book-o" ></i><strong style="font-size:18px" class="special">Propietario Fisico</strong> </a>
+			</li>
+			<li *ngIf="perfilInqMor">
+				<a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/inqmor"><i style="font-size:20px" class="font-redlgc fa fa-stack-exchange" ></i><strong style="font-size:18px" class="special">Inquilino Moral</strong> </a>
+			</li>
+			<li *ngIf="perfilInqFis">
+				<a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/inqfis"><i style="font-size:20px" class="font-redlgc fa fa-group" ></i><strong style="font-size:18px" class="special">Inquilino Fisico</strong> </a>
 			</li>
 			<li >
-				<a href="javascript:void(0);" routerLink="/members/alertas/agregar"><i style="font-size:20px" class="fa fa-clock-o" ></i><strong class="special">Agregar Alerta</strong> </a>
+				<a href="javascript:void(0);" class="font-redlgc" routerLink="/members/alertas/agregar"><i style="font-size:20px" class="font-redlgc fa fa-clock-o" ></i><strong style="font-size:18px" class="special">Agregar Alerta</strong> </a>
 			</li>
 			<li >
       <li >
-				<a href="javascript:void(0);" routerLink="/members/settings"><i style="font-size:20px" class="fa fa-cogs" ></i><strong class="special">Ajustes</strong> </a>
+				<a href="javascript:void(0);" class="font-redlgc" routerLink="/members/settings"><i style="font-size:20px" class="font-redlgc fa fa-cogs" ></i><strong style="font-size:18px" class="special">Ajustes</strong> </a>
 			</li>
 			<li >
-				<a href="javascript:void(0);" (click)="logout()"><i style="font-size:20px" class="fa fa-power-off" ></i><strong class="special">Log Out</strong> </a>
+				<a href="javascript:void(0);" class="font-redlgc" (click)="logout()"><i style="font-size:20px" class="font-redlgc fa fa-power-off" ></i><strong style="font-size:18px" class="special">Log Out</strong> </a>
 			</li>
 		
 		 

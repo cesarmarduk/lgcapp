@@ -2,30 +2,24 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-import { DataTablesModule } from 'angular-datatables';
 import { IonicModule } from '@ionic/angular';
+import { SharedModuleModule } from '../shared-module/shared-module.module';
+import { NoticiaPage } from './noticia.page';
 
-import { DashboardPage } from './dashboard.page';
-
-
-import { SharedModuleModule } from '../../shared-module/shared-module.module';
 const routes: Routes = [
   {
     path: '',
-    component: DashboardPage
+    component: NoticiaPage
   }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,DataTablesModule,
+    FormsModule,
     IonicModule,SharedModuleModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [DashboardPage]
+  declarations: [NoticiaPage]
 })
-export class DashboardPageModule {
-
-  
-}
+export class NoticiaPageModule {}

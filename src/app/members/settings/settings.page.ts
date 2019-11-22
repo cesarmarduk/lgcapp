@@ -17,7 +17,7 @@ export class SettingsPage implements OnInit {
     private http: HttpClient,
     private elRef:ElementRef,
     private router: Router) {
-      this.title = 'Ajustes';
+      this.title = 'AJUSTES';
      }
 
   ngOnInit() {

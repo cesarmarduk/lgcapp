@@ -398,6 +398,7 @@ header .go-back-link{
 	text-align: center;
 	float: left;
 	margin-left: -10px;
+	color:white !important;
 }
 header .page-title{
 	font-size: 16px;
@@ -415,7 +416,9 @@ header .page-title{
 	text-overflow:ellipsis;
 	-o-text-overflow: ellipsis;
     -ms-text-overflow: ellipsis;
-    white-space: nowrap;
+	white-space: nowrap;
+	font-weight: 1200 !important;
+	color: white !important;
 }
 header.with-search-icon .page-title{
 	left: 80px;
@@ -1261,7 +1264,7 @@ header.no-background.set-bg .search-button .not-icon1{
 	font-weight: bold;
 	font-size: 20px;
 	display: inline-block;
-	background-color: #F5F6F8;
+	background-color: #f9fafb;
 	padding: 0 10px;
 }
 
@@ -2874,7 +2877,7 @@ background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, r
 	width: 49%;
     padding: 15px 10px;
     text-align: center;
-    border-radius: 3px;
+    border-radius: 6px;
     -webkit-box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.1);
 }
@@ -3353,7 +3356,24 @@ footer ul li a i {
 	float: right;
 }
 
+.menuGradient{
+	background: rgb(88,17,15);
+	background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);
+	background-size: cover;
+}
+.menuGradient:before{
+
+	background: rgb(88,17,15);
+background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);
+	border-radius: 10px 10px 100px 100px;
+	-moz-border-radius: 10px 10px 100px 100px;
+	-webkit-border-radius: 10px 10px 100px 100px;
+	border: 0px solid #000000;
+    z-index: 0;
+}
   
 * ::-webkit-scrollbar {
 	display: none;
   }
+
+  

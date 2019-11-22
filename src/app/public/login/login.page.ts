@@ -13,8 +13,10 @@ declare var $:any;
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
- 
-  private returnUrl:'/members/dashboard';
+  url:string;
+  correo:string;
+  clave:string;
+  bellHide:boolean=true;
   constructor(private authService: AuthenticationService, private router: Router,private utilities: UtilitiesService
         ) {
    
@@ -28,13 +30,39 @@ export class LoginPage implements OnInit {
  
 
   login() {
-    var name,clave;
-    name=$('#name').val();
-    clave=$('#clave').val();
-   this.authService.login(name,clave).pipe(first())
+   
+    this.correo=$('#name').val();
+    this.clave=$('#clave').val();
+    if(this.correo.trim().length==0){
+      this.utilities.presentAlert('','Campos Vacios','No puede dejar vacio el correo',['OK'],4000);
+      return false;
+    }
+    if(this.clave.trim().length==0){
+      this.utilities.presentAlert('','Campos Vacios','No puede dejar vacia la clave',['OK'],4000);
+      return false;
+    }
+   this.authService.login(this.correo,this.clave).pipe(first())
    .subscribe(
        data => {
-           this.router.navigateByUrl(this.returnUrl);
+        if(localStorage.getItem('inqfisLog')=='true'){
+          this.url='/members/dashboard/inqfis';
+        }
+        if(localStorage.getItem('inqmorLog')=='true'){
+          this.url='/members/dashboard/inqmor';
+        }
+        if(localStorage.getItem('propfisLog')=='true'){
+          this.url='/members/dashboard/propfis';
+        }
+        if(localStorage.getItem('propmorLog')=='true'){
+          this.url='/members/dashboard/propmor';
+        }
+        if(localStorage.getItem('inmobiliariaLog')=='true'){
+          this.url='/members/dashboard/inmobiliaria';
+        }
+        if(localStorage.getItem('asesorLog')=='true'){
+          this.url='/members/dashboard/asesor';
+        }
+        this.router.navigateByUrl(this.url);
            if(data['status']==true){
             this.utilities.presentAlert('','Ha iniciado Sesion',data['message'],['OK'])
            }

@@ -38,7 +38,25 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this._activatedRoute.paramMap.subscribe(() => {
       if((this.authService.isAuthenticated()==true)){
-        this.ruta='/members/dashboard';
+        if(localStorage.getItem('inqfisLog')=='true'){
+          this.ruta='/members/dashboard/inqfis';
+        }
+        if(localStorage.getItem('inqmorLog')=='true'){
+          this.ruta='/members/dashboard/inqmor';
+        }
+        if(localStorage.getItem('propfisLog')=='true'){
+          this.ruta='/members/dashboard/propfis';
+        }
+        if(localStorage.getItem('propmorLog')=='true'){
+          this.ruta='/members/dashboard/propmor';
+        }
+        if(localStorage.getItem('inmobiliariaLog')=='true'){
+          this.ruta='/members/dashboard/inmobiliaria';
+        }
+        if(localStorage.getItem('asesorLog')=='true'){
+          this.ruta='/members/dashboard/asesor';
+        }
+      
         this.ruta2='/members/crear-solicitud';
       }else{
           this.ruta='/login';

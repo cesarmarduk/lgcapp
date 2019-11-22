@@ -6,7 +6,7 @@
   
   
  
-  <div class="search-button" data-search="open">
+  <div *ngIf="!bell" class="search-button" data-search="open">
     <img src="assets/img/content/notification1.png" class="not-icon1" alt="">
     <img src="assets/img/content/notification2.png" class="not-icon2" alt="">
   </div>
@@ -21,7 +21,7 @@
 <!-- Header area end -->
 
 <!--NOTIFICATION BOX CONTENT START-->
-<div class="search-form">
+<div class="search-form"  >
   <span class="close-search-form" data-search="close"><i class="fa fa-times"></i> </span>
   <form>
     <div class="search-input">
@@ -33,7 +33,7 @@
       <div class="d-flex align-items-center justify-content-between">
                     <div class="d-flex align-items-center">
                       <div class="">
-                        <h5 class="coin-name">You have 3 notifications </h5>
+                        <h5 class="coin-name">You have 3 notifications {{bell}} </h5>
                       </div>
                     </div>
                     <div>

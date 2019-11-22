@@ -17,7 +17,7 @@ export class SugerenciasPage implements OnInit {
 
   constructor(private utilities: UtilitiesService) { 
 
-    this.title = 'Buzón de Sugerencias';
+    this.title = 'BUZÓN DE SUGERENCIAS';
   }
 
   ngOnInit() {

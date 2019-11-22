@@ -39,7 +39,7 @@ export class AlertasPage implements OnInit {
     private router: Router,
     private http: HttpClient,) { 
 
-    this.title = 'Alertas';
+    this.title = 'ALERTAS';
 
   }
   ngOnInit() {
