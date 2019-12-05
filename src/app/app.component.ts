@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-
+import { Spinkit } from 'ng-http-loader';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -14,6 +14,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent {
   public sinback  :boolean = true;
+  spinnerStyle = Spinkit;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -33,7 +34,10 @@ export class AppComponent {
         this.statusBar.backgroundColorByHexString('#000000');
        
       }
-      this.splashScreen.hide();
+      setTimeout(()=>{
+        this.splashScreen.hide();
+      },4000);
+    
       this.router.navigate(['home']);
       this.authenticationService.authenticationState.subscribe(state => {
       //  this.router.navigate(['home']);

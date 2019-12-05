@@ -21,6 +21,7 @@ export class CrearsolicitudPage implements OnInit {
     this.utilities.doSomethingOnScroll($event);
   }
   crearSolicitud($event:Event  ){
-    this.utilities.presentAlert('','crearSolicitud','click en crearSolicitud',['OK'])
+    this.utilities.presentAlert('info','click en crearSolicitud',false,0); 
+  
   }
 }

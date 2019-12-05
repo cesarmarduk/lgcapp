@@ -31,19 +31,19 @@ export class ContactoPage implements OnInit {
     this.empresa=$('#empresa').val();
 
     if(this.nombre.trim().length==0){
-      this.utilities.presentAlert('','Error','No puede dejar vacio el nombre',['OK'],4000);
+      this.utilities.presentAlert('info','No puede dejar vacio el nombre',false,4000); 
       return false;
     }
     if(this.telefono.trim().length==0){
-      this.utilities.presentAlert('','Error','No puede dejar vacio el telefono',['OK'],4000);
+      this.utilities.presentAlert('info','No puede dejar vacio el telefono',false,4000); 
       return false;
     }
     if(this.email.trim().length==0){
-      this.utilities.presentAlert('','Error','No puede dejar vacio el email',['OK'],4000);
+      this.utilities.presentAlert('info','No puede dejar vacio el email',false,4000); 
       return false;
     }
     if(this.empresa.trim().length==0){
-      this.utilities.presentAlert('','Error','No puede dejar vacia la empresa',['OK'],4000);
+      this.utilities.presentAlert('info','No puede dejar vacia la empresa',false,4000); 
       return false;
     }
     this.nombre=this.nombre.trim();
@@ -57,11 +57,13 @@ export class ContactoPage implements OnInit {
                                         }).pipe()
     .subscribe(
         data => {
-          this.utilities.presentAlert('','Se ha enviado la informacion',data['message'],['OK'],4000)
+          this.utilities.presentAlert('info','Se ha enviado la informacion',false,4000); 
+      
          
         },
         error => {
-            this.utilities.presentAlert('','Ha ocurrido un error al enviar peticion',error['error'],['OK'],4000)
+          this.utilities.presentAlert('error','Ha ocurrido un error al enviar peticion',false,0); 
+      
     });
   }
 }

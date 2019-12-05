@@ -17,6 +17,6 @@ export class SolicitarcontratoPage implements OnInit {
   ngOnInit() {
   }
   solicitarContrato($event:Event  ){
-    this.utilities.presentAlert('','solicitarContrato','click en solicitarContrato',['OK'])
+    this.utilities.presentAlert('error','No puede dejar vacia la sugerencia',false,4000);
   }
 }

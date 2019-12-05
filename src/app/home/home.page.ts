@@ -2,11 +2,21 @@ import { AuthenticationService } from '../services/authentication.service';
 import { UtilitiesService } from '../services/utilities.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { first } from 'rxjs/operators';
 //import { NetworkService } from '../services/network.service';
 
 // Declaramos las variables para jQuery
 declare var jQuery:any;
 declare var $:any;
+class Slider {
+  id: number;
+  image: string;
+
+}
+class SliderResponse {
+  data: any[];
+ 
+}
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -19,10 +29,15 @@ export class HomePage implements OnInit {
       disableOnInteraction: false,
     },
     centeredSlides: true,
-    slidesPerView: 1,
-    loop: true,
+    slidesPerView: 'auto',
+    loopedSlides:3,
+    loopAdditionalSlides :3,
+    loop: false,
     spaceBetween: 0
   };
+  public slider1:string='assets/img/slider/1.jpg';
+  public slider2:string='assets/img/slider/2.jpg';
+  public slider3:string='assets/img/slider/3.jpg';
   public ruta : string = '/login';
   public ruta2 : string = '/solicitar-contrato';
   public lugar : string = 'home';
@@ -63,11 +78,25 @@ export class HomePage implements OnInit {
           this.ruta2='/solicitar-contrato';
       }
     })
+
+    const that = this;
+    this.utilities.peticionHttp<SliderResponse>('get',`${this.utilities.baseApiUrl}api/utilities/getSlider`).pipe(first())
+    .subscribe(
+      resp => {
+          var sliders=resp.data;
+          this.slider1=sliders['slider_1'];
+          this.slider2=sliders['slider_2'];
+          this.slider3=sliders['slider_3'];
+        },
+        error => {
+            this.utilities.presentAlert('info','No se pudo conectar',false,0);  
+        });;
   /*  this.networkService.getNetworkStatus().subscribe((connected: boolean) => {
         this.isConnected = connected;
         if (!this.isConnected) {
             console.log('Por favor enciende tu conexión a Internet');
         }
+         
     });*/
   }
  
@@ -79,7 +108,29 @@ export class HomePage implements OnInit {
       'icon.jpg'
     );
   }
+  
+  getTime(){
+    var tiempo=new Date().getTime();
+    var fecha = new Date(tiempo);
+  
+    var date = fecha.getDate();
+    var month = fecha.getMonth()+1; 
+    var year = fecha.getFullYear();
+    var hora=fecha.getHours();
+    var minutos=fecha.getHours();
+    var segundos=fecha.getSeconds();
+    var completa=`${date}/${month}/${year} ${hora}:${minutos}:${segundos}`;
    
+    this.utilities.peticionHttp('post',`${this.utilities.baseApiUrl}api/utilities/getTime`,{tiempo:completa}).pipe(first())
+    .subscribe(
+      resp => {
+          console.log(resp)
+        },
+        error => {
+            this.utilities.presentAlert('info','No se pudo conectar',false,0);  
+        });
+   
+  }
     doSomethingOnScroll($event:Event  ){
 
       this.utilities.doSomethingOnScroll($event);

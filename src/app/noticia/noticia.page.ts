@@ -51,7 +51,7 @@ export class NoticiaPage implements OnInit {
         that.contenido = resp.datos.contenido;
       },
       error => {
-            this.utilities.presentAlert('','Error al Obtener Datos','Comprueba tu conexión a internet :(',['OK'],0)
+            this.utilities.presentAlert('info','Error al Obtener Datos, Comprueba tu conexión a internet :(',false,0);  
       }
     );
   }

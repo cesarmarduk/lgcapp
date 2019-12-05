@@ -29,7 +29,7 @@ export class NetworkService {
                 return;
             });
             this.network.onDisconnect().subscribe(() => {
-                this.utilities.presentAlert('','Ha perdido la Conexion a Internet','Conexion Perdida :(',['Cerrar'],0)
+                this.utilities.presentAlert('warning','Conexion Perdida, intente conectarse de nuevo :(',false,0);
                 console.log('network was disconnected :-(');
                 this.hasConnection.next(false);
                 return;
@@ -47,7 +47,7 @@ export class NetworkService {
                     this.hasConnection.next(true);
                    console.log('network was connected :-) brow');
                 } else {
-                    this.utilities.presentAlert('','Ha perdido la Conexion a Internet','Conexion Perdida, intente conectarse de nuevo :(',['Cerrar'],0)
+                    this.utilities.presentAlert('warning','Conexion Perdida, intente conectarse de nuevo :(',false,0);
                     console.log('network was disconnected :-(');
                     this.hasConnection.next(false);
                     console.log(isOnline);

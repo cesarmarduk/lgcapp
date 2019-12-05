@@ -37,7 +37,7 @@ export class NoticiasComponent implements OnInit {
           }
         },
         error => {
-            this.utilities.presentAlert('','Error al Obtener las Noticias','Comprueba tu conexión a internet :(',['OK'],0)
+            this.utilities.presentAlert('info','No se encontraron noticias, Comprueba tu conexión a internet :(',false,0);  
         });;
 
   }

@@ -14,6 +14,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { Network } from '@ionic-native/network/ngx';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { LocalNotifications} from '@ionic-native/local-notifications/ngx'
+import { Device } from '@ionic-native/device/ngx';
 declare var jQuery:any;
 declare var $:any;
 @NgModule({
@@ -35,7 +36,7 @@ declare var $:any;
  
   providers: [
     AuthenticationService,
-    StatusBar,
+    StatusBar,Device,
     SplashScreen,Network,LocalNotifications,
     { 
       provide: RouteReuseStrategy,

@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { LocalNotifications,ILocalNotification  } from '@ionic-native/local-notifications/ngx';
@@ -6,9 +7,11 @@ import { HttpClient, HttpHeaders, HttpRequest, HttpParams, HttpResponse,HttpErro
 import { map } from 'rxjs/operators';
 import { Platform } from '@ionic/angular';
 import { identifierName } from '@angular/compiler';
+import swal from'sweetalert2';
 declare var jQuery:any;
 declare var $:any;
-
+declare var require: any;
+const Swal = require('sweetalert2');
 @Injectable({
   providedIn: 'root'
 })
@@ -34,7 +37,7 @@ declare var $:any;
 
 */
 export class UtilitiesService {
-  public readonly baseApiUrl: string = 'http://192.168.1.100/ApiRestAPP/'; // https://app.legalglobalconsulting.com/  http://localhost/ApiRestAPP/  
+  public readonly baseApiUrl: string = 'http://192.168.1.101/ApiRestAPP/'; // https://app.legalglobalconsulting.com/  http://localhost/ApiRestAPP/  
   public readonly user='admin';
   public readonly pwd='mexico100';
  
@@ -54,14 +57,15 @@ export class UtilitiesService {
   notifyAt: string;
   isCordova: boolean;
   isAndroid: boolean;
-
+  
 
   constructor (public alertController: AlertController,private http: HttpClient,private localNotifications: LocalNotifications,private platform: Platform) {
     this.isCordova = this.platform.is('cordova');
     this.isAndroid = this.platform.is('android');
    }
 
-   async presentAlert(header,subtitle,message,buttons,duration=1500) {
+   async presentAlert(icon,message,showConfirmButton=true,timer=1500) {
+     /*
     const alert = await this.alertController.create({
       header: header,
       subHeader: subtitle,
@@ -73,8 +77,14 @@ export class UtilitiesService {
       setTimeout(()=>{
           alert.dismiss();
       }, duration);
-    }
-   
+    }*/
+    Swal.fire({    
+      text: message,
+      icon: icon,
+      showConfirmButton: showConfirmButton,
+      timer:timer
+    })
+    
    }
 
    doSomethingOnScroll($event:Event  ){
@@ -84,7 +94,14 @@ export class UtilitiesService {
         if (scrollOffset > 70) {
           element.classList.add("set-bg");
         } else {
-        element.classList.remove("set-bg");
+          element.classList.remove("set-bg");
+        }
+      }); 
+      $('.fa-arrow-left').each( function( index, element ){
+        if (scrollOffset > 70) {
+          element.classList.add("seeArrow");
+        } else {
+          element.classList.remove("seeArrow");
         }
       }); 
   }
@@ -100,20 +117,27 @@ export class UtilitiesService {
       }));
     }
   }
-  openNotification(id,title,text,icon,time=null,data=null){
-    console.log(new Date().getTime());
-    var at=new Date(new Date().getTime() + 1000);
-    if(time!=null){
-      at=new Date(time + 1000);
-    }
+  openNotification(id,title,text,icon,time=null,attachments=null,data=null){
+  //  var at=new Date(new Date().getTime() + 1000);
+   // if(time!=null){
+    //  time=new Date(time).getTime();
+     var at=new Date(time + 1000);
+   // }
     this.localNotifications.schedule({
       id: id,
       title: title,
       text: text,
-      sound: this.isAndroid ? 'file://sound.mp3': 'file://beep.caf',
+      sound: true ? 'file://assets/sounds/when.mp3': 'file://assets/sounds/when.m4r',//this.isAndroid 
       data: data,
-      icon: icon,
-      trigger: { at: new Date(new Date().getTime() + 5000) },
+      icon: 'file://assets/img/icono.png',
+      smallIcon:'res://my_notification_icon.png',
+      trigger: { at: at },
+      foreground:true,    
+      clock:true,
+      vibrate:true,
+      color:'#58110F',
+      attachments: attachments
+
      });
   }
   cancelNotification(id){

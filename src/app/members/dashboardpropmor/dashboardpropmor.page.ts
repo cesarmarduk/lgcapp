@@ -122,7 +122,8 @@ export class DashboardpropmorPage implements OnInit {
   }
   nuevaAlerta($event){
     
-    this.utilities.presentAlert('','Generar Alerta','Alerta',['OK']);
+    this.utilities.presentAlert('success','Generar Alerta',false,0); 
+ 
   
   }
   nuevoIncumplimiento($event){
@@ -173,7 +174,7 @@ export class DashboardpropmorPage implements OnInit {
            });
           },
           error => {
-              this.utilities.presentAlert('','Ha ocurrido un error al Autenticar',error['error'],['OK'])
+              this.utilities.presentAlert('info','Ha ocurrido un error al Obtener Datos',false,0); 
           });;
 
           

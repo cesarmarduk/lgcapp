@@ -5,6 +5,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { NotificationsComponent } from '../notifications/notifications.component';
 import { QuickmenuComponent } from '../quickmenu/quickmenu.component';
 import { NoticiasComponent } from '../noticias/noticias.component';
+
 import { MembersmenuComponent } from '../members/membersmenu/membersmenu.component';
 import { RouterModule } from '@angular/router';
 

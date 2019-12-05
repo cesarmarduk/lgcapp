@@ -1,6 +1,13 @@
+import { AuthenticationService } from './../../../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { UtilitiesService } from '../../../services/utilities.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Device } from '@ionic-native/device/ngx';
+interface response {
+  data:any;
+  status:any;
+  message:any;
+}
 @Component({
   selector: 'app-agregaralerta',
   templateUrl: './agregaralerta.page.html',
@@ -12,7 +19,8 @@ export class AgregaralertaPage implements OnInit {
   constructor(
     private utilities: UtilitiesService,
     private route: ActivatedRoute,
-    private router: Router) { 
+    private device: Device,
+    private authService: AuthenticationService,private router: Router) { 
 
     this.title = 'AGREGAR ALERTA';
 
@@ -21,6 +29,64 @@ export class AgregaralertaPage implements OnInit {
   ngOnInit() {
   }
   generarAlerta($event:Event  ){
-    this.utilities.presentAlert('','generarAlerta','click en generarAlerta',['OK'])
+    var fecha:any= $('#fecha_alert').val();
+    var hora:any = $('#hora_alert').val();
+    var titulo:any = $('#titulo_alert').val();
+    var descripcion:any = $('#descripcion_alert').val();
+    var uuid=this.device.uuid;
+    var arrayfecha= fecha.split('-');
+    var arrayHora= hora.split(':');
+  
+   
+    if(fecha.trim().length==0){
+      this.utilities.presentAlert('info','No puede dejar la fecha vacia',false,0); 
+      return false;
+    }
+    if(hora.trim().length==0){
+      this.utilities.presentAlert('info','Debe Asignar una hora',false,0);
+      return false;
+    }
+    if(titulo.trim().length==0){
+      this.utilities.presentAlert('info','Agregue un titulo para la alerta',false,0);
+      return false;
+    }
+    if(descripcion.trim().length==0){
+      this.utilities.presentAlert('info','No olvide una descripcion corta',false,0);
+      return false;
+    }
+    var time=new Date(arrayfecha[0],arrayfecha[1]-1,arrayfecha[2],arrayHora[0],arrayHora[1]).getTime();
+    // var ver2 = new Date(time + 5000);
+    // var ver = new Date(new Date().getTime() + 5000);
+    // console.log(ver2);
+    // console.log(ver);
+    this.utilities.peticionHttp<response>(
+                  'post',
+                  `${this.utilities.baseApiUrl}api/Alertas/agregarAlerta`,
+                  {   
+                      'fecha':fecha, 
+                      'hora':hora,
+                      'titulo':titulo,
+                      'descripcion':descripcion,
+                      'uuid':uuid,
+                      'time':time,
+                      
+                  }).pipe()
+        .subscribe(
+          data => {
+            this.utilities.openNotification(
+              data.data,
+              titulo,
+              descripcion,
+              'icon.png',
+              time
+            );
+           
+            this.utilities.presentAlert('success','Se ha enviado la informacion',false,0);
+          },
+          error => {
+            this.utilities.presentAlert('error','Ha ocurrido un error al enviar peticion',false,0); 
+
+        });
+    
   }
 }

@@ -32,19 +32,19 @@ export class SugerenciasPage implements OnInit {
     this.sugerencia=$('#sugerencia').val();
 
     if(this.nombre.trim().length==0){
-      this.utilities.presentAlert('','Error','No puede dejar vacio el nombre',['OK'],4000);
+      this.utilities.presentAlert('error','No puede dejar vacio el nombre',false,4000);
       return false;
     }
     if(this.telefono.trim().length==0){
-      this.utilities.presentAlert('','Error','No puede dejar vacio el telefono',['OK'],4000);
+      this.utilities.presentAlert('error','No puede dejar vacio el telefono',false,4000);
       return false;
     }
     if(this.email.trim().length==0){
-      this.utilities.presentAlert('','Error','No puede dejar vacio el email',['OK'],4000);
+      this.utilities.presentAlert('error','No puede dejar vacio el email',false,4000);
       return false;
     }
     if(this.sugerencia.trim().length==0){
-      this.utilities.presentAlert('','Error','No puede dejar vacia la sugerencia',['OK'],4000);
+      this.utilities.presentAlert('error','No puede dejar vacia la sugerencia',false,4000);
       return false;
     }
     this.nombre=this.nombre.trim();
@@ -58,11 +58,13 @@ export class SugerenciasPage implements OnInit {
                                         }).pipe()
     .subscribe(
         data => {
-          this.utilities.presentAlert('','Se ha enviado la informacion',data['message'],['OK'],4000)
+          this.utilities.presentAlert('success','Se ha enviado la informacion',false,0);
+         
          
         },
         error => {
-            this.utilities.presentAlert('','Ha ocurrido un error al enviar peticion',error['error'],['OK'],4000)
+          this.utilities.presentAlert('error','Ha ocurrido un error al enviar peticion',false,0);
+        
     });
    
   }

@@ -82,11 +82,7 @@ export class AuthenticationService {
                   localStorage.setItem('INFOINQMOR', JSON.stringify(this.response.infoInqMoral));
                 }
               }
-             
-             
-            // this.storage.set(CURRENTUSER, name).then(() => {
               this.authenticationState.next(true);
-            // });
           }
           return data;
         }));
@@ -110,7 +106,7 @@ export class AuthenticationService {
       
       this.storage.remove(CURRENTUSER);
       this.authenticationState.next(false);
-      this.utilities.presentAlert('','Ha Cerrado Sesion','Hasta Luego',['OK']);
+      this.utilities.presentAlert('success','Ha Cerrado Sesion',false,4000);
       this.router.navigate(['home']);
       localStorage.clear();
       this.cerrarMenu();

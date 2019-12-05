@@ -21,6 +21,6 @@ export class CalcularcreditoPage implements OnInit {
     this.utilities.doSomethingOnScroll($event);
   }
   solicitarCredito($event:Event  ){
-    this.utilities.presentAlert('','Solicitud','click en solicitud',['OK'])
+    this.utilities.presentAlert('success','click en solicitud',false,4000); 
   }
 }

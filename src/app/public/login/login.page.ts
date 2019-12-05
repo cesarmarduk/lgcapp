@@ -34,11 +34,11 @@ export class LoginPage implements OnInit {
     this.correo=$('#name').val();
     this.clave=$('#clave').val();
     if(this.correo.trim().length==0){
-      this.utilities.presentAlert('','Campos Vacios','No puede dejar vacio el correo',['OK'],4000);
+      this.utilities.presentAlert('info','No puede dejar vacio el correo',false,0); 
       return false;
     }
     if(this.clave.trim().length==0){
-      this.utilities.presentAlert('','Campos Vacios','No puede dejar vacia la clave',['OK'],4000);
+      this.utilities.presentAlert('info','No puede dejar vacia la clave',false,0);
       return false;
     }
    this.authService.login(this.correo,this.clave).pipe(first())
@@ -64,12 +64,12 @@ export class LoginPage implements OnInit {
         }
         this.router.navigateByUrl(this.url);
            if(data['status']==true){
-            this.utilities.presentAlert('','Ha iniciado Sesion',data['message'],['OK'])
+            this.utilities.presentAlert('success','Ha iniciado Sesion',false,4000);
            }
        },
        error => {
          console.log(error);
-           this.utilities.presentAlert('','Ha ocurrido un error al Autenticar',error['error'],['OK'])
+           this.utilities.presentAlert('error','Ha ocurrido un error al Autenticar',false,0);
        });;
   
   }
