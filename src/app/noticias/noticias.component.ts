@@ -9,6 +9,7 @@ class Noticias {
   autor: string;
   fecha: string;
   image: string;
+  color: string;
 }
 class NoticiasResponse {
   datos: any[];

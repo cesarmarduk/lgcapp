@@ -2,7 +2,7 @@
     <div class="search-result-container">
 						
         <div class="form-divider"></div>
-        <h4 class="font-bold font-redlgc text-center">Noticias del Mundo Inmobiliario</h4>
+        <h4 class="font-bold font-redlgc text-center">Noticias <a target="_blank" href="https://mundoinmobiliario.tv">Mundoinmobiliario.tv</a> </h4>
         <div class="form-divider"></div>
 
         <div *ngFor="let noticia of noticias">
@@ -11,7 +11,7 @@
               <img  src="{{noticia.image}}" alt="" width="100" height="100">
             </div>
             <div class="list-content">
-              <span class="list-category green">{{noticia.etiqueta}}</span>
+              <span class="list-category {{noticia.color}}">{{noticia.etiqueta}}</span>
               <h2 class="list-title"><a href="javascript:void(0)" routerLink="{{noticia.url}}">{{noticia.titulo}}</a></h2>
               <a href="javascript:void(0)" class="list-author">{{noticia.autor}}</a> - <span class="list-time">{{noticia.fecha}}</span>
             </div>

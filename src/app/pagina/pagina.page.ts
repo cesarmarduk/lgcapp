@@ -2,30 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { UtilitiesService } from '../services/utilities.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { HtmlParser } from '@angular/compiler';
 declare var jQuery:any;
 declare var $:any;
-class Noticia {
-  id: number;
-  titulo: string;
-  etiqueta: string;
-  autor: string;
-  fecha: string;
-  image: string;
-  contenido:string;
-}
-class NoticiaResponse {
+
+class PaginaResponse {
   datos: any;
 }
 @Component({
-  selector: 'app-noticia',
-  templateUrl: './noticia.page.html',
-  styleUrls: ['./noticia.page.scss'],
+  selector: 'app-pagina',
+  templateUrl: './pagina.page.html',
+  styleUrls: ['./pagina.page.scss'],
 })
-export class NoticiaPage implements OnInit {
+export class PaginaPage implements OnInit {
   id:number;
   title: string;
-  noticia: Noticia;
+ 
   mostrar:boolean=false;
   titulo: string;
   etiqueta: string;
@@ -33,18 +24,17 @@ export class NoticiaPage implements OnInit {
   fecha: string;
   image: string;
   contenido:string;
-  url:string;
-  constructor(private utilities: UtilitiesService,private rutaActiva: ActivatedRoute) { 
+  
+  constructor(private utilities: UtilitiesService,private rutaActiva: ActivatedRoute) { }
 
-    this.title = 'NOTICIA';
-  }
   ngOnInit() {
-    this.url=this.rutaActiva.snapshot.params.title;
     const that = this;
-    this.utilities.peticionHttp<NoticiaResponse>('get',`${this.utilities.baseApiUrl}api/noticias/getId/${this.url}`).pipe(first())
+    that.id=that.rutaActiva.snapshot.params.id;
+  
+    this.utilities.peticionHttp<PaginaResponse>('get',`${this.utilities.baseApiUrl}api/paginas/getId/${this.id}`).pipe(first())
     .subscribe(
       resp => {
-        that.title = resp.datos.titulo;
+        that.titulo = resp.datos.titulo;
         that.etiqueta = resp.datos.etiqueta;
         that.autor = resp.datos.autor;
         that.fecha = resp.datos.fecha;

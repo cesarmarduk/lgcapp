@@ -14,28 +14,29 @@
            
             </div>
           </div> -->
-          <div class="form-divider"></div>
-          <div class="form-divider"></div>
-          <div class="form-divider"></div>
-          <section class="bal-section container">
-              <div style="margin:auto" align="center"> <img src="assets/img/logo.png" alt=""></div>
-          </section>
-          <div class="form-divider"></div>
-          <div class="news-list-item no-image">
-              <div class="list-content  text-center">
-                  <h4 class="text-center font-black"  [innerHTML]="titulo"></h4>
-              </div>
-              <div class="list-content  text-center">
-                  <img src="{{image}}" alt="">
-              </div>
-              <div class="list-content font-16" [innerHTML]="contenido" >
-                 
-              </div>
-              <div class="list-content font-redlgc font-12" >
-                 Autor: {{autor}} - {{fecha}}
-              </div>
-          </div>
-          <app-footer></app-footer>
+            <div class="form-divider"></div>
+            <div class="form-divider"></div>
+            <div class="form-divider"></div>
+            
+            <div class="news-list-item no-image">
+                <div class="list-content  text-center">
+                    <h4 class="text-center font-black"  [innerHTML]="title"></h4>
+                </div>
+                <div class="list-content  text-center">
+                    <img src="{{image}}" alt="">
+                </div>
+                <div class="list-content font-16" [innerHTML]="contenido" >
+                    
+                </div>
+                <div class="list-content font-redlgc font-12" >
+                    Autor: {{autor}} - {{fecha}}
+                </div>
+            </div>
+                <section class="container">
+                    <div style="margin:auto" align="center"> <img src="assets/img/logo.png" alt=""></div>
+                </section>
+            <div class="form-divider"></div>
+            <app-footer></app-footer>
       </main>
       <!-- Page content end -->
     </div>

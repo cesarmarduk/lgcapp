@@ -35,9 +35,9 @@ export class HomePage implements OnInit {
     loop: false,
     spaceBetween: 0
   };
-  public slider1:string='assets/img/slider/1.jpg';
-  public slider2:string='assets/img/slider/2.jpg';
-  public slider3:string='assets/img/slider/3.jpg';
+  public slider1:string='assets/img/slider/1.png';
+  public slider2:string='assets/img/slider/2.png';
+  public slider3:string='assets/img/slider/3.png';
   public ruta : string = '/login';
   public ruta2 : string = '/solicitar-contrato';
   public lugar : string = 'home';
