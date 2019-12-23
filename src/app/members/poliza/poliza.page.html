@@ -1,0 +1,149 @@
+	
+
+  <div class="wrapper ">
+      
+    <div class="wrapper-inline" (scroll)="doSomethingOnScroll($event)">
+        <app-membersmenu></app-membersmenu>
+        <app-notifications place="{{place}}"></app-notifications>
+      
+      <!-- Page content start -->
+      <main class="margin mt-0">
+				<div class="dash-balance">
+					<div class="dash-content relative">
+						<h3 class="w-text" [innerHTML]="folio">Proteccion</h3>
+					
+					</div>
+				</div>
+				<section class="container bal-section">
+
+					<div style="display:block !important" class="form-row text-center">
+						<div class="profile-image">
+							<img class="avatar-img" alt="User Avatar" src="assets/img/avatar.png" width="100" height="100">
+							<a href="javascript:void(0);" class="update-btn"><i class="fa fa-camera"></i></a>
+						</div>
+					</div>
+
+					<div class="trader-info ">
+						<h3 class="font-black">{{folio}}</h3>
+						<p>{{lugar}}</p>
+						<ul class="trader-info-list list-unstyled radio20All">
+							<li>
+								
+								<h2 style="cursor:pointer" (click)="verIncumplimientos(folio,id)">{{incumplimientos}}</h2>
+								<small class="txt-muted">Incumplimiento (s)</small>
+							</li>
+							<li>
+						
+								<h2>${{costo}}</h2>
+								<small class="txt-muted">Costo</small>
+							</li>
+							<li>
+						
+								<h2>${{monto_renta}}</h2>
+								<small class="txt-muted">Monto de Renta</small>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<div class="info-box radio20All">
+					<div class="contact-item">
+						<i class="fa fa-calendar"></i> 
+							<b>Firma:</b> {{fecha_firma}} 
+							<a style="float:right" (click)="nuevaAlerta(folio,id)"  class="nueva-alerta" href="Javascript:void(0)" > 
+								<i class="fa fa-bell-o"></i>
+							</a>
+							{{hora_firma}} 
+						
+					</div>
+					<div class="contact-item">
+						<i class="fa fa-calendar-check-o"></i> 
+							<b>Inicio:</b> {{fecha_inicio}} 
+					</div>
+					<div class="contact-item">
+						<i class="fa fa-calendar-minus-o"></i> 
+							<b>Vencimiento:</b> {{fecha_termino}} 
+					</div>
+					<div class="contact-item">
+						<i class="fa fa-user-circle-o"></i> 
+							<b>Ejecutivo:</b> {{ejecutivo}} 
+					</div>
+					<div class="contact-item">
+						<i class="fa fa-user-o"></i> 
+							<b>Asesor:</b> {{asesor}} 
+					</div>
+					<div class="contact-item">
+						<i class="fa fa-map-marker"></i> 
+							<b>Dirección:</b> {{direccion}} 
+					</div>
+					
+				</div>
+				<section class="container">
+					<h4 class="title-main mt-5 font-20 font-black font-bold">Propietario</h4>
+					<ul class="transaction-list list-unstyled">
+						<li *ngFor="let propietario of propietarios" class="radio20All">
+							<div class="align-items-center justify-content-between">
+								<div class=" align-items-center">
+						
+										<div class="ml-12">
+												<h5 class="coin-name font-black"><b class="font-redlgc">Tipo:</b> {{propietario.tipo}} <i class="fa {{propietario.tipo=='Físico'?'fa-user-circle':'fa-building'}} float-right"></i></h5>
+											<h5 class="coin-name font-black"> <b class="font-redlgc">Nombre:</b> {{propietario.nombre}}</h5>
+											<h5 class="coin-name font-black"> <b class="font-redlgc">Teléfono:</b> {{propietario.telefono}}</h5>
+											<h5 class="coin-name font-black"> <b class="font-redlgc">Correo:</b> {{propietario.correo}}</h5>
+											<h5 class="coin-name font-black"> <b class="font-redlgc">Dirección:</b> {{propietario.direccion}}</h5>
+									
+										</div>	
+									</div>
+							</div>
+						</li>
+					</ul>
+				</section>
+				<section class="container" >
+				
+					<h4 class="title-main mt-5 font-20 font-black font-bold">Inquilino</h4>
+					<ul class="transaction-list list-unstyled">
+						<li *ngFor="let inquilino of inquilinos" class="radio20All">
+							<div class="align-items-center justify-content-between">
+								<div class=" align-items-center">
+							
+										<div class="ml-12">
+											<h5 class="coin-name font-black"><b class="font-redlgc">Tipo:</b> {{inquilino.tipo}} <i class="fa {{inquilino.tipo=='Físico'?'fa-user-circle':'fa-building'}} float-right"></i></h5>
+											<h5 class="coin-name font-black"> <b class="font-redlgc">Nombre:</b> {{inquilino.nombre}}</h5>
+											<h5 class="coin-name font-black"> <b class="font-redlgc">Teléfono:</b> {{inquilino.telefono}}</h5>
+											<h5 class="coin-name font-black"> <b class="font-redlgc">Correo:</b> {{inquilino.correo}}</h5>
+											<h5 class="coin-name font-black"> <b class="font-redlgc">Dirección:</b> {{inquilino.direccion}}</h5>
+									
+										</div>	
+									</div>
+							</div>
+						</li>
+					</ul>
+				</section>
+		
+				<section class="container">
+						<h4 class="title-main mt-5 font-20 font-black font-bold">Garante</h4>
+						<ul class="transaction-list list-unstyled">
+							<li *ngFor="let garante of garantes" class="radio20All">
+								<div class="align-items-center justify-content-between">
+										<div class=" align-items-center">
+								
+												<div class="ml-12">
+													<h5 width="100%" class="coin-name font-black"><b class="font-redlgc">Tipo:</b> {{garante.tipo}} <i class="fa {{garante.tipo=='Físico'?'fa-user-circle':'fa-building'}} float-right"></i></h5>
+													<h5 class="coin-name font-black"> <b class="font-redlgc">Nombre:</b> {{garante.nombre}}</h5>
+													<h5 class="coin-name font-black"> <b class="font-redlgc">Teléfono:</b> {{garante.telefono}}</h5>
+													<h5 class="coin-name font-black"> <b class="font-redlgc">Correo:</b> {{garante.correo}}</h5>
+													<h5 class="coin-name font-black"> <b class="font-redlgc">Dirección:</b> {{garante.direccion}}</h5>
+											
+												</div>	
+										</div>
+						
+								</div>
+							</li>
+						</ul>
+				</section>
+			
+			<app-footer></app-footer>
+			</main>
+      <!-- Page content end -->
+    </div>
+</div>	
+

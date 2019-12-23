@@ -174,7 +174,7 @@ export class DashboardpropfisPage implements OnInit {
           },
           error => {
               this.utilities.presentAlert('success','Ha ocurrido un error al Obtener Datos',false,0); 
-          });;
+          });
 
           
    

@@ -13,6 +13,7 @@ export class NotificationsComponent implements OnInit {
   @Input() valor: number;
   @Input() lugar: string;
   @Input() bell: boolean;
+  @Input() place: boolean;
   constructor() { }
 
   ngOnInit() {}

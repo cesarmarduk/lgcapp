@@ -37,7 +37,7 @@ const Swal = require('sweetalert2');
 
 */
 export class UtilitiesService {
-  public readonly baseApiUrl: string = 'https://app.legalglobalconsulting.com/'; // https://app.legalglobalconsulting.com/  http://localhost/ApiRestAPP/  
+  public readonly baseApiUrl: string = 'http://localhost/ApiRestAPP/'; // https://app.legalglobalconsulting.com/  http://localhost/ApiRestAPP/  
   public readonly user='admin';
   public readonly pwd='mexico100';
  

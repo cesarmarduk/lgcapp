@@ -22,7 +22,7 @@
                 <div class="wallet-card mr-10 yellow-back">
                     <div class="flex-column flex-md-row">
                     
-                      <h1 class="w-text">4</h1>
+                      <h1 class="w-text countRenovaciones">4</h1>
                       <p class="g-text mb-0 font-weight-medium"> Renovaciones </p>
                     </div>
                     <div class="form-divider"></div>
@@ -31,7 +31,7 @@
                 <div class="wallet-card ml-10 green-back">
                     <div class="flex-column flex-md-row">
                    
-                      <h1 class="w-text">2</h1>
+                      <h1 class="w-text countActivas">2</h1>
                       <p class="g-text mb-0 font-weight-medium"> Activas</p>
                     </div>
                     <div class="form-divider"></div>
@@ -43,7 +43,7 @@
                 <div class="wallet-card mr-10 blue-back">
                     <div class="flex-column flex-md-row">
                     
-                      <h1 class="w-text">4</h1>
+                      <h1 class="w-text countFirmas">4</h1>
                       <p class="g-text mb-0 font-weight-medium"> Proximas Firmas </p>
                     </div>
                     <div class="form-divider"></div>
@@ -52,7 +52,7 @@
                 <div class="wallet-card ml-10 lgcGradiente">
                     <div class="flex-column flex-md-row">
                    
-                      <h1 class="w-text">2</h1>
+                      <h1 class="w-text countReclamos">2</h1>
                       <p class="g-text mb-0 font-weight-medium"> Reclamos</p>
                     </div>
                     <div class="form-divider"></div>
@@ -73,9 +73,200 @@
           <div class="form-divider"></div>
           <div class="form-divider"></div>
           <section class="container">
+              <h4 class="title-main font-20 font-bold">Listado de protecciones</h4>
+              <div class="tab-item">
+              <div class="tab-menu fix-width">
+                <a class="menu-item active" href="javascript:void(0);" data-content="contentFirmadas" style="width: 33%;"><i class="fa fa-handshake-o"></i> FIRMADAS</a>
+                <a class="menu-item" href="javascript:void(0);" data-content="contentProceso" style="width: 33%;"><i class="fa fa-hourglass-start"></i> EN PROCESO</a>
+                <a class="menu-item" href="javascript:void(0);" data-content="contentRechazadas" style="width: 33%;"><i class="fa fa-history"></i> RECHAZADAS</a>
+              </div>
+              <div class="tab-menu fix-width">
+                <a class="menu-item" href="javascript:void(0);" data-content="contentFirmar" style="width: 33%;"><i class="fa fa-check-square-o"></i> x FIRMAR</a>
+                <a class="menu-item" href="javascript:void(0);" data-content="contentRenovar" style="width: 33%;"><i class="fa fa-refresh"></i> RENOVAR</a>
+       
+                <a class="menu-item" href="javascript:void(0);" data-content="contentReclamos" style="width: 33%;"><i class="fa fa-exclamation"></i> RECLAMO</a>
+              
+              </div>
+              <div class="tab-content">
+                  <div class="content-item active" id="contentFirmadas">
+  
+                      <ul *ngIf="firmadas?.length != 0" class="transaction-list list-unstyled">
+                        <li *ngFor="let poliza of firmadas" routerLink="/members/poliza/{{poliza.id}}" style="cursor:pointer" >
+                          <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                              <img class="img-xs" src="assets/img/inmueble.png" alt="coin image">
+                              <div class="ml-10">
+                                <h4 class="coin-name">{{poliza.folio}}</h4>
+                                <small class="text-muted">Vencimiento: {{poliza.fecha_termino}}</small>
+                              </div>
+                            </div>
+                            <div>
+                              <small class="d-block mb-0 txt-green">Renta: {{poliza.monto_renta}}</small>
+                              <small class="text-muted d-block">Costo: {{poliza.costo}}</small>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul *ngIf="firmadas?.length == 0" class="transaction-list list-unstyled">
+                        <li>
+                          <div class="text-center">
+                            <div class="text-center">
+                                No hay datos para mostrar
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="content-item" id="contentProceso">
+      
+                      <ul *ngIf="proceso?.length != 0" class="transaction-list list-unstyled">
+                        <li *ngFor="let poliza of proceso" routerLink="/members/poliza/{{poliza.id}}" >
+                          <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                              <img class="img-xs" src="assets/img/inmueble.png" alt="coin image">
+                              <div class="ml-10">
+                                <h4 class="coin-name">{{poliza.folio}}</h4>
+                                <small class="text-muted">Creada: {{poliza.fecha_creada}}</small>
+                              </div>
+                            </div>
+                            <div>
+                              <small class="d-block mb-0 txt-green">Renta: {{poliza.monto_renta}}</small>
+                              <small class="text-muted d-block">Costo: {{poliza.costo}}</small>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul *ngIf="proceso?.length == 0" class="transaction-list list-unstyled">
+                        <li>
+                          <div class="text-center">
+                            <div class="text-center">
+                                No hay datos para mostrar                             
+                            </div>                           
+                          </div>
+                        </li>
+                      </ul>      
+                    </div>
+                    <div class="content-item" id="contentRechazadas">                      
+                      <ul *ngIf="rechazadas?.length != 0" class="transaction-list list-unstyled">
+                        <li *ngFor="let poliza of rechazadas" routerLink="/members/poliza/{{poliza.id}}" >
+                          <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                              <img class="img-xs" src="assets/img/inmueble.png" alt="coin image">
+                              <div class="ml-10">
+                                <h4 class="coin-name">{{poliza.folio}}</h4>
+                                <small class="text-muted">Creada: {{poliza.fecha_creada}}</small>
+                              </div>
+                            </div>
+                            <div>
+                              <small class="d-block mb-0 txt-green">Renta: {{poliza.monto_renta}}</small>
+                              <small class="text-muted d-block">Costo: {{poliza.costo}}</small>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul *ngIf="rechazadas?.length == 0" class="transaction-list list-unstyled">
+                        <li>
+                          <div class="text-center">
+                            <div class="text-center">
+                                No hay datos para mostrar                             
+                            </div>                           
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                <div class="content-item" id="contentFirmar">  
+                  <ul *ngIf="xfirmar?.length != 0" class="transaction-list list-unstyled">
+                    <li *ngFor="let poliza of xfirmar" routerLink="/members/poliza/{{poliza.id}}" >
+                      <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                          <img class="img-xs" src="assets/img/inmueble.png" alt="coin image">
+                          <div class="ml-10">
+                            <h4 class="coin-name">{{poliza.folio}}</h4>
+                            <small class="text-muted">Firma: {{poliza.fecha_firma}}</small>
+                          </div>
+                        </div>
+                        <div>
+                          <small class="d-block mb-0 txt-green">Renta: {{poliza.monto_renta}}</small>
+                          <small class="text-muted d-block">Costo: {{poliza.costo}}</small>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul *ngIf="xfirmar?.length == 0" class="transaction-list list-unstyled">
+                    <li>
+                      <div class="text-center">
+                        <div class="text-center">
+                            No hay datos para mostrar                         
+                        </div>                       
+                      </div>
+                    </li>
+                  </ul>  
+                </div>
+                <div class="content-item" id="contentRenovar">  
+                  <ul *ngIf="renovar?.length != 0" class="transaction-list list-unstyled">
+                    <li *ngFor="let poliza of renovar" routerLink="/members/poliza/{{poliza.id}}" >
+                      <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                          <img class="img-xs" src="assets/img/inmueble.png" alt="coin image">
+                          <div class="ml-10">
+                            <h4 class="coin-name">{{poliza.folio}}</h4>
+                            <small class="text-muted">Vence: {{poliza.fecha_termino}}</small>
+                          </div>
+                        </div>
+                        <div>
+                          <small class="d-block mb-0 txt-green">Renta: {{poliza.monto_renta}}</small>
+                              <small class="text-muted d-block">Costo: {{poliza.costo}}</small>
+                        </div>
+                      </div>
+                    </li>                    
+                  </ul>                  
+                  <ul *ngIf="renovar?.length == 0" class="transaction-list list-unstyled text-center">
+                    <li>
+                      <div class="text-center">
+                        <div class="text-center">
+                            No hay datos para mostrar                         
+                        </div>                       
+                      </div>
+                    </li>
+                  </ul>  
+                </div>
+                <div class="content-item" id="contentReclamos">                  
+                  <ul *ngIf="reclamo?.length != 0" class="transaction-list list-unstyled">
+                    <li *ngFor="let poliza of reclamo" routerLink="/members/poliza/{{poliza.id}}" >
+                      <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                          <img class="img-xs" src="assets/img/inmueble.png" alt="coin image">
+                          <div class="ml-10">
+                            <h4 class="coin-name">{{poliza.folio}}</h4>
+                            <small class="text-muted">Reclamo: {{poliza.fecha_incumplimiento}}</small>
+                          </div>
+                        </div>
+                        <div>
+                          <small class="d-block mb-0 txt-green">Renta: {{poliza.monto_renta}}</small>
+                          <small class="text-muted d-block">Costo: {{poliza.costo}}</small>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul *ngIf="reclamo?.length == 0" class="transaction-list list-unstyled">
+                    <li>
+                      <div class="text-center">
+                        <div class="text-center">
+                            No hay datos para mostrar                         
+                        </div>                       
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            </section>
+  
+          <!-- <section class="container">
+            
             <div class="content"> 
-              <!-- <h4 class="title-main">Balance Split</h4> -->
-         
+              <!-- <h4 class="title-main">Balance Split</h4>
+              <h4 class="text-left font-black" >Listado de protecciones</h4>
               
               
               <div class="table-responsive">
@@ -110,7 +301,7 @@
               </div>
            
           </div>
-        </section>
+        </section> -->
 
        
 

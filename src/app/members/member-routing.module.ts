@@ -13,6 +13,8 @@ const routes: Routes = [
   { path: 'dashboard/propmor', loadChildren: './dashboardpropmor/dashboardpropmor.module#DashboardpropmorPageModule' },
   { path: 'dashboard/inqfis', loadChildren: './dashboardinqfis/dashboardinqfis.module#DashboardinqfisPageModule' },
   { path: 'dashboard/inqmor', loadChildren: './dashboardinqmor/dashboardinqmor.module#DashboardinqmorPageModule' },
+  { path: 'poliza/:id', loadChildren: './poliza/poliza.module#PolizaPageModule' },
+
 
 
 

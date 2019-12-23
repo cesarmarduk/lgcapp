@@ -882,6 +882,9 @@ select.form-element{
 .tab-item .menu-item{
 	line-height: 40px;
 }
+.tab-item .menu-item{
+	color:#552e35;
+}
 .tab-item .menu-item.active{
 	border-bottom: solid 2px #96a5f6;
 	color: #96a5f6;
@@ -3426,4 +3429,25 @@ footer ul li a i {
   .seeArrow{
 	color:#464646
   }
+
+  .radio20All {
+	border-radius: 20px 20px 20px 20px;
+	-moz-border-radius: 20px 20px 20px 20px;
+	-webkit-border-radius: 20px 20px 20px 20px;
+	border: 0px solid #000000;
+  }
   
+
+  .info-box{
+	background-color: #FFF;
+	margin: 10px;
+	padding: 10px;
+
+}
+.info-box .contact-item{
+	margin-bottom: 6px;
+}
+.info-box .contact-item i{
+	display: inline-block;
+	width: 20px;
+}

@@ -1,10 +1,14 @@
 <header id="contieneBack" class="no-background"> <!-- extra class no-background -->
-  <div *ngIf="!lugar">
+  <div *ngIf="!lugar&&!place">
       <a class="go-back-link" href="Javascript:void(0);" routerLink="/home"><i class="fa fa-arrow-left"></i></a>
 
   </div>
-  
-  
+    <div *ngIf="place">
+        <a class="go-back-link" href="javascript:history.back();" ><i class="fa fa-arrow-left"></i></a>
+        
+
+  </div>
+
  
   <div *ngIf="!bell" class="search-button" data-search="open">
     <img src="assets/img/content/notification1.png" class="not-icon1" alt="">

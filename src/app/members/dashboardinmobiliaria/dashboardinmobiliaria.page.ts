@@ -9,19 +9,33 @@ import 'datatables.net';
 import 'datatables.net-dt';
 declare var jQuery:any;
 declare var $:any;
-class Polizas {
+class Proteccion {
   id: number;
   folio: string;
   costo: string;
+  monto_renta: string;
   pago: number;
   admin_pago: number;
   estado_pago: number;
+  fecha_termino:any;
+  fecha_firma:any;
+  fecha_creada:any;
+  fecha_incumplimiento:any;
 }
 class DataTablesResponse {
   data: any[];
   draw: number;
   recordsFiltered: number;
   recordsTotal: number;
+}
+class polizasResponse {
+  polizasFirmadas: any[];
+  polizasProceso: any[];
+  polizasRechazadas: any[];
+  polizasXFirmar: any[];
+  polizasRenovar: any[];
+  polizasReclamo: any[];
+
 }
 
 const ASESOR = 'asesorLog';
@@ -38,8 +52,16 @@ const INQMOR = 'inqmorLog';
 export class DashboardinmobiliariaPage implements OnInit {
   dt;
   dtOptions: DataTables.Settings = {};
-  polizas: Polizas[];
+  firmadas: Proteccion[];
+  proceso: Proteccion[];
+  rechazadas: Proteccion[];
+  xfirmar: Proteccion[];
+  renovar: Proteccion[];
+  reclamo: Proteccion[];
   inmoInfo:any;
+  inmobiliaria:any;
+  tipo:any;
+  data:any;
   constructor(private storage: Storage,private authService: AuthenticationService,
               private utilities: UtilitiesService,
               private http: HttpClient,
@@ -47,8 +69,39 @@ export class DashboardinmobiliariaPage implements OnInit {
               private router: Router) { }
  
   ngOnInit() {
-    this.authService.checkToken();
     const that = this;
+    that.authService.checkToken();
+    that.inmoInfo=JSON.parse(localStorage.getItem("INFOINMOBILIARIA"));
+    that.inmobiliaria=this.inmoInfo.id; 
+    that.tipo='crm_poliza';
+    that.data={
+      tipo:that.tipo,
+      inmobiliaria:that.inmobiliaria
+
+    }
+    that.utilities.peticionHttp<polizasResponse>('post',`${this.utilities.baseApiUrl}api/polizas/getCrmPolizas/`,that.data).pipe()
+    .subscribe(
+        data => {
+          this.utilities.presentAlert('info','Se ha enviado la informacion',false,4000); 
+          that.firmadas=data.polizasFirmadas;
+          that.proceso=data.polizasProceso;
+          that.rechazadas=data.polizasRechazadas;
+          that.xfirmar=data.polizasXFirmar;
+          that.renovar=data.polizasRenovar;
+          that.reclamo=data.polizasReclamo;
+
+          $('.countRenovaciones').html(that.renovar.length);
+          $('.countActivas').html(that.proceso.length+that.firmadas.length);
+          $('.countFirmas').html(that.xfirmar.length);
+          $('.countReclamos').html(that.reclamo.length);
+          console.log(data);
+         
+        },
+        error => {
+          this.utilities.presentAlert('error','Ha ocurrido un error al enviar peticion',false,0); 
+      
+    });
+/*
     $.fn.DataTable.ext.pager.numbers_length = 7;
     this.dtOptions = {
       pagingType: 'numbers',
@@ -63,7 +116,7 @@ export class DashboardinmobiliariaPage implements OnInit {
         dataTablesParameters.inmobiliaria=this.inmoInfo.id; 
         that.http
           .post<DataTablesResponse>(
-            `${this.utilities.baseApiUrl}api/polizas/getDatatableCrmPolizas/`, //https://angular-datatables-demo-server.herokuapp.com/
+            `${, //https://angular-datatables-demo-server.herokuapp.com/
             dataTablesParameters, this.utilities.httpOptions
           ).subscribe(resp => {
             that.polizas = resp.data;
@@ -112,6 +165,7 @@ export class DashboardinmobiliariaPage implements OnInit {
         }
       }
     };
+*/
    
   }
   nuevaAlerta($event){
