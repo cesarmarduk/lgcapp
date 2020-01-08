@@ -2,65 +2,77 @@
 
   <div class="wrapper ">
       
-    <div class="wrapper-inline" (scroll)="doSomethingOnScroll($event)">
+    <div class="wrapper-inline" >
         <app-menu></app-menu>
         <app-quickmenu title="{{title}}"></app-quickmenu>
       <!-- Page content start -->
       <main class="margin mt-0">
 
-       
+        <div class="form-label-divider"><span class="back font-redlgc">Calcular Valor de Protección Jurídica</span></div><br><br>
+               
+        <div class="form-divider"></div>
+        <div class="form-label-divider"><span class="back font-redlgc">Datos</span></div>
+        <div class="form-divider"></div>
 
-          <section class="bal-section container">
-              <div style="margin:auto" align="center"> <img src="assets/img/logo.png" alt=""></div>
-           
-         
-          </section>
-       
         
           <section class="container">
             	<div class="form-row-group with-icons">
                   <div class="form-row no-padding">
                       <i class="fa fa-file-text-o"></i>
-                      <select class="form-element">
-                        <option value="">Tipo de Proteccion</option>
-                        <option value="2">Básica</option>
-                        <option value="1">Total</option>
+                      <select id="tipo_pro_cal" class="form-element">
+                        <option value="0">Tipo de Proteccion</option>
+                        <option value="1">Protección Básica</option>
+                        <option value="2">Protección Total</option>
+                        <option value="16">Protección Global</option>
+                        <option value="26">Protección Full</option>
                         
                       </select>
                   </div>
                   <div class="form-row no-padding">
                       <i class="fa fa-clock-o"></i>
-                      <select class="form-element">
+                      <select id="vigencia_cal" class="form-element">
                         <option value="">Vigencia</option>
-                        <option value="1">1 Año</option>
-                        <option value="2">2 Años</option>
-                        <option value="3">3 Años</option>
-                        <option value="4">4 Años</option>
-                        <option value="5">5 Años</option>
+                        <option value="2">Menor de 3 meses</option>
+                        <option value="3">3 meses</option>
+                        <option value="6">6 meses</option>
+                        <option value="12">12 meses</option>
+                        <option value="17">17 meses</option>
+                        <option value="21">21 meses</option>
+                        <option value="22">Mas de 21 meses</option>
                       </select>
                   </div>
                   <div class="form-row no-padding">
                     <i class="fa fa-money"></i>
-                    <input type="text" name="aaa" class="form-element" placeholder="Renta Mensual">
+                    <input type="text" id="renta_cal" name="aaa" class="form-element" placeholder="Renta Mensual">
                   </div>
                 
                 
                 
               </div>
-
 
               <div class="content"> 
                 <!-- <h4 class="title-main">Balance Split</h4> -->
-              <div class="c-panel">
-                
-                  <div class="form-row"  align="center">
+               
+                <div class="c-panel oculto" style="display:none">
+                  <div style="margin:auto" align="center"> <img src="assets/img/logo.png" alt=""></div>
+                    <div class="text-center"> <h4 class="font-bold font-redlgc " style="font-size: 22px !important" [innerHTML]="tipo" ></h4>  </div>
+                   <div class="text-center"> <h1 class="font-bold font-redlgc calculoPol" style="font-size: 40px !important" [innerHTML]="calculo" ></h1>  </div>
+                   <div class="text-center"> <h4 class="font-bold font-redlgc " style="font-size: 16px !important" [innerHTML]="validez" ></h4>  </div>
           
-                      <a style="text-align: center;background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);color:white" href="Javascript:void(0);" (click)="calcular()"  class="button circle inline block">Calcular</a>
-                    
-                  </div>
-        
+                </div>
               </div>
-            </div>
+              <div class="content"> 
+                <!-- <h4 class="title-main">Balance Split</h4> -->
+                <div class="c-panel">
+                  
+                    <div class="form-row"  align="center">
+            
+                        <a style="text-align: center;background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);color:white" href="Javascript:void(0);" (click)="calcularPro($event)"  class="button circle inline block">Calcular</a>
+                      
+                    </div>
+          
+                </div>
+              </div>
           </section>
 
      

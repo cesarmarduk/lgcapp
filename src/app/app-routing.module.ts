@@ -26,6 +26,14 @@ const routes: Routes = [
   { path: 'contacto', loadChildren: './contacto/contacto.module#ContactoPageModule' },
   { path: 'noticia/:title', loadChildren: './noticia/noticia.module#NoticiaPageModule' },
   { path: 'pagina', loadChildren: './pagina/pagina.module#PaginaPageModule' },
+  { path: 'notificaciones', loadChildren: './notificaciones/notificaciones.module#NotificacionesPageModule' },
+  { path: 'notificacion/:id', loadChildren: './notificacion/notificacion.module#NotificacionPageModule' },
+  { path: 'proteccion-global', loadChildren: './proteccionglobal/proteccionglobal.module#ProteccionglobalPageModule' },
+  { path: 'proteccion-full', loadChildren: './proteccionfull/proteccionfull.module#ProteccionfullPageModule' },
+
+
+ 
+
 
 
 

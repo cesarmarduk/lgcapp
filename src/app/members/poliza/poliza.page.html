@@ -3,8 +3,9 @@
   <div class="wrapper ">
       
     <div class="wrapper-inline" (scroll)="doSomethingOnScroll($event)">
-        <app-membersmenu></app-membersmenu>
-        <app-notifications place="{{place}}"></app-notifications>
+         <!-- <app-membersmenu></app-membersmenu> -->
+		 <app-menu></app-menu>
+        <app-notifications place="{{place}}"  urlAlertas='/members/alertas'></app-notifications>
       
       <!-- Page content start -->
       <main class="margin mt-0">
@@ -18,8 +19,8 @@
 
 					<div style="display:block !important" class="form-row text-center">
 						<div class="profile-image">
-							<img class="avatar-img" alt="User Avatar" src="assets/img/avatar.png" width="100" height="100">
-							<a href="javascript:void(0);" class="update-btn"><i class="fa fa-camera"></i></a>
+							<img class="avatar-img" alt="User Avatar" src="assets/img/notif.png" width="100" height="100">
+							<!-- <a href="javascript:void(0);" class="update-btn"><i class="fa fa-camera"></i></a> -->
 						</div>
 					</div>
 
@@ -28,19 +29,21 @@
 						<p>{{lugar}}</p>
 						<ul class="trader-info-list list-unstyled radio20All">
 							<li>
-								
-								<h2 style="cursor:pointer" (click)="verIncumplimientos(folio,id)">{{incumplimientos}}</h2>
-								<small class="txt-muted">Incumplimiento (s)</small>
+						
+								<h2>${{monto_renta}}</h2>
+								<small class="txt-muted">Renta</small>
 							</li>
 							<li>
 						
 								<h2>${{costo}}</h2>
-								<small class="txt-muted">Costo</small>
+								<small class="txt-muted">Protección</small>
 							</li>
-							<li>
-						
-								<h2>${{monto_renta}}</h2>
-								<small class="txt-muted">Monto de Renta</small>
+							
+							<li routerLink="/members/incumplimientos/{{id}}">
+								
+								<h2 style="cursor:pointer" >{{incumplimientos}}</h2>
+								<small class="txt-muted">Incumplimiento (s)</small><br>
+								<small class="txt-muted" >Agregar (+)</small>
 							</li>
 						</ul>
 					</div>
@@ -80,7 +83,7 @@
 				<section class="container">
 					<h4 class="title-main mt-5 font-20 font-black font-bold">Propietario</h4>
 					<ul class="transaction-list list-unstyled">
-						<li *ngFor="let propietario of propietarios" class="radio20All">
+						<li  *ngFor="let propietario of propietarios" class="radio20All">
 							<div class="align-items-center justify-content-between">
 								<div class=" align-items-center">
 						
@@ -90,6 +93,18 @@
 											<h5 class="coin-name font-black"> <b class="font-redlgc">Teléfono:</b> {{propietario.telefono}}</h5>
 											<h5 class="coin-name font-black"> <b class="font-redlgc">Correo:</b> {{propietario.correo}}</h5>
 											<h5 class="coin-name font-black"> <b class="font-redlgc">Dirección:</b> {{propietario.direccion}}</h5>
+									
+										</div>	
+									</div>
+							</div>
+						</li>
+						<li *ngIf="!propietarios" class="radio20All">
+							<div class="align-items-center justify-content-between">
+								<div class=" align-items-center">
+						
+										<div class="ml-12">
+												<h5 class="coin-name font-black"><b class="font-redlgc">No hay Informacion Sobre Propietarios.</b></h5>
+										
 									
 										</div>	
 									</div>
@@ -116,6 +131,18 @@
 									</div>
 							</div>
 						</li>
+						<li *ngIf="!inquilinos" class="radio20All">
+							<div class="align-items-center justify-content-between">
+								<div class=" align-items-center">
+						
+										<div class="ml-12">
+												<h5 class="coin-name font-black"><b class="font-redlgc">No hay Informacion Sobre Inquilinos.</b></h5>
+										
+									
+										</div>	
+									</div>
+							</div>
+						</li>
 					</ul>
 				</section>
 		
@@ -136,6 +163,18 @@
 												</div>	
 										</div>
 						
+								</div>
+							</li>
+							<li *ngIf="!garantes" class="radio20All">
+								<div class="align-items-center justify-content-between">
+									<div class=" align-items-center">
+							
+											<div class="ml-12">
+													<h5 class="coin-name font-black"><b class="font-redlgc">No hay Informacion Sobre Garantes.</b></h5>
+											
+										
+											</div>	
+										</div>
 								</div>
 							</li>
 						</ul>

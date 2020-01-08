@@ -3,42 +3,200 @@
   <div class="wrapper ">
       
       <div class="wrapper-inline" >
-          <app-membersmenu></app-membersmenu>
+             <!-- <app-membersmenu></app-membersmenu> -->
+        <app-menu></app-menu>
           <app-quickmenu title="{{title}}"></app-quickmenu>
         <!-- Page content start -->
         <main class="margin mt-0">
   
          
-  
-            <section class="bal-section container">
-                <div style="margin:auto" align="center"> <img src="assets/img/logo.png" alt=""></div>
-             
-           
-            </section>
-            <br>
-        
-            <div class="form-divider"></div>
-            <div class="form-divider"></div>
-            <section class="container">
-           
-          </section>
-  
-            <section class="container">
-                <div class="content"> 
-                  <!-- <h4 class="title-main">Balance Split</h4> -->
-                <div class="c-panel">
-                  
-                    <div class="form-row"  style="text-align: center">
-            
-                        <a style="text-align: center" href="javascript:void(0)" (click)="verIdOneSignal();"  class="button circle inline red">Id One Signal</a> 
+            <div class="container">
+
+                <form id="settingsForm">
+
+                    <div class="form-divider"></div>
+                    <div class="form-label-divider"><span class="font-redlgc">Avisos de Contratos </span></div>
+                    <div class="form-divider"></div>
+
+                    <div class="list-box">
+                        <div class="list-item">
+                          
+                            <span class="list-item-title">Cambio de estatus</span>
+
+                            <div class="sweet-check {{cambioStatus}}" (click)="changeStatus('cambioStatus',$event)">
+                                <input type="checkbox" name="status" id="status" value="1">
+                                <div class="outline">
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <div class="list-box" >
+                        <div class="list-item">
+                          
+                            <span class="list-item-title">Renovaciones</span>
+
+                            <div class="sweet-check {{renovaciones}}" (click)="changeStatus('renovaciones',$event)">
+                                <input type="checkbox" name="renovaciones" id="renovaciones" value="1">
+                                <div class="outline">
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-box">
+                        <div class="list-item">
+                          
+                            <span class="list-item-title">Seguimiento del Servicio</span>
+
+                            <div class="sweet-check {{seguimiento}}" (click)="changeStatus('seguimiento',$event)">
+                                <input type="checkbox" name="seguimiento" id="seguimiento" value="1">
+                                <div class="outline">
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-box">
+                        <div class="list-item">
+                          
+                            <span class="list-item-title">Reclamaciones</span>
+
+                            <div class="sweet-check {{reclamaciones}}" (click)="changeStatus('reclamaciones',$event)">
+                                <input type="checkbox" name="reclamaciones" id="reclamaciones" value="1">
+                                <div class="outline">
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                
+
+
+                </form>
+
+            </div>
+            <div class="container">
+
+                <form id="settingsForm">
+
+                    <div class="form-divider"></div>
+                    <div class="form-label-divider"><span>Notificaciones </span></div>
+                    <div class="form-divider"></div>
+
+                    <div class="list-box">
+                        <div class="list-item">
+                          
+                            <span class="list-item-title">Avisos</span>
+
+                            <div class="sweet-check {{avisos}}" (click)="changeStatus('avisos',$event)" >
+                                <input type="checkbox" name="avisos" id="avisos" value="1">
+                                <div class="outline">
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-box" >
+                        <div class="list-item">
+                          
+                            <span class="list-item-title">Eventos</span>
+
+                            <div class="sweet-check {{eventos}}" (click)="changeStatus('eventos',$event)">
+                                <input type="checkbox"  name="eventos" id="eventos" value="1">
+                                <div class="outline">
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-box">
+                        <div class="list-item">
+                          
+                            <span class="list-item-title">Cursos</span>
+
+                            <div class="sweet-check {{cursos}}" (click)="changeStatus('cursos',$event)">
+                                <input type="checkbox"  name="cursos" id="cursos" value="1">
+                                <div class="outline">
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-box">
+                        <div class="list-item">
+                          
+                            <span class="list-item-title">Webinars</span>
+
+                            <div class="sweet-check {{webinars}}" (click)="changeStatus('webinars',$event)">
+                                <input type="checkbox"  name="webinars" id="webinars" value="1">
+                                <div class="outline">
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-box">
+                        <div class="list-item">
+                          
+                            <span class="list-item-title">Actualizaciones Legales</span>
+
+                            <div class="sweet-check {{legales}}" (click)="changeStatus('legales',$event)">
+                                <input type="checkbox" name="legales" id="legales" value="1">
+                                <div class="outline">
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="list-box">
+                        <div class="list-item">
+                          
+                            <span class="list-item-title">Mundo Inmobiliario Radio</span>
+
+                            <div class="sweet-check {{radio}}" (click)="changeStatus('radio',$event)">
+                                <input type="checkbox" name="radio" id="radio" value="1">
+                                <div class="outline">
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-box">
+                        <div class="list-item">
+                          
+                            <span class="list-item-title">Promociones</span>
+
+                            <div class="sweet-check {{promociones}}" (click)="changeStatus('promociones',$event)">
+                                <input type="checkbox" name="promociones" id="promociones" value="1">
+                                <div class="outline">
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-box">
+                        <div class="list-item">
+                          
+                            <span class="list-item-title">Publicidad</span>
+
+                            <div class="sweet-check {{publicidad}}" (click)="changeStatus('publicidad',$event)">
+                                <input type="checkbox" name="publicidad" id="publicidad" value="1">
+                                <div class="outline">
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </form>
+
+            </div>
           
-                </div>
-              </div>
-            </section>
-  
-       
-  
             <app-footer></app-footer>
         </main>
         <!-- Page content end -->

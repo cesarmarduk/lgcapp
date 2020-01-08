@@ -3,16 +3,20 @@
   <div class="wrapper ">
       
     <div class="wrapper-inline" (scroll)="doSomethingOnScroll($event)">
-        <app-membersmenu></app-membersmenu>
-        <app-notifications ></app-notifications>
+        <!-- <app-membersmenu></app-membersmenu> -->
+        <app-menu></app-menu>
+        <app-notifications urlAlertas='/members/alertas' ></app-notifications>
       <!-- Page content start -->
       <main class="margin mt-0">
 
           <div class="dash-balance">
             <div class="dash-content relative">
-              <h3 class="w-text">Mis Contratos</h3>
-             
+              <h3 class="w-text">Inmobiliaria</h3>
+              <div class="notification">
+                  <a href="javascript:void(0)" [routerLink]="['/members/crear-solicitud','inmo',inmobiliaria]"><i class="fa fa-plus"></i></a>
+              </div>
             </div>
+           
           </div>
 
   
@@ -20,75 +24,82 @@
 					
             <div class="resources-card-wrapper">
                 <div class="wallet-card mr-10 yellow-back">
+                    <span style="float:right" ><img style="float:right" width="20%" src="/assets/img/renovacion.png" alt=""></span>
+                    <div class="form-divider"></div>
                     <div class="flex-column flex-md-row">
                     
-                      <h1 class="w-text countRenovaciones">4</h1>
+                      <h1 class="w-text countRenovacionesInmo">0</h1>
                       <p class="g-text mb-0 font-weight-medium"> Renovaciones </p>
                     </div>
                     <div class="form-divider"></div>
+                 
                 </div>
       
                 <div class="wallet-card ml-10 green-back">
+                    <span style="float:right" ><img style="float:right" width="20%" src="/assets/img/activas.png" alt=""></span>
+                    <div class="form-divider"></div>
                     <div class="flex-column flex-md-row">
-                   
-                      <h1 class="w-text countActivas">2</h1>
-                      <p class="g-text mb-0 font-weight-medium"> Activas</p>
+                    
+                      <h1 class="w-text countActivasInmo">0</h1>
+                      <p class="g-text mb-0 font-weight-medium"> Activa(s)</p>
                     </div>
                     <div class="form-divider"></div>
+                 
                 </div>
             
             </div>
             <br>
             <div class="resources-card-wrapper">
                 <div class="wallet-card mr-10 blue-back">
+                    <span style="float:right" ><img style="float:right" width="20%" src="/assets/img/notificacion.png" alt=""></span>
+                    <div class="form-divider"></div>
                     <div class="flex-column flex-md-row">
                     
-                      <h1 class="w-text countFirmas">4</h1>
+                      <h1 class="w-text countFirmasInmo">0</h1>
                       <p class="g-text mb-0 font-weight-medium"> Proximas Firmas </p>
                     </div>
                     <div class="form-divider"></div>
+                  
                 </div>
       
                 <div class="wallet-card ml-10 lgcGradiente">
+                    <span style="float:right" ><img style="float:right" width="20%" src="/assets/img/reclamo.png" alt=""></span>
+                    <div class="form-divider"></div>
                     <div class="flex-column flex-md-row">
                    
-                      <h1 class="w-text countReclamos">2</h1>
-                      <p class="g-text mb-0 font-weight-medium"> Reclamos</p>
+                      <h1 class="w-text countReclamosInmo">0</h1>
+                      <p class="g-text mb-0 font-weight-medium"> Reclamo(s)</p>
                     </div>
                     <div class="form-divider"></div>
+                 
                 </div>
             
             </div>
-          </section><br><br>
-          <section class="container text-right"  >
-           
-                
-            <a href="Javascript:void(0);"  routerLink="/members/alertas" class="button circle red float-left"><i class="fa fa-bell-o"></i></a>
-          
-            <a href="Javascript:void(0);" routerLink="/members/crear-solicitud" class="button circle red float-right">+ Contrato</a>
-               
-               
-             
           </section>
           <div class="form-divider"></div>
+          <section class="container">
+            <div class="form-row">
+              <a [routerLink]="['/members/crear-solicitud','inmo',inmobiliaria]" style="text-align: center;background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);color:white" href="Javascript:void(0);" class="button circle block">(+)  Solicitud Contrato  </a>
+             </div>
+          </section>
           <div class="form-divider"></div>
           <section class="container">
-              <h4 class="title-main font-20 font-bold">Listado de protecciones</h4>
+              <h4 class="title-main font-20 font-bold font-redlgc">Listado de protecciones</h4>
               <div class="tab-item">
               <div class="tab-menu fix-width">
-                <a class="menu-item active" href="javascript:void(0);" data-content="contentFirmadas" style="width: 33%;"><i class="fa fa-handshake-o"></i> FIRMADAS</a>
-                <a class="menu-item" href="javascript:void(0);" data-content="contentProceso" style="width: 33%;"><i class="fa fa-hourglass-start"></i> EN PROCESO</a>
-                <a class="menu-item" href="javascript:void(0);" data-content="contentRechazadas" style="width: 33%;"><i class="fa fa-history"></i> RECHAZADAS</a>
+                <a class="menu-item active" href="javascript:void(0);" data-content="contentFirmadasInmo" style="width: 33%;"><i class="fa fa-handshake-o"></i> FIRMADAS</a>
+                <a class="menu-item" href="javascript:void(0);" data-content="contentProcesoInmo" style="width: 33%;"><i class="fa fa-hourglass-start"></i> EN PROCESO</a>
+                <a class="menu-item" href="javascript:void(0);" data-content="contentRechazadasInmo" style="width: 33%;"><i class="fa fa-history"></i> RECHAZADAS</a>
               </div>
               <div class="tab-menu fix-width">
-                <a class="menu-item" href="javascript:void(0);" data-content="contentFirmar" style="width: 33%;"><i class="fa fa-check-square-o"></i> x FIRMAR</a>
-                <a class="menu-item" href="javascript:void(0);" data-content="contentRenovar" style="width: 33%;"><i class="fa fa-refresh"></i> RENOVAR</a>
+                <a class="menu-item" href="javascript:void(0);" data-content="contentFirmarInmo" style="width: 33%;"><i class="fa fa-check-square-o"></i> x FIRMAR</a>
+                <a class="menu-item" href="javascript:void(0);" data-content="contentRenovarInmo" style="width: 33%;"><i class="fa fa-refresh"></i> RENOVAR</a>
        
-                <a class="menu-item" href="javascript:void(0);" data-content="contentReclamos" style="width: 33%;"><i class="fa fa-exclamation"></i> RECLAMO</a>
+                <a class="menu-item" href="javascript:void(0);" data-content="contentReclamosInmo" style="width: 33%;"><i class="fa fa-exclamation"></i> RECLAMO</a>
               
               </div>
               <div class="tab-content">
-                  <div class="content-item active" id="contentFirmadas">
+                  <div class="content-item active" id="contentFirmadasInmo">
   
                       <ul *ngIf="firmadas?.length != 0" class="transaction-list list-unstyled">
                         <li *ngFor="let poliza of firmadas" routerLink="/members/poliza/{{poliza.id}}" style="cursor:pointer" >
@@ -117,7 +128,7 @@
                         </li>
                       </ul>
                     </div>
-                    <div class="content-item" id="contentProceso">
+                    <div class="content-item" id="contentProcesoInmo">
       
                       <ul *ngIf="proceso?.length != 0" class="transaction-list list-unstyled">
                         <li *ngFor="let poliza of proceso" routerLink="/members/poliza/{{poliza.id}}" >
@@ -146,7 +157,7 @@
                         </li>
                       </ul>      
                     </div>
-                    <div class="content-item" id="contentRechazadas">                      
+                    <div class="content-item" id="contentRechazadasInmo">                      
                       <ul *ngIf="rechazadas?.length != 0" class="transaction-list list-unstyled">
                         <li *ngFor="let poliza of rechazadas" routerLink="/members/poliza/{{poliza.id}}" >
                           <div class="d-flex align-items-center justify-content-between">
@@ -174,7 +185,7 @@
                         </li>
                       </ul>
                     </div>
-                <div class="content-item" id="contentFirmar">  
+                <div class="content-item" id="contentFirmarInmo">  
                   <ul *ngIf="xfirmar?.length != 0" class="transaction-list list-unstyled">
                     <li *ngFor="let poliza of xfirmar" routerLink="/members/poliza/{{poliza.id}}" >
                       <div class="d-flex align-items-center justify-content-between">
@@ -202,7 +213,7 @@
                     </li>
                   </ul>  
                 </div>
-                <div class="content-item" id="contentRenovar">  
+                <div class="content-item" id="contentRenovarInmo">  
                   <ul *ngIf="renovar?.length != 0" class="transaction-list list-unstyled">
                     <li *ngFor="let poliza of renovar" routerLink="/members/poliza/{{poliza.id}}" >
                       <div class="d-flex align-items-center justify-content-between">
@@ -230,7 +241,7 @@
                     </li>
                   </ul>  
                 </div>
-                <div class="content-item" id="contentReclamos">                  
+                <div class="content-item" id="contentReclamosInmo">                  
                   <ul *ngIf="reclamo?.length != 0" class="transaction-list list-unstyled">
                     <li *ngFor="let poliza of reclamo" routerLink="/members/poliza/{{poliza.id}}" >
                       <div class="d-flex align-items-center justify-content-between">

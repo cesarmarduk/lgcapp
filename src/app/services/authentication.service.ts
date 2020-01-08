@@ -103,12 +103,22 @@ export class AuthenticationService {
   }
   logout() {
     return this.storage.remove(TOKEN_KEY).then(() => {
-      
       this.storage.remove(CURRENTUSER);
       this.authenticationState.next(false);
+      localStorage.removeItem('INFOASESOR');
+      localStorage.removeItem('INFOINMOBILIARIA');
+      localStorage.removeItem('INFOPROPFIS');
+      localStorage.removeItem('INFOPROPMOR');
+      localStorage.removeItem('INFOINQFIS');
+      localStorage.removeItem('INFOINQMOR');
+      localStorage.removeItem(ASESOR);
+      localStorage.removeItem(INMOBILIARIA);
+      localStorage.removeItem(PROPFIS);
+      localStorage.removeItem(PROPMOR);
+      localStorage.removeItem(INQFIS);
+      localStorage.removeItem(INQMOR);
       this.utilities.presentAlert('success','Ha Cerrado Sesion',false,4000);
       this.router.navigate(['home']);
-      localStorage.clear();
       this.cerrarMenu();
     });
   }

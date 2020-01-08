@@ -19,34 +19,35 @@ export class MenuComponent implements OnInit {
   public lugar : string = 'home';
   isConnected = false;
   authenticate: boolean = false; 
-  perfilAsesor:boolean;
-  perfilInmo:boolean;
-  perfilPropFis:boolean;
-  perfilPropMor:boolean;
-  perfilInqFis:boolean;
-  perfilInqMor:boolean;
+  perfilAsesor:boolean = false;
+  perfilInmo:boolean = false;
+  perfilPropFis:boolean = false;
+  perfilPropMor:boolean = false;
+  perfilInqFis:boolean = false;
+  perfilInqMor:boolean = false;
   constructor(private authService: AuthenticationService,private utilities: UtilitiesService,private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this._activatedRoute.paramMap.subscribe(() => {
       if(localStorage.getItem('inqfisLog')=='true'){
-        this.ruta='/members/dashboard/inqfis';
+        this.perfilInqFis=true;
       }
       if(localStorage.getItem('inqmorLog')=='true'){
-        this.ruta='/members/dashboard/inqmor';
+        this.perfilInqMor=true;
       }
       if(localStorage.getItem('propfisLog')=='true'){
-        this.ruta='/members/dashboard/propfis';
+        this.perfilPropFis=true;
       }
       if(localStorage.getItem('propmorLog')=='true'){
-        this.ruta='/members/dashboard/propmor';
+        this.perfilPropMor=true;
       }
       if(localStorage.getItem('inmobiliariaLog')=='true'){
-        this.ruta='/members/dashboard/inmobiliaria';
+        this.perfilInmo=true;
       }
       if(localStorage.getItem('asesorLog')=='true'){
-        this.ruta='/members/dashboard/asesor';
+        this.perfilAsesor=true;
       }
+  
       if((this.authService.isAuthenticated()==true)){
         
         this.authenticate=true;
@@ -54,7 +55,7 @@ export class MenuComponent implements OnInit {
         this.titulo  = 'Cerrar Sesion';
     
       
-        this.ruta2='/members/crear-solicitud';
+        this.ruta2='/solicitar-contrato';
       }else{
           this.titulo  = 'Iniciar Sesion';
           this.authenticate=false;
@@ -71,7 +72,10 @@ export class MenuComponent implements OnInit {
   }
 
   logout() {
-    this.authService.logout();
+    this.authService.logout().then(() => {
+      this.authenticate=false;
+    });
+  
   }
 
 
@@ -109,7 +113,7 @@ export class MenuComponent implements OnInit {
       {
         $('nav.menu ul.main-menu ul').slideUp('fast');
         $('nav.menu ul.main-menu > li').removeClass('active');
-        that.parent().addClass('active');
+     //   that.parent().addClass('active');
       }
 	}
 

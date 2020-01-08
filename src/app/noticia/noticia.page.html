@@ -2,7 +2,7 @@
 
   <div class="wrapper ">
       
-    <div class="wrapper-inline" (scroll)="doSomethingOnScroll($event)">
+    <div class="wrapper-inline" >
         <app-menu></app-menu>
         <app-quickmenu title="{{title}}"></app-quickmenu>
       <!-- Page content start -->
@@ -14,10 +14,14 @@
            
             </div>
           </div> -->
-            <div class="form-divider"></div>
-            <div class="form-divider"></div>
-            <div class="form-divider"></div>
-            
+         
+            <section class="container">
+           
+                <div style="" align="center"> <img src="assets/img/mundoinmobiliario.png" alt=""></div>
+             
+           
+            </section>
+         
             <div class="news-list-item no-image">
                 <div class="list-content  text-center">
                     <h4 class="text-center font-black"  [innerHTML]="title"></h4>
@@ -32,10 +36,7 @@
                     Autor: {{autor}} - {{fecha}}
                 </div>
             </div>
-                <section class="container">
-                    <div style="margin:auto" align="center"> <img src="assets/img/logo.png" alt=""></div>
-                </section>
-            <div class="form-divider"></div>
+           
             <app-footer></app-footer>
       </main>
       <!-- Page content end -->

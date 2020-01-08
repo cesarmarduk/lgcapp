@@ -9,20 +9,33 @@ import 'datatables.net';
 import 'datatables.net-dt';
 declare var jQuery:any;
 declare var $:any;
-class Polizas {
+class Proteccion {
   id: number;
   folio: string;
   costo: string;
+  monto_renta: string;
   pago: number;
   admin_pago: number;
   estado_pago: number;
+  fecha_termino:any;
+  fecha_firma:any;
+  fecha_creada:any;
+  fecha_incumplimiento:any;
 }
-
 class DataTablesResponse {
   data: any[];
   draw: number;
   recordsFiltered: number;
   recordsTotal: number;
+}
+class polizasResponse {
+  polizasFirmadas: any[];
+  polizasProceso: any[];
+  polizasRechazadas: any[];
+  polizasXFirmar: any[];
+  polizasRenovar: any[];
+  polizasReclamo: any[];
+
 }
 
 const ASESOR = 'asesorLog';
@@ -39,8 +52,16 @@ const INQMOR = 'inqmorLog';
 export class DashboardpropmorPage implements OnInit {
   dt;
   dtOptions: DataTables.Settings = {};
-  polizas: Polizas[];
+  firmadas: Proteccion[];
+  proceso: Proteccion[];
+  rechazadas: Proteccion[];
+  xfirmar: Proteccion[];
+  renovar: Proteccion[];
+  reclamo: Proteccion[];
   propmorInfo:any;
+  propmor:any;
+  tipo:any;
+  data:any;
   constructor(private storage: Storage,private authService: AuthenticationService,
               private utilities: UtilitiesService,
               private http: HttpClient,
@@ -48,83 +69,41 @@ export class DashboardpropmorPage implements OnInit {
               private router: Router) { }
  
   ngOnInit() {
-    this.authService.checkToken();
     const that = this;
-   
-    $.fn.DataTable.ext.pager.numbers_length = 7;
-
-    
-    this.dtOptions = {
-      pagingType: 'numbers',
-      pageLength: 10,
-      lengthChange:false,
-      serverSide: true,
-      processing: true,
-      autoWidth: false,
-      ajax: (dataTablesParameters: any, callback) => {
-        dataTablesParameters.tipo='crm_poliza';
-        this.propmorInfo=JSON.parse(localStorage.getItem("INFOPROPMOR"));
-        dataTablesParameters.propmor=this.propmorInfo.idextra; 
-        that.http
-          .post<DataTablesResponse>(
-            `${this.utilities.baseApiUrl}api/polizas/getDatatableCrmPolizas/`, //https://angular-datatables-demo-server.herokuapp.com/
-            dataTablesParameters, this.utilities.httpOptions
-          ).subscribe(resp => {
-            that.polizas = resp.data;
-            callback({
-              recordsTotal: resp.recordsTotal,
-              recordsFiltered: resp.recordsFiltered,
-              data: []
-            });
-           
-          });
-      },
-      columns: [{ 
-          data:'id',
-       
-        }, 
-        { data: 'folio' }, 
-        { data: 'costo' },
-        { data: 'pago' }, 
-        { data: 'admin_pago' }, 
-        { data: 'estado_pago'}, ],
-       // Use this attribute to enable the responsive extension
-       columnDefs: [
-        { "orderable": false, "targets": [0,1,2,3,4,5] }
-      ],
-      responsive: true,
-      language:{
-        "decimal":        "",
-        "emptyTable":     "No hay pólizas para mostrar",
-        "info":           "Mostrando _START_ a _END_ de _TOTAL_",
-        "infoEmpty":      "",
-        "infoFiltered":   "(filtrados de _MAX_ pólizas)",
-        "infoPostFix":    "",
-        "thousands":      ",",
-        "lengthMenu":     "Mostrando _MENU_ pólizas",
-        "loadingRecords": "Cargando...",
-        "processing":     "Procesando...",
-        "search":         "",
-        "zeroRecords":    "No se encontraron coincidencias",
-        "paginate": {
-            "first":      "Primera",
-            "last":       "Ultima",
-            "next":       "Siguiente",
-            "previous":   "Anterior"
-        },
-        "aria": {
-            "sortAscending":  ": Activa para ordenar de forma Ascendente",
-            "sortDescending": ": Activa para ordenar de forma Descendienci"
-        }
-      }
-    };
-   
-  }
-  nuevaAlerta($event){
-    
-    this.utilities.presentAlert('success','Generar Alerta',false,0); 
+    that.authService.checkToken();
  
-  
+    
+ 
+   
+    that.propmorInfo=JSON.parse(localStorage.getItem("INFOPROPMOR"));
+    that.propmor=this.propmorInfo.idextra; 
+    that.tipo='crm_poliza';
+    that.data={
+      tipo:that.tipo,
+      propmor:that.propmor
+
+    }
+    that.utilities.peticionHttp<polizasResponse>('post',`${this.utilities.baseApiUrl}api/polizas/getCrmPolizas/`,that.data).pipe()
+    .subscribe(
+        data => {
+        //  this.utilities.presentAlert('info','Se ha enviado la informacion',false,4000); 
+          that.firmadas=data.polizasFirmadas;
+          that.proceso=data.polizasProceso;
+          that.rechazadas=data.polizasRechazadas;
+          that.xfirmar=data.polizasXFirmar;
+          that.renovar=data.polizasRenovar;
+          that.reclamo=data.polizasReclamo;
+
+          $('.countRenovacionesPropmor').html(that.renovar.length);
+          $('.countActivasPropmor').html(that.proceso.length+that.firmadas.length);
+          $('.countFirmasPropmor').html(that.xfirmar.length);
+          $('.countReclamosPropmor').html(that.reclamo.length);
+      
+        },
+        error => {
+          this.utilities.presentAlert('error','Ha ocurrido un error al enviar peticion',false,0); 
+      
+    });
   }
   nuevoIncumplimiento($event){
     var polId=$($event.currentTarget).data('id');
@@ -136,59 +115,17 @@ export class DashboardpropmorPage implements OnInit {
             folio:folio 
           } 
         }
-  
     this.router.navigate(['/members/crear-incumplimiento'],datos);
    // this.utilities.presentAlert('','Se va a crear incumplimiento','Crear',['OK']);
-  
   }
  
-  seeDetails($event){
-    var that=this;
-    var td=$event.currentTarget;
-    var tr = $(td).parents('tr').attr('id');
-    var id=tr.split('_')[1];
-    if($(`#child_${id}`).length!=0){ //Si ya existe
-      if($(`#child_${id}`).is(':visible')){ //checkeo si es visible
-        $(td).html('&oplus;');
-        $(`#child_${id}`).hide('slow'); // si es visible, lo escono
-        $(`.td_${id}`).css("font-weight","normal")
-      }else{ 
-        $(td).html('&CircleMinus;');
-        $(`#child_${id}`).show('slow');   //si no es visible, lo muestro
-        $(`.td_${id}`).css("font-weight","bold")
-      }    
-    }else{
-      this.utilities.peticionHttp('get',`${this.utilities.baseApiUrl}api/polizas/getPolizaDetailsById/${id}`).pipe(first())
-      .subscribe(
-          data => {
-        //   console.log(data);
-           $(`#${tr}`).after(this.utilities.format(data)); //si no existe lo creo
-           $(td).html('&CircleMinus;');
-           $(`.td_${id}`).css("font-weight","bold")
-           $(`#child_${id}`).show('slow');
-           $( `.nuevo-inc`).bind( "click", function(e) {
-              that.nuevoIncumplimiento(e);
-           });
-           $( `.nueva-alerta`).bind( "click", function(e) {
-              that.nuevaAlerta(e);
-           });
-          },
-          error => {
-              this.utilities.presentAlert('info','Ha ocurrido un error al Obtener Datos',false,0); 
-          });;
-
-          
-   
-    }
-  
-  }
   logout() {
     this.authService.logout();
   }
  
   doSomethingOnScroll($event:Event  ){
-
     this.utilities.doSomethingOnScroll($event);
-  
   }
 }
+
+

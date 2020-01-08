@@ -3,12 +3,12 @@
 
   <div class="wrapper ">
       
-      <div class="wrapper-inline" (scroll)="doSomethingOnScroll($event)">
+      <div class="wrapper-inline" id="home-wapper" (scroll)="doSomethingOnScroll($event)">
      
           <app-menu></app-menu>
            <!-- Header area start -->
         
-          <app-notifications  lugar="{{lugar}}"></app-notifications>
+          <app-notifications  lugar="{{lugar}}" urlAlertas='{{urlAlertas}}'></app-notifications>
    
         <!-- Page content start -->
         <main class="margin mt-0">
@@ -57,10 +57,11 @@
                 </div>
                 </div>
             </section>-->
+            <div class="form-divider"></div>
             <section class="container">
                 <div class="content"> 
                   <!-- <h4 class="title-main">Balance Split</h4> -->
-                <div class="c-panel">
+                <div class="c-panel bordesRedondeados">
                   
                     <div class="row align-items-center">
                         <div class="col-4 col-sm-4" routerLink="/calcular-proteccion">
@@ -97,7 +98,7 @@
                         </div> -->
                         <div class="col-4 col-sm-4" [(routerLink)]="ruta2">
                             <div class="split-list text-center">
-                                <span style="font-size:42px" class="fa fa-edit" ></span>
+                                <span style="font-size:42px" class="fa fa-handshake-o" ></span>
                                 <a href="javascript:void(0);" ><h6 style="font-size:15px" class="info-label">Solicitar Protección</h6></a>
                             </div>
                         </div>
@@ -110,7 +111,7 @@
                         <div class="col-4 col-sm-4" routerLink="/calcular-credito">
                             <div class="split-list text-center">
                                 <span style="font-size:42px" class="fa fa-money" ></span>
-                                <a href="javascript:void(0);" ><h6 style="font-size:15px" class="info-label">Calcular Crédito</h6></a>
+                                <a href="javascript:void(0);" ><h6 style="font-size:15px" class="info-label">Tu Hipoteca Fácil</h6></a>
                             </div>
                         </div>
                         <div class="col-4 col-sm-4" routerLink="/calcular-irs">

@@ -226,7 +226,7 @@ export class PolizaPage implements OnInit {
         that.correoEjecutivo=  resp.correoEjecutivo;
         that.correoInmobiliaria=  resp.correoInmobiliaria;
         that.inmobiliaria=  resp.inmobiliaria;
-     
+        
       },
       error => {
         that.utilities.presentAlert('info','Error al Obtener Datos, Comprueba tu conexión a internet :(',false,0);  

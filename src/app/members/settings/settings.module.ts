@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { SettingsPage } from './settings.page';
 import { SharedModuleModule } from '../../shared-module/shared-module.module';
+
 const routes: Routes = [
   {
     path: '',

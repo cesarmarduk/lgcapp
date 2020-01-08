@@ -7,48 +7,13 @@ $(document).ready(function(){
 		navMenuOpen();
 	});
 
-	$('.nav-menu').on('click', function(e){
-		if ($(e.target).hasClass('nav-menu')){
-			navMenuClose();
-		}
-	});
+	// $('.nav-menu').on('click', function(e){
+	// 	if ($(e.target).hasClass('nav-menu')){
+	// 		navMenuClose();
+	// 	}
+	// });
 
-	$('nav.menu ul.main-menu>li>a').on('click', function(e){
-		var that = $(this);
-		if (that.parent().find('ul:first').length)
-		{
-			e.preventDefault();
-			if (!that.parent().hasClass('active'))
-			{
-				$('nav.menu ul.main-menu ul').slideUp('fast',function(){
-					$('nav.menu ul.main-menu > li').removeClass('active');
-				});
-				
-				$('nav.menu ul li a span').removeClass('fa-angle-up').addClass('fa-angle-down');
 
-				
-				that.parent().find('ul:first').slideDown('fast',function(){
-					that.parent().addClass('active');
-				});
-
-				that.find('span').removeClass('fa-angle-down').addClass('fa-angle-up');
-			}
-			else
-			{
-				
-				that.parent().find('ul:first').slideUp('fast',function(){
-					$(this).parent().removeClass('active');
-				});
-				that.find('span').removeClass('fa-angle-up').addClass('fa-angle-down');
-			}
-		}
-		else
-		{
-			$('nav.menu ul.main-menu ul').slideUp('fast');
-			$('nav.menu ul.main-menu > li').removeClass('active');
-			that.parent().addClass('active');
-		}
-	});
 
 
 	$('.tab-item .fix-width .menu-item').css({'width': 100/$('.tab-item .fix-width .menu-item').length+'%'});
@@ -263,14 +228,14 @@ if($('.swiper-container').length || $('.swiper-recievers').length){
 // Map
 // ------------------------------------------------------ //
 
-function initMap() {
-    var coords = {lat: 40.7127837, lng: -74.00594130000002};
-    var map = new google.maps.Map(document.getElementById('map'), {
-      	zoom: 17,
-      	center: coords
-    });
-    var marker = new google.maps.Marker({
-      	position: coords,
-      	map: map
-    });
-}
+// function initMap() {
+//     var coords = {lat: 40.7127837, lng: -74.00594130000002};
+//     var map = new google.maps.Map(document.getElementById('map'), {
+//       	zoom: 17,
+//       	center: coords
+//     });
+//     var marker = new google.maps.Marker({
+//       	position: coords,
+//       	map: map
+//     });
+// }

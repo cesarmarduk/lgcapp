@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilitiesService } from '../../services/utilities.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { Device } from '@ionic-native/device/ngx';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { first } from 'rxjs/operators';
 import 'datatables.net';
@@ -33,10 +33,11 @@ export class AlertasPage implements OnInit {
   dt;
   dtOptionss: DataTables.Settings = {};
   alertas: Alertas[];
+  uuid=this.device.uuid;
   constructor(
     private utilities: UtilitiesService,
     private route: ActivatedRoute,
-    private router: Router,
+    private router: Router, private device: Device,
     private http: HttpClient,) { 
 
     this.title = 'ALERTAS';
@@ -59,6 +60,7 @@ export class AlertasPage implements OnInit {
      
       ajax: (dataTablesParameters: any, callback) => {
         dataTablesParameters.tipo='alertas';
+        dataTablesParameters.uuid=this.uuid;
         that.http
           .post<DataTablesResponse>(
             `${this.utilities.baseApiUrl}api/alertas/getDatatableAlertas/`, //https://angular-datatables-demo-server.herokuapp.com/

@@ -41,6 +41,7 @@ export class HomePage implements OnInit {
   public ruta : string = '/login';
   public ruta2 : string = '/solicitar-contrato';
   public lugar : string = 'home';
+  public urlAlertas : string = '/alertas-ss';
   isConnected = false;
 
   constructor(private authService: AuthenticationService,private utilities: UtilitiesService,  
@@ -72,11 +73,15 @@ export class HomePage implements OnInit {
           this.ruta='/members/dashboard/asesor';
         }
       
-        this.ruta2='/members/crear-solicitud';
+       // this.ruta2='/members/crear-solicitud';
+        this.ruta2='/solicitar-contrato';
+        this.urlAlertas='/members/alertas';
       }else{
+          this.urlAlertas='/alertas-ss';
           this.ruta='/login';
           this.ruta2='/solicitar-contrato';
       }
+      this.fixScroll();
     })
 
     const that = this;
@@ -100,13 +105,24 @@ export class HomePage implements OnInit {
     });*/
   }
  
-  simpleNotif() {
-    this.utilities.openNotification(
-      2,
-      'Titulo',
-      'Descripcion',
-      'icon.jpg'
-    );
+
+  fixScroll(){
+    var ele =$('#home-wapper');
+    var scrollOffset = ele.scrollTop;
+    $('.no-background').each( function( index, element ){
+      if (scrollOffset > 70) {
+        element.classList.add("set-bg");
+      } else {
+        element.classList.remove("set-bg");
+      }
+    }); 
+    $('.fa-arrow-left').each( function( index, element ){
+      if (scrollOffset > 70) {
+        element.classList.add("seeArrow");
+      } else {
+        element.classList.remove("seeArrow");
+      }
+    }); 
   }
   
   getTime(){

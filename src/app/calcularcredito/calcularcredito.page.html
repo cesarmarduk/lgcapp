@@ -2,70 +2,82 @@
 
   <div class="wrapper ">
       
-    <div class="wrapper-inline" (scroll)="doSomethingOnScroll($event)">
+    <div class="wrapper-inline" >
         <app-menu></app-menu>
         <app-quickmenu title="{{title}}"></app-quickmenu>
       <!-- Page content start -->
       <main class="margin mt-0">
 
       
-          <section class="bal-section container">
-              <div style="margin:auto" align="center"> <img src="assets/img/logo.png" alt=""></div>
-           
-         
-          </section>
-       
-        
-     
-          <br>
           <section class="container">
                
                 <div class="form-divider"></div>
-                <div class="form-label-divider"><span class="back">Calcular Crédito</span></div>
+                <div class="form-label-divider"><span class="back font-redlgc">Calcular Crédito</span></div>
                 <div class="form-divider"></div>
-          
+                <h4 class="title-main font-redlgc text-center"> El crédito hipotecario hace tu futuro presente</h4>
+                
                 <div class="form-row-group with-icons">
+                   
+                  
+
+                   <div class="form-row no-padding">
+                      <i class="fa fa-money"></i>
+                      <input type="text" name="valor_vivienda" id="valor_vivienda" class="form-element" placeholder="Valor de la Vivienda">
+                    </div>
+                  
+                
+                    <div class="form-row no-padding">
+                      <i class="fa fa-dollar"></i>
+                      <input type="text" name="credito_deseado" id="credito_deseado" class="form-element" placeholder="Crédito Deseado">
+                    </div>
                     <div class="form-row no-padding">
                         <i class="fa fa-calendar"></i>
-                        <select class="form-element">
+                        <select id="plazo_credito" class="form-element">
                           <option value="">Plazo del Crédito</option>
-                          <option value="20 años">20 años</option>
+                          <option value="10">10 años</option>
+                          <option value="15">15 años</option>
+                          <option value="20">20 años</option>
                       
                         </select>
                     </div>
-                
-                    <div class="form-row no-padding">
-                      <i class="fa fa-money"></i>
-                      <input type="text" name="credito_deseado" id="credito_deseado" class="form-element" placeholder="Crédito Deseado">
-                    </div><br>
-                    <div class="form-row no-padding">
-                      <label for="">PAGO INICIAL "ENGANCHE": <span class="pago_inicial font-16">20 $</span></label>
-                    </div>
-                    <div class="form-row no-padding">
-                      <label for="">INGRESO MINIMO MENSUAL: <span class="pago_inicial font-16">20 $</span></label>
-                    </div>
-                    <div class="form-row no-padding">
-                      <label for="">MENSUALIDAD: <span class="pago_inicial font-16">20 $</span></label>
-                    </div><br>
+                  
                     <div class="form-row no-padding">
                         <i class="fa fa-user"></i>
-                        <input type="text" name="nombre_credito" id="nombre_credito" class="form-element" placeholder="Nombre Completo">
+                        <input type="text" name="nombre_credito" id="nombre_asesoria" class="form-element" placeholder="Nombre Completo">
                     </div>
                     <div class="form-row no-padding">
                       <i class="fa fa-phone"></i>
-                      <input type="text" name="telefono_credito" id="telefono_credito" class="form-element" placeholder="Teléfono">
+                      <input type="text" name="telefono_credito" id="telefono_asesoria" class="form-element" placeholder="Teléfono">
                     </div>
                     <div class="form-row no-padding">
                       <i class="fa fa-envelope"></i>
-                      <input type="text" name="email_credito" id="email_credito" class="form-element" placeholder="Email">
+                      <input type="text" name="email_credito" id="email_asesoria" class="form-element" placeholder="Email">
+                    </div>
+                    <br>
+                   
+                    <div class="form-divider escondido" style="display:none"></div>
+                    <div class="form-row no-padding escondido" style="display:none">
+                      <label for="">PLAZO DEL CRÉDITO: <span class="ingreso_minimo font-16 font-bold font-redlgc" [innerHTML]="plazo_credito"  ></span></label>
                     </div>
                   
+                    <div class="form-row no-padding escondido" style="display:none">
+                      <label for="">INGRESO MINIMO MENSUAL: <span class="ingreso_minimo font-16 font-bold font-redlgc" [innerHTML]="ingreso_min"  ></span></label>
+                    </div>
+                    <div class="form-row no-padding escondido" style="display:none">
+                      <label for="">MENSUALIDAD: <span class="mensualidad font-16 font-bold font-redlgc"  [innerHTML]="mensualidad" ></span></label>
+                    </div>
+                    <div class="form-divider escondido" style="display:none"></div>
+                    <div class="form-row no-padding escondido text-center mensaje font-redlgc">
+                        Te dejamos una  simulación aproximada
+                              que puede variar de acuerdo a tu perfil una vez analizada tu documentación y Reporte de Buró de Crédito
+
+                    </div><br>
                 </div>
            
                 <div class="form-divider"></div>
 
                 <div class="form-row">
-                    <a style="text-align: center;background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);color:white" href="Javascript:void(0);" (click)="solicitarCredito($event)" class="button circle block">Solicitar Crédito</a>
+                    <a style="text-align: center;background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);color:white" href="Javascript:void(0);" (click)="calcularCredito($event)" class="button circle block">Solicitar Asesoria</a>
                 </div>
 
           </section>      

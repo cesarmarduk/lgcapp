@@ -1,0 +1,46 @@
+	
+
+  <div class="wrapper ">
+      
+      <div class="wrapper-inline" >
+          <app-menu></app-menu>
+          <app-quickmenu title="NOTIFICACIONES"></app-quickmenu>
+        <!-- Page content start -->
+        <main class="margin mt-0">
+  
+            <!-- <div class="dash-balance">
+              <div class="dash-content relative">
+                <h3 class="w-text">Noticia {{noticia}}</h3>
+             
+              </div>
+            </div> -->
+            <div class="form-divider"></div>
+            <div class="form-label-divider font-redlgc"><span class="back font-redlgc">Notificaciones</span></div>
+            <div class="form-divider "></div>
+            <div style="padding:10px" class="sombra-baja" *ngFor="let notificacion of notificaciones" routerLink="/notificacion/{{notificacion.id}}">
+              <div class="justify-content-between"  >
+                <div>
+                  
+                  <div  style="text-align: justify" class="ml-10">
+                    <h4 class="font-16 font-redlgc font-bold">{{notificacion.title}}a</h4>
+                    <div class="form-mini-divider"></div>
+                    <span class="font-14 ">{{notificacion.body}}</span>
+                  
+                  </div>
+                
+                </div>
+              
+              </div>
+              <small style="float:right" class="font-redlgc">{{notificacion.fecha}}</small>
+              <div class="form-mini-divider"></div>
+            </div>
+    
+           
+          
+            <app-footer></app-footer>
+        </main>
+        <!-- Page content end -->
+      </div>
+  </div>	
+  
+  

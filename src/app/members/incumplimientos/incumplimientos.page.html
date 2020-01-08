@@ -1,0 +1,96 @@
+	
+
+  <div class="wrapper ">
+      
+      <div class="wrapper-inline" (scroll)="doSomethingOnScroll($event)">
+         <!-- <app-membersmenu></app-membersmenu> -->
+         <app-menu></app-menu>
+        <app-notifications place="{{place}}" urlAlertas='/members/alertas'></app-notifications>
+        <!-- Page content start -->
+        <main class="margin mt-0">
+  
+            <div class="dash-balance">
+              <div class="dash-content relative">
+                <h3 class="w-text">Incumplimientos</h3>
+                <div class="notification">
+                    <a href="javascript:void(0)" [routerLink]="['/members/crear-incumplimiento',polId]"><i class="fa fa-plus"></i></a>
+                </div>
+              </div>
+            </div>
+          
+        
+            <section class="bal-section container">
+            
+              <div class="resources-card-wrapper">
+                  <div class="wallet-card mr-10 round green-back">
+                      <div class="flex-column flex-md-row">
+                      
+                        <h1 class="w-text">{{abiertos}}</h1>
+                        <p class="g-text mb-0 font-weight-medium"> Abierto(s) </p>
+                      </div>
+                  </div>
+        
+                  <div class="wallet-card ml-10 blue-back">
+                      <div class="flex-column flex-md-row">
+                     
+                        <h1 class="w-text">{{cerrados}}</h1>
+                        <p class="g-text mb-0 font-weight-medium"> Cerrado(s)</p>
+                      </div>
+                  </div>
+              </div>
+              
+            </section>
+            <div class="form-divider"></div>
+            <section class="container">
+              <div class="form-row">
+                <a [routerLink]="['/members/crear-incumplimiento',polId]" style="text-align: center;background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);color:white" href="Javascript:void(0);" class="button circle block">(+) Incumplimiento </a>
+               </div>
+            </section>
+         
+            <div class="form-divider"></div>
+            <section class="container">
+              <div class="content"> 
+                <!-- <h4 class="title-main">Balance Split</h4> -->
+           
+                
+                
+                <div class="table-responsive">
+                    <table datatable [dtOptions]="dtOptions" class="row-border hover" id="polizas-tabla" style="width: 100% !important">
+                      <thead>
+                        <tr>
+                          <th class="th sorting_disabled" style="max-width: 40px"></th>
+                          <th class="th">Parte</th>
+                          <th class="th">Asunto</th>
+                          <th class="th">Accion</th>
+                     
+                        </tr>
+                      </thead>
+                      <tbody *ngIf="incumplimientos?.length != 0">
+                          <tr id="dttr_{{ incumplimiento.id }}" *ngFor="let incumplimiento of incumplimientos">
+                              <td id="details_button" class="details-control td_{{ incumplimiento.id }}" (click)="seeDetails($event)">&oplus;</td>
+                              <td class="td_{{ incumplimiento.id }}">{{ incumplimiento.incumple }}</td>
+                              <td class="td_{{ incumplimiento.id }}">{{ incumplimiento.asunto }}</td>
+                              <td class="td_{{ incumplimiento.id }}">{{ incumplimiento.accion }}</td>
+                            
+                          </tr>
+                      </tbody>
+                      <tbody *ngIf="incumplimientos?.length == 0">
+                        <tr>
+                          <td colspan="6" class="no-data-available">No hay Incumplimientos para esta Protección!</td>
+                        </tr>
+                      <tbody>
+                    </table>
+               
+                </div>
+             
+            </div>
+          </section>
+  
+          
+          <app-footer></app-footer>
+        </main>
+        <!-- Page content end -->
+      </div>
+  </div>	
+  
+  

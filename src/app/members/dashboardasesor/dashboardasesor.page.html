@@ -3,72 +3,286 @@
   <div class="wrapper ">
       
     <div class="wrapper-inline" (scroll)="doSomethingOnScroll($event)">
-        <app-membersmenu></app-membersmenu>
-        <app-notifications ></app-notifications>
+          <!-- <app-membersmenu></app-membersmenu> -->
+          <app-menu></app-menu>
+        <app-notifications urlAlertas='/members/alertas' ></app-notifications>
       <!-- Page content start -->
       <main class="margin mt-0">
 
           <div class="dash-balance">
             <div class="dash-content relative">
-              <h3 class="w-text">Mis Contratos</h3>
-             
+              <h3 class="w-text">Asesor</h3>
+              <div class="notification">
+                  <a href="javascript:void(0)" [routerLink]="['/members/crear-solicitud','asesor',asesor]"><i class="fa fa-plus"></i></a>
+              </div>
             </div>
+           
           </div>
-          <div class="form-divider"></div>
-          <section class="bal-section container">
-              <div style="margin:auto" align="center"> <img src="assets/img/logo.png" alt=""></div>
-           
-         
-          </section><br>
-          <section class="bal-section container">
-            <div class="form-divider"></div>
-            <div class="form-label-divider "><span class="font-24">Contratos como Asesor</span></div>
-            <div class="form-divider"></div>
-            
-           
-        
-          </section><br>
+
+  
           <section class="bal-section container">
 					
             <div class="resources-card-wrapper">
-                <div class="wallet-card mr-10 round">
+                <div class="wallet-card mr-10 yellow-back">
+                    <span style="float:right" ><img style="float:right" width="20%" src="/assets/img/renovacion.png" alt=""></span>
+                    <div class="form-divider"></div>
                     <div class="flex-column flex-md-row">
                     
-                      <h1 class="w-text">4</h1>
-                      <p class="g-text mb-0 font-weight-medium"> Pendientes </p>
+                      <h1 class="w-text countRenovacionesAse">0</h1>
+                      <p class="g-text mb-0 font-weight-medium"> Renovaciones </p>
                     </div>
+                    <div class="form-divider"></div>
+                 
+                </div>
+      
+                <div class="wallet-card ml-10 green-back">
+                    <span style="float:right" ><img style="float:right" width="20%" src="/assets/img/activas.png" alt=""></span>
+                    <div class="form-divider"></div>
+                    <div class="flex-column flex-md-row">
+                    
+                      <h1 class="w-text countActivasAse">0</h1>
+                      <p class="g-text mb-0 font-weight-medium"> Activa(s)</p>
+                    </div>
+                    <div class="form-divider"></div>
+                 
+                </div>
+            
+            </div>
+           
+            <div class="form-divider"></div>
+            <div class="resources-card-wrapper">
+                <div class="wallet-card mr-10 blue-back">
+                    <span style="float:right" ><img style="float:right" width="20%" src="/assets/img/notificacion.png" alt=""></span>
+                    <div class="form-divider"></div>
+                    <div class="flex-column flex-md-row">
+                    
+                      <h1 class="w-text countFirmasAse">0</h1>
+                      <p class="g-text mb-0 font-weight-medium"> Proximas Firmas </p>
+                    </div>
+                    <div class="form-divider"></div>
+                  
                 </div>
       
                 <div class="wallet-card ml-10 lgcGradiente">
+                    <span style="float:right" ><img style="float:right" width="20%" src="/assets/img/reclamo.png" alt=""></span>
+                    <div class="form-divider"></div>
                     <div class="flex-column flex-md-row">
                    
-                      <h1 class="w-text">2</h1>
-                      <p class="g-text mb-0 font-weight-medium"> Aprobados</p>
+                      <h1 class="w-text countReclamosAse">0</h1>
+                      <p class="g-text mb-0 font-weight-medium"> Reclamo(s)</p>
                     </div>
+                    <div class="form-divider"></div>
+                 
                 </div>
+            
             </div>
-          
-          </section><br><br>
-          <section class="container text-right"  >
-           
-                
-            <a href="Javascript:void(0);"  routerLink="/members/alertas" class="button circle red float-left"><i class="fa fa-bell-o"></i></a>
-          
-            <a href="Javascript:void(0);" routerLink="/members/crear-solicitud" class="button circle red float-right">+ Contrato</a>
-               
-               
-             
+         
           </section>
           <div class="form-divider"></div>
-          <div class="form-divider"></div>
           <section class="container">
+            <div class="form-row">
+              <a [routerLink]="['/members/crear-solicitud','asesor',asesor]" style="text-align: center;background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);color:white" href="Javascript:void(0);" class="button circle block">(+)  Solicitud Contrato  </a>
+             </div>
+          </section>
+          <section class="container">
+              <h4 class="title-main font-20 font-bold font-redlgc">Listado de protecciones</h4>
+              <div class="tab-item">
+              <div class="tab-menu fix-width">
+                <a class="menu-item active" href="javascript:void(0);" data-content="contentFirmadasAse" style="width: 33%;"><i class="fa fa-handshake-o"></i> FIRMADAS</a>
+                <a class="menu-item" href="javascript:void(0);" data-content="contentProcesoAse" style="width: 33%;"><i class="fa fa-hourglass-start"></i> EN PROCESO</a>
+                <a class="menu-item" href="javascript:void(0);" data-content="contentRechazadasAse" style="width: 33%;"><i class="fa fa-history"></i> RECHAZADAS</a>
+              </div>
+              <div class="tab-menu fix-width">
+                <a class="menu-item" href="javascript:void(0);" data-content="contentFirmarAse" style="width: 33%;"><i class="fa fa-check-square-o"></i> x FIRMAR</a>
+                <a class="menu-item" href="javascript:void(0);" data-content="contentRenovarAse" style="width: 33%;"><i class="fa fa-refresh"></i> RENOVAR</a>
+       
+                <a class="menu-item" href="javascript:void(0);" data-content="contentReclamosAse" style="width: 33%;"><i class="fa fa-exclamation"></i> RECLAMO</a>
+              
+              </div>
+              <div class="tab-content">
+                  <div class="content-item active" id="contentFirmadasAse">
+  
+                      <ul *ngIf="firmadas?.length != 0" class="transaction-list list-unstyled">
+                        <li *ngFor="let poliza of firmadas" routerLink="/members/poliza/{{poliza.id}}" style="cursor:pointer" >
+                          <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                              <img class="img-xs" src="assets/img/inmueble.png" alt="coin image">
+                              <div class="ml-10">
+                                <h4 class="coin-name">{{poliza.folio}}</h4>
+                                <small class="text-muted">Vencimiento: {{poliza.fecha_termino}}</small>
+                              </div>
+                            </div>
+                            <div>
+                              <small class="d-block mb-0 txt-green">Renta: {{poliza.monto_renta}}</small>
+                              <small class="text-muted d-block">Costo: {{poliza.costo}}</small>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul *ngIf="firmadas?.length == 0" class="transaction-list list-unstyled">
+                        <li>
+                          <div class="text-center">
+                            <div class="text-center">
+                                No hay datos para mostrar
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="content-item" id="contentProcesoAse">
+      
+                      <ul *ngIf="proceso?.length != 0" class="transaction-list list-unstyled">
+                        <li *ngFor="let poliza of proceso" routerLink="/members/poliza/{{poliza.id}}" >
+                          <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                              <img class="img-xs" src="assets/img/inmueble.png" alt="coin image">
+                              <div class="ml-10">
+                                <h4 class="coin-name">{{poliza.folio}}</h4>
+                                <small class="text-muted">Creada: {{poliza.fecha_creada}}</small>
+                              </div>
+                            </div>
+                            <div>
+                              <small class="d-block mb-0 txt-green">Renta: {{poliza.monto_renta}}</small>
+                              <small class="text-muted d-block">Costo: {{poliza.costo}}</small>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul *ngIf="proceso?.length == 0" class="transaction-list list-unstyled">
+                        <li>
+                          <div class="text-center">
+                            <div class="text-center">
+                                No hay datos para mostrar                             
+                            </div>                           
+                          </div>
+                        </li>
+                      </ul>      
+                    </div>
+                    <div class="content-item" id="contentRechazadasAse">                      
+                      <ul *ngIf="rechazadas?.length != 0" class="transaction-list list-unstyled">
+                        <li *ngFor="let poliza of rechazadas" routerLink="/members/poliza/{{poliza.id}}" >
+                          <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                              <img class="img-xs" src="assets/img/inmueble.png" alt="coin image">
+                              <div class="ml-10">
+                                <h4 class="coin-name">{{poliza.folio}}</h4>
+                                <small class="text-muted">Creada: {{poliza.fecha_creada}}</small>
+                              </div>
+                            </div>
+                            <div>
+                              <small class="d-block mb-0 txt-green">Renta: {{poliza.monto_renta}}</small>
+                              <small class="text-muted d-block">Costo: {{poliza.costo}}</small>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul *ngIf="rechazadas?.length == 0" class="transaction-list list-unstyled">
+                        <li>
+                          <div class="text-center">
+                            <div class="text-center">
+                                No hay datos para mostrar                             
+                            </div>                           
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                <div class="content-item" id="contentFirmarAse">  
+                  <ul *ngIf="xfirmar?.length != 0" class="transaction-list list-unstyled">
+                    <li *ngFor="let poliza of xfirmar" routerLink="/members/poliza/{{poliza.id}}" >
+                      <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                          <img class="img-xs" src="assets/img/inmueble.png" alt="coin image">
+                          <div class="ml-10">
+                            <h4 class="coin-name">{{poliza.folio}}</h4>
+                            <small class="text-muted">Firma: {{poliza.fecha_firma}}</small>
+                          </div>
+                        </div>
+                        <div>
+                          <small class="d-block mb-0 txt-green">Renta: {{poliza.monto_renta}}</small>
+                          <small class="text-muted d-block">Costo: {{poliza.costo}}</small>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul *ngIf="xfirmar?.length == 0" class="transaction-list list-unstyled">
+                    <li>
+                      <div class="text-center">
+                        <div class="text-center">
+                            No hay datos para mostrar                         
+                        </div>                       
+                      </div>
+                    </li>
+                  </ul>  
+                </div>
+                <div class="content-item" id="contentRenovarAse">  
+                  <ul *ngIf="renovar?.length != 0" class="transaction-list list-unstyled">
+                    <li *ngFor="let poliza of renovar" routerLink="/members/poliza/{{poliza.id}}" >
+                      <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                          <img class="img-xs" src="assets/img/inmueble.png" alt="coin image">
+                          <div class="ml-10">
+                            <h4 class="coin-name">{{poliza.folio}}</h4>
+                            <small class="text-muted">Vence: {{poliza.fecha_termino}}</small>
+                          </div>
+                        </div>
+                        <div>
+                          <small class="d-block mb-0 txt-green">Renta: {{poliza.monto_renta}}</small>
+                              <small class="text-muted d-block">Costo: {{poliza.costo}}</small>
+                        </div>
+                      </div>
+                    </li>                    
+                  </ul>                  
+                  <ul *ngIf="renovar?.length == 0" class="transaction-list list-unstyled text-center">
+                    <li>
+                      <div class="text-center">
+                        <div class="text-center">
+                            No hay datos para mostrar                         
+                        </div>                       
+                      </div>
+                    </li>
+                  </ul>  
+                </div>
+                <div class="content-item" id="contentReclamosAse">                  
+                  <ul *ngIf="reclamo?.length != 0" class="transaction-list list-unstyled">
+                    <li *ngFor="let poliza of reclamo" routerLink="/members/poliza/{{poliza.id}}" >
+                      <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                          <img class="img-xs" src="assets/img/inmueble.png" alt="coin image">
+                          <div class="ml-10">
+                            <h4 class="coin-name">{{poliza.folio}}</h4>
+                            <small class="text-muted">Reclamo: {{poliza.fecha_incumplimiento}}</small>
+                          </div>
+                        </div>
+                        <div>
+                          <small class="d-block mb-0 txt-green">Renta: {{poliza.monto_renta}}</small>
+                          <small class="text-muted d-block">Costo: {{poliza.costo}}</small>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul *ngIf="reclamo?.length == 0" class="transaction-list list-unstyled">
+                    <li>
+                      <div class="text-center">
+                        <div class="text-center">
+                            No hay datos para mostrar                         
+                        </div>                       
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            </section>
+  
+          <!-- <section class="container">
+            
             <div class="content"> 
-              <!-- <h4 class="title-main">Balance Split</h4> -->
-         
+              <!-- <h4 class="title-main">Balance Split</h4>
+              <h4 class="text-left font-black" >Listado de protecciones</h4>
               
               
               <div class="table-responsive">
-                  <table datatable [dtOptions]="dtOptions" class="row-border hover" id="polizas-tabla" style="width: 100% !important">
+                  <table datatable [dtOptions]="dtOptions" class="row-border hover" id="inmobiliaria-tabla" style="width: 100% !important">
                     <thead>
                       <tr>
                         <th class="th sorting_disabled" style="max-width: 40px"></th>
@@ -91,7 +305,7 @@
                     </tbody>
                     <tbody *ngIf="polizas?.length == 0">
                       <tr>
-                        <td colspan="6" class="no-data-available">No hay Contratos como Asesor!</td>
+                        <td colspan="6" class="no-data-available">No hay Contratos como Inmobiliaria!</td>
                       </tr>
                     <tbody>
                   </table>
@@ -99,13 +313,11 @@
               </div>
            
           </div>
-        </section>
+        </section> -->
 
-        
+       
 
-     
-
-          <app-footer></app-footer>
+        <app-footer></app-footer>
       </main>
       <!-- Page content end -->
     </div>

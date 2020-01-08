@@ -17,6 +17,22 @@ export class LoginPage implements OnInit {
   correo:string;
   clave:string;
   bellHide:boolean=true;
+  
+  config: any = {
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    loopedSlides:3,
+    loopAdditionalSlides :3,
+    loop: false,
+    spaceBetween: 0
+  };
+  public slider1:string='assets/img/slider/1.png';
+  public slider2:string='assets/img/slider/2.png';
+  public slider3:string='assets/img/slider/3.png';
   constructor(private authService: AuthenticationService, private router: Router,private utilities: UtilitiesService
         ) {
    

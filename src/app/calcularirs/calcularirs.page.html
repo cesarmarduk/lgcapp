@@ -2,7 +2,7 @@
 
   <div class="wrapper ">
       
-    <div class="wrapper-inline" (scroll)="doSomethingOnScroll($event)">
+    <div class="wrapper-inline">
         <app-menu></app-menu>
         <app-quickmenu title="{{title}}"></app-quickmenu>
       <!-- Page content start -->
@@ -10,18 +10,13 @@
 
         
 
-          <section class="bal-section container">
-              <div style="margin:auto" align="center"> <img src="assets/img/logo.png" alt=""></div>
-           
-         
-          </section>
        
         
      
           <section class="container">
                
             <div class="form-divider"></div>
-            <div class="form-label-divider"><span class="back">Solicitar Cálculo de ISR</span></div>
+            <div class="form-label-divider"><span class="back font-redlgc">Solicitar Cálculo de ISR</span></div>
             <div class="form-divider"></div>
       
             
@@ -32,7 +27,7 @@
            
                 <div class="form-row no-padding">
                     <i class="fa fa-user"></i>
-                    <input type="text" id="nombre_solicitante" name="nombre_solicitante" class="form-element" required placeholder="Nombre Solicitante" value="">
+                    <input type="text" id="nombre_solicitante_isr" name="nombre_solicitante" class="form-element" required placeholder="Nombre Solicitante" value="">
                 </div>
               
                 <h4 class="title-main font-16 font-bold ">Inmobiliaria</h4>
@@ -40,35 +35,35 @@
              
                 <div class="form-row no-padding">
                     <i class="fa fa-building-o"></i>
-                    <input type="text" id="inmobiliaria_solicitante" name="inmobiliaria_solicitante" class="form-element" required placeholder="Inmobiliaria" value="">
+                    <input type="text" id="inmobiliaria_solicitante_isr" name="inmobiliaria_solicitante" class="form-element" required placeholder="Inmobiliaria" value="">
                 </div>
               
                 <h4 class="title-main font-16 font-bold ">Email</h4>
               
                 <div class="form-row no-padding">
                     <i class="fa fa-envelope"></i>
-                    <input type="text" id="email_solicitante" name="email_solicitante" class="form-element" required placeholder="Email" value="">
+                    <input type="text" id="email_solicitante_isr" name="email_solicitante" class="form-element" required placeholder="Email" value="">
                 </div>
           
                 <h4 class="title-main font-16 font-bold ">Teléfono</h4>
             
                 <div class="form-row no-padding">
                     <i class="fa fa-phone"></i>
-                    <input type="text" id="telefono_solicitante" name="telefono_solicitante" class="form-element" required placeholder="Teléfono" value="">
+                    <input type="text" id="telefono_solicitante_isr" name="telefono_solicitante" class="form-element" required placeholder="Teléfono" value="">
                 </div>
           
                 <h4 class="title-main font-16 font-bold ">Precio de Venta</h4>
            
                 <div class="form-row no-padding">
                     <i class="fa fa-money"></i>
-                    <input type="text" id="precio_venta" name="precio_venta" class="form-element" required placeholder="Precio Venta" value="">
+                    <input type="text" id="precio_venta_isr" name="precio_venta" class="form-element" required placeholder="Precio Venta" value="">
                 </div>
              
                 <h4 class="title-main font-16 font-bold ">Fecha de Venta</h4>
                
                 <div class="form-row no-padding">
                     <i class="fa fa-calendar"></i>
-                    <input type="date" id="fecha_venta" name="fecha_venta" class="form-element" required placeholder="Fecha de Venta" value="">
+                    <input type="date" id="fecha_venta_isr" name="fecha_venta" class="form-element" required placeholder="Fecha de Venta" value="">
                 </div>
              
                 <h4 class="title-main font-16 font-bold ">Precio Adjudicación</h4>
@@ -76,41 +71,36 @@
                 <div class="form-row no-padding">
                   
                     <i class="fa fa-money"></i>
-                    <input type="text" id="precio_adjudicacion" name="precio_adjudicacion" class="form-element" required placeholder="Precio de Adjudicación" value="">
+                    <input type="text" id="precio_adjudicacion_isr" name="precio_adjudicacion" class="form-element" required placeholder="Precio de Adjudicación" value="">
                 </div>
              
                 <h4 class="title-main font-16 font-bold ">Fecha de Adjudicación</h4>
               
                 <div class="form-row no-padding">
                     <i class="fa fa-calendar"></i>
-                    <input type="date" id="fecha_adjudicacion" name="fecha_adjudicacion" class="form-element" required placeholder="dd/mm/aaaa" value="">
+                    <input type="date" id="fecha_adjudicacion_isr" name="fecha_adjudicacion" class="form-element" required placeholder="dd/mm/aaaa" value="">
                 </div>
-                <div class="form-row-group with-icons">
-                    <div class="form-row no-padding">
-                        <i class="fa fa-calendar"></i>
-                        <input type="time" id="fecha_probable" name="fecha_probable" class="form-element" required placeholder="Fecha Probable de Firma (Opcional)" value="">
-                    </div>
-                </div>
+            
                 <h4 class="title-main font-16 font-bold ">Numero de Propietarios</h4>
                
              
                 <div class="form-row no-padding">
                     <i class="fa fa-users"></i>
-                    <input type="text" id="numero_propietarios" name="numero_propietarios" class="form-element" required placeholder="Nº de Propietarios" value="">
+                    <input type="text" id="numero_propietarios_isr" name="numero_propietarios" class="form-element" required placeholder="Nº de Propietarios" value="">
                 </div>
              
                 <h4 class="title-main font-16 font-bold ">Propietarios en Sociedad Conyugal</h4>
              
                 <div class="form-row no-padding">
                     <i class="fa fa-users"></i>
-                    <input type="text" id="numero_propietarios_conyugal" name="numero_propietarios_conyugal" class="form-element" required placeholder="Nº en Sociedad Conyugal" value="">
+                    <input type="text" id="numero_propietarios_conyugal_isr" name="numero_propietarios_conyugal" class="form-element" required placeholder="Nº en Sociedad Conyugal" value="">
                 </div>
              
                 <h4 class="title-main font-16 font-bold ">Propietarios Exentos de ISR</h4>
                
                 <div class="form-row no-padding">
                     <i class="fa fa-users"></i>
-                    <input type="text" id="numero_propietarios_exentan" name="numero_propietarios_exentan" class="form-element" required placeholder="Nº que exentan ISR" value="">
+                    <input type="text" id="numero_propietarios_exentan_isr" name="numero_propietarios_exentan" class="form-element" required placeholder="Nº que exentan ISR" value="">
                 </div>
             </div>
             

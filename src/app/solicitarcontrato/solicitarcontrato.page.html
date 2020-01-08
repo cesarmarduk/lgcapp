@@ -2,179 +2,199 @@
 
   <div class="wrapper ">
       
-    <div class="wrapper-inline" >
+        <div class="wrapper-inline">
+               <!-- <app-membersmenu></app-membersmenu> -->
         <app-menu></app-menu>
-        <app-quickmenu title="{{title}}"></app-quickmenu>
-      <!-- Page content start -->
-      <main class="margin mt-0">
-
-         
-
-          <section class="bal-section container">
-              <div style="margin:auto" align="center"> <img src="assets/img/logo.png" alt=""></div>
-           
-         
-          </section>
-       
-        
-          <br>
-          <section class="container">
-                <div class="form-label-divider"><span class="back">Solicitud de Protección Jurídica de Arrendamiento</span></div><br><br>
-               
-                <div class="form-divider"></div>
-                <div class="form-label-divider"><span class="back">Datos del Contrato</span></div>
-                <div class="form-divider"></div>
+            <app-quickmenu title="{{title}}"></app-quickmenu>
+          <!-- Page content start -->
+          <main class="margin mt-0">
+    
+             
           
-				
-                <div class="form-row-group with-icons">
-                    <div class="form-row no-padding">
-                            <i class="fa fa-list-alt"></i>
-                            <select class="form-element" >
-                            <option value="">Tipo de Contrato</option>
-                            <option value="1">Protección Básica</option>
-                            <option value="2">Protección Total</option>
-                            <option value="3">Protección Global</option>
-                          </select>
-                    </div>
-                    <div class="form-row no-padding">
-                            <i class="fa fa-building"></i>
-                            <select class="form-element" >
-                            <option value="">Ciudad</option>
-                            <option value="1">Ciudad de México</option>
-                            <option value="2">Estado de México</option>
-                            <option value="3">Cancún</option>
-                            <option value="4">Guadalajara</option>
-                            <option value="5">Guanajuato</option>
-                            <option value="6">Hidalgo</option>
-                            <option value="7">Monterrey</option>
-                            <option value="8">Morelos</option>
-                            <option value="9">Oaxaca</option>
-                            <option value="10">Puebla</option>
-                            <option value="11">Querétaro</option>
-                            <option value="12">Torreón</option>
-                            <option value="13">Tuxtla</option>
-                            <option value="14">Otro</option>
-                          </select>
-                    </div>
-                    <div class="form-row no-padding">
-                        <i class="fa fa-money"></i>
-                        <input type="text" id="monto_renta" name="monto_renta" class="form-element" required placeholder="Monto de Renta (Opcional)" value="">
-                    </div>
-                </div>
-                <div class="form-divider"></div>
-                <div class="form-label-divider"><span class="back2">Fecha Probable de Firma</span></div>
-                <div class="form-divider"></div>
-                <div class="form-row-group with-icons">
-                    <div class="form-row no-padding">
-                        <i class="fa fa-calendar"></i>
-                        <input type="date" id="fecha_probable" name="fecha_probable" class="form-element" required placeholder="Fecha Probable de Firma (Opcional)" value="">
-                    </div>
-                </div>
-                <div class="form-divider"></div>
-                <div class="form-label-divider"><span class="back">Contacto</span></div>
-                <div class="form-divider"></div>
-                <div class="form-row-group with-icons">
-                    <div class="form-row no-padding">
-                        <i class="fa fa-user"></i>
-                        <input type="text" id="nombre_contacto" name="nombre_contacto" class="form-element" required placeholder="Nombre" value="">
-                    </div>
+              <section class="container">
+                    <div class="form-label-divider"><span class="back font-redlgc">Solicitud de Protección Jurídica de Arrendamiento</span></div><br><br>
+                   
+                    <div class="form-divider"></div>
+                    <div class="form-label-divider"><span class="back font-redlgc">Datos del Contrato</span></div>
+                    <div class="form-divider"></div>
+              
                     
-                    <div class="form-row no-padding">
-                        <i class="fa fa-phone"></i>
-                        <input type="text" id="telefono_contacto" name="telefono_contacto" class="form-element" required placeholder="Teléfono" value="">
+                    <div class="form-row-group with-icons">
+                        <div class="form-row no-padding">
+                                <i class="fa fa-list-alt"></i>
+                                <select id="tipo_contrato_con" class="form-element" >
+                                <option value="0">Tipo de Contrato</option>
+                                <option value="1">Protección Básica</option>
+                                <option value="2">Protección Total</option>
+                                <option value="16">Protección Global</option>
+                                <option value="26">Protección Full</option>
+                              </select>
+                        </div>
+                        <div class="form-row no-padding">
+                                <i class="fa fa-building"></i>
+                                <select id="ciudad_con" class="form-element" >
+                                    <option value="0">Ciudad</option>
+                                    <option value="1">Ciudad de México</option>
+                                    <option value="2">Estado de Mexico </option>
+                                    <option value="3">Queretaro</option>
+                                    <option value="4">Cancun</option>
+                                    <option value="5" >Guadalajara</option>
+                                    <option value="6">Monterrey</option>
+                                    <option value="7">Torreon</option>
+                                    <option value="8">Tuxtla Gutierrez</option>
+                                    <option value="9">Puebla</option>
+                                    <option value="10">Acapulco</option>
+                                    <option value="11">Oaxaca</option>
+                                    <option value="12">San Miguel De Allende</option>
+                                    <option value="13">Pachuca</option>
+                                    <option value="14">Cuernavaca</option>
+                                    <option value="15">Metepec</option>
+                                    <option value="16">Tijuana</option>
+                                    <option value="17">San Luis Potosí</option>
+                                    <option value="18">León</option>
+                                </select>
+                        </div>
+                        <div class="form-row no-padding">
+                            <i class="fa fa-money"></i>
+                            <input type="text" id="monto_renta_con" name="monto_renta" class="form-element" required placeholder="Monto de Renta (Opcional)" value="">
+                        </div>
                     </div>
-                    <div class="form-row no-padding">
-                       <i class="fa fa-envelope"></i>
-                        <input type="text" id="email_contacto" name="email_contacto" class="form-element" required placeholder="Email" value="">
+                    <h4 class="title-main font-16 font-bold ">Fecha Probable de Firma</h4>
+                  
+                    <div class="form-row-group with-icons">
+                        <div class="form-row no-padding">
+                            <i class="fa fa-calendar"></i>
+                            <input type="date" id="fecha_probable_con" name="fecha_probable" class="form-element" required placeholder="Fecha Probable de Firma (Opcional)" value="">
+                        </div>
                     </div>
-                </div>
-                <div class="form-divider"></div>
-                <div class="form-label-divider"><span class="back">Arrendador (Opcional)</span></div>
-                <div class="form-divider"></div>
-                <div class="form-row-group with-icons">
-                    <div class="form-row no-padding">
-                        <i class="fa fa-user"></i>
-                        <input type="text" id="nombre_arrendador" name="nombre_arrendador" class="form-element" required placeholder="Nombre" value="">
+                   
+                    <div class="form-divider"></div>
+                    <div class="form-label-divider"><span class="back">Contacto</span></div>
+                    <div class="form-divider"></div>
+                    <div class="form-row-group with-icons">
+                        <div class="form-row no-padding">
+                            <i class="fa fa-user"></i>
+                            <input type="text" id="nombre_contacto_con" name="nombre_contacto" class="form-element" required placeholder="Nombre" value="">
+                        </div>
+                        
+                        <div class="form-row no-padding">
+                            <i class="fa fa-phone"></i>
+                            <input type="text" id="telefono_contacto_con" name="telefono_contacto" class="form-element" required placeholder="Teléfono" value="">
+                        </div>
+                        <div class="form-row no-padding">
+                           <i class="fa fa-envelope"></i>
+                            <input type="text" id="email_contacto_con" name="email_contacto" class="form-element" required placeholder="Email" value="">
+                        </div>
                     </div>
-                    <div class="form-row no-padding">
-                        <i class="fa fa-phone"></i>
-                        <input type="text" id="telefono_arrendador" name="telefono_arrendador" class="form-element" required placeholder="Teléfono" value="">
+                    <div class="form-divider"></div>
+                    <div class="form-label-divider"><span class="back">Arrendador (Opcional)</span></div>
+                    <div class="form-divider"></div>
+                    <div class="form-row-group with-icons">
+                        <div class="form-row no-padding">
+                            <i class="fa fa-hand-o-right"></i> 
+                            <select id="tipo_arrendador_con" class="form-element" >
+                                <option value="1">Físico</option>
+                                <option value="2">Moral</option>
+                            </select>
+                        </div>
+                        <div class="form-row no-padding">
+                            <i class="fa fa-user"></i>
+                            <input type="text" id="nombre_arrendador_con" name="nombre_arrendador" class="form-element" required placeholder="Nombre" value="">
+                        </div>
+                        <div class="form-row no-padding">
+                            <i class="fa fa-phone"></i>
+                            <input type="text" id="telefono_arrendador_con" name="telefono_arrendador" class="form-element" required placeholder="Teléfono" value="">
+                        </div>
+                        <div class="form-row no-padding">
+                            <i class="fa fa-envelope"></i>
+                            <input type="text" id="email_arrendador_con" name="email_arrendador" class="form-element" required placeholder="Email" value="">
+                        </div>   
                     </div>
-                    <div class="form-row no-padding">
-                        <i class="fa fa-envelope"></i>
-                        <input type="text" id="email_arrendador" name="email_arrendador" class="form-element" required placeholder="Email" value="">
-                    </div>   
-                </div>
-                <div class="form-divider"></div>
-                <div class="form-label-divider"><span class="back">Inquilino (Opcional)</span></div>
-                <div class="form-divider"></div>
-                <div class="form-row-group with-icons">
-                    <div class="form-row no-padding">
-                        <i class="fa fa-user"></i>
-                        <input type="text" id="nombre_inquilino" name="nombre_inquilino" class="form-element" required placeholder="Nombre" value="">
+                    <div class="form-divider"></div>
+                    <div class="form-label-divider"><span class="back">Inquilino (Opcional)</span></div>
+                    <div class="form-divider"></div>
+                    <div class="form-row-group with-icons">
+                        <div class="form-row no-padding">
+                            <i class="fa fa-hand-o-right"></i>
+                            <select id="tipo_inquilino_con" class="form-element" >
+                                <option value="1">Físico</option>
+                                <option value="2">Moral</option>
+                            </select>
+                        </div>
+                        <div class="form-row no-padding">
+                            <i class="fa fa-user"></i>
+                            <input type="text" id="nombre_inquilino_con" name="nombre_inquilino" class="form-element" required placeholder="Nombre" value="">
+                        </div>
+                        <div class="form-row no-padding">
+                            <i class="fa fa-phone"></i>
+                            <input type="text" id="telefono_inquilino_con" name="telefono_inquilino" class="form-element" required placeholder="Teléfono" value="">
+                        </div>
+                        <div class="form-row no-padding">
+                            <i class="fa fa-envelope"></i>
+                            <input type="text" id="email_inquilino_con" name="email_inquilino" class="form-element" required placeholder="Email" value="">
+                        </div>
                     </div>
-                    <div class="form-row no-padding">
-                        <i class="fa fa-phone"></i>
-                        <input type="text" id="telefono_inquilino" name="telefono_inquilino" class="form-element" required placeholder="Teléfono" value="">
+                    <div class="form-divider"></div>
+                    <div class="form-label-divider"><span class="back">Garante (Opcional)</span></div>
+                    <div class="form-divider"></div>
+                    <div class="form-row-group with-icons">
+                        <div class="form-row no-padding">
+                            <i class="fa fa-hand-o-right"></i>
+                            <select id="tipo_garante_con" class="form-element" >
+                                <option value="1">Físico</option>
+                                <option value="2">Moral</option>
+                            </select>
+                        </div>
+                        <div class="form-row no-padding">
+                            <i class="fa fa-user"></i>
+                            <input type="text" id="nombre_garante_con" name="nombre_garante" class="form-element" required placeholder="Nombre" value="">
+                        </div>
+                        <div class="form-row no-padding">
+                            <i class="fa fa-phone"></i>
+                            <input type="text" id="telefono_garante_con" name="telefono_garante" class="form-element" required placeholder="Teléfono" value="">
+                        </div>
+                        <div class="form-row no-padding">
+                            <i class="fa fa-envelope"></i>
+                            <input type="text" id="email_garante_con" name="email_garante" class="form-element" required placeholder="Email" value="">
+                        </div>
                     </div>
-                    <div class="form-row no-padding">
-                        <i class="fa fa-envelope"></i>
-                        <input type="text" id="email_inquilino" name="email_inquilino" class="form-element" required placeholder="Email" value="">
+                    <div class="form-divider"></div>
+                    <div class="form-label-divider"><span class="back">Tipo de Garante</span></div>
+                    <div class="form-divider"></div>
+                    <div class="form-row-group ">
+                        <div class="form-row no-padding">
+                            <label class="form-element"><input type="radio" checked name="aval_con" value="1"/> Aval/Fiador</label>
+                            <label class="form-element"><input type="radio" name="aval_con" value="2"/> Obligado Solidario</label>
+                        </div>
                     </div>
-                </div>
-                <div class="form-divider"></div>
-                <div class="form-label-divider"><span class="back">Garante (Opcional)</span></div>
-                <div class="form-divider"></div>
-                <div class="form-row-group with-icons">
-                    <div class="form-row no-padding">
-                        <i class="fa fa-user"></i>
-                        <input type="text" id="nombre_garante" name="nombre_garante" class="form-element" required placeholder="Nombre" value="">
+    
+                    <div class="form-divider"></div>
+                    <div class="form-label-divider"><span class="back">Escritura (Opcional)</span></div>
+                    <div class="form-divider"></div>
+                    <div class="form-row-group with-icons">
+                        <div class="form-row no-padding">
+                                <i class="fa fa-align-justify"></i>
+                                <input type="text" id="descripcion_escritura_con" name="descripcion_escritura_con" class="form-element" required placeholder="Descripción" value="">
+                        </div>
+                        <div class="form-row no-padding">
+                                <i class="fa fa-file"></i>
+                                <input type="file" id="escritura_con" name="escritura_con" class="form-element" >
+                        </div>
                     </div>
-                    <div class="form-row no-padding">
-                        <i class="fa fa-phone"></i>
-                        <input type="text" id="telefono_garante" name="telefono_garante" class="form-element" required placeholder="Teléfono" value="">
+    
+                    <div class="form-divider"></div>
+    
+                    <div class="form-row">
+                        <a style="text-align: center;background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);color:white" href="Javascript:void(0);" (click)="solicitarContrato($event)" class="button circle block">Enviar Solicitud</a>
                     </div>
-                    <div class="form-row no-padding">
-                        <i class="fa fa-envelope"></i>
-                        <input type="text" id="email_garante" name="email_garante" class="form-element" required placeholder="Email" value="">
-                    </div>
-                </div>
-                <div class="form-divider"></div>
-                <div class="form-label-divider"><span class="back">Tipo de Garante</span></div>
-                <div class="form-divider"></div>
-            	<div class="form-row-group ">
-                    <div class="form-row no-padding">
-                        <label class="form-element"><input type="radio" name="gender" /> Aval</label>
-                        <label class="form-element"><input type="radio" name="gender" /> Obligado Solidario</label>
-                    </div>
-                </div>
-
-                <div class="form-divider"></div>
-                <div class="form-label-divider"><span class="back">Escritura (Opcional)</span></div>
-                <div class="form-divider"></div>
-            	<div class="form-row-group with-icons">
-                    <div class="form-row no-padding">
-                            <i class="fa fa-align-justify"></i>
-                            <input type="text" id="descripcion_escritura" name="descripcion_escritura" class="form-element" required placeholder="Descripción" value="">
-                    </div>
-                    <div class="form-row no-padding">
-                            <i class="fa fa-file"></i>
-                            <input type="file" id="escritura" name="escritura" class="form-element" >
-                    </div>
-                </div>
-
-                <div class="form-divider"></div>
-
-                <div class="form-row">
-                    <a style="text-align: center;background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);color:white" href="Javascript:void(0);" (click)="solicitarContrato($event)" class="button circle block">Enviar Solicitud</a>
-                </div>
-
-          </section>      
-         
-
-          <app-footer></app-footer>
-      </main>
-      <!-- Page content end -->
-    </div>
-</div>	
-
+    
+              </section>      
+             
+    
+              <app-footer></app-footer>
+          </main>
+          <!-- Page content end -->
+        </div>
+    </div>	
+    
+    
