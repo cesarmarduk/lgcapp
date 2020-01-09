@@ -3,7 +3,7 @@
 
   <div class="wrapper ">
       
-      <div class="wrapper-inline" id="home-wapper" (scroll)="doSomethingOnScroll($event)">
+      <div class="wrapper-inline" id="content-wapper" (scroll)="doSomethingOnScroll($event)">
      
           <app-menu></app-menu>
            <!-- Header area start -->
@@ -77,10 +77,15 @@
                                 <a href="javascript:void(0);" routerLink="/directo"><h6 style="font-size:12px" class="info-label">LGC - Directo</h6></a>
                             </div>
                         </div> -->
-                        
-                        <div class="col-4 col-sm-4" [(routerLink)]="ruta">
+                        <div class="col-4 col-sm-4 verEnlogOut" style="display:none" routerLink="/login" >
                             <div class="split-list text-center">
-                                <span style="font-size:42px" class="fa fa-shield"></span>
+                                <span style="font-size:42px" class="fa fa-dashboard"></span>
+                                <a href="javascript:void(0);"><h6 style="font-size:15px" class="info-label">Mis Contratos</h6></a>
+                            </div>
+                        </div>
+                        <div class="col-4 col-sm-4 ocultaEnlogOut" [(routerLink)]="ruta" >
+                            <div class="split-list text-center">
+                                <span style="font-size:42px" class="fa fa-dashboard"></span>
                                 <a href="javascript:void(0);"><h6 style="font-size:15px" class="info-label">Mis Contratos</h6></a>
                             </div>
                         </div>

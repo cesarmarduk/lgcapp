@@ -35,6 +35,7 @@ export class NotificationsComponent implements OnInit {
     .subscribe(
         data => {
           this.notificaciones=data.data;
+       
          
         },
         error => {

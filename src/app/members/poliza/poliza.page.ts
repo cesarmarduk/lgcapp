@@ -165,6 +165,7 @@ export class PolizaPage implements OnInit {
   mantenimiento_dondeInmueble:string;
   place:string='pol';
   conIncumplimientos:Incumplimientos;
+  perfil:string;
   constructor(private utilities: UtilitiesService,private rutaActiva: ActivatedRoute) { 
 
     this.title = 'PROTECCION';
@@ -172,7 +173,7 @@ export class PolizaPage implements OnInit {
   ngOnInit() {
     const that = this;
     that.id=that.rutaActiva.snapshot.params.id;
-  
+    that.perfil=that.rutaActiva.snapshot.params.perfil;
     that.utilities.peticionHttp<Poliza>('get',`${that.utilities.baseApiUrl}api/polizas/getPolizaDetailsById/${that.id}`).pipe(first())
     .subscribe(
       resp => {

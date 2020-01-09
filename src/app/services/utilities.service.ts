@@ -37,7 +37,7 @@ const Swal = require('sweetalert2');
 
 */
 export class UtilitiesService {
-  public readonly baseApiUrl: string = 'https://app.legalglobalconsulting.com/'; // https://app.legalglobalconsulting.com/  http://localhost/ApiRestAPP/  
+  public readonly baseApiUrl: string = 'http://localhost/ApiRestAPP/'; // https://app.legalglobalconsulting.com/  http://localhost/ApiRestAPP/  
   public readonly user='admin';
   public readonly pwd='mexico100';
  
@@ -94,6 +94,24 @@ export class UtilitiesService {
     
    }
 
+   fixScroll(){
+    var ele =$('#content-wapper');
+    var scrollOffset = ele.scrollTop;
+    $('.no-background').each( function( index, element ){
+      if (scrollOffset > 70) {
+        element.classList.add("set-bg");
+      } else {
+        element.classList.remove("set-bg");
+      }
+    }); 
+    $('.fa-arrow-left').each( function( index, element ){
+      if (scrollOffset > 70) {
+        element.classList.add("seeArrow");
+      } else {
+        element.classList.remove("seeArrow");
+      }
+    }); 
+  }
    doSomethingOnScroll($event:Event  ){
       var ele=$event.srcElement as HTMLElement; 
       var scrollOffset = ele.scrollTop;

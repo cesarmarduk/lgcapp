@@ -62,6 +62,7 @@ export class DashboardpropfisPage implements OnInit {
   propfis:any;
   tipo:any;
   data:any;
+  perfil:string='propfis';
   constructor(private storage: Storage,private authService: AuthenticationService,
               private utilities: UtilitiesService,
               private http: HttpClient,

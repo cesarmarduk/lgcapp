@@ -15,18 +15,28 @@ interface response {
 })
 export class AgregaralertaPage implements OnInit {
   title: string;
- 
+  folio:string='';
+  fecha_firma:any='';
+  titleAlert:string='';
+  contentAlert:string='';
   constructor(
     private utilities: UtilitiesService,
-    private route: ActivatedRoute,
+    private rutaActiva: ActivatedRoute,
     private device: Device,
     private authService: AuthenticationService,private router: Router) { 
-
+   
     this.title = 'AGREGAR ALERTA';
-
+    
   }
 
   ngOnInit() {
+    this.folio=this.rutaActiva.snapshot.params.folio;
+    
+    this.fecha_firma=this.rutaActiva.snapshot.params.fecha;
+    if(this.folio){
+      this.titleAlert=`Firma de Protección ${this.folio}`;
+      this.contentAlert=`Preparate para la firma de la Protección con Folio: ${this.folio}`;
+    }
   }
   generarAlerta($event:Event  ){
     var fecha:any= $('#fecha_alert').val();

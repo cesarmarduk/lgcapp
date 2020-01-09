@@ -23,6 +23,7 @@ class SliderResponse {
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  
   config: any = {
     autoplay: {
       delay: 4000,
@@ -43,7 +44,7 @@ export class HomePage implements OnInit {
   public lugar : string = 'home';
   public urlAlertas : string = '/alertas-ss';
   isConnected = false;
-
+  authenticate: boolean = false; 
   constructor(private authService: AuthenticationService,private utilities: UtilitiesService,  
               private _activatedRoute: ActivatedRoute) { //,private networkService: NetworkService
   
@@ -72,7 +73,7 @@ export class HomePage implements OnInit {
         if(localStorage.getItem('asesorLog')=='true'){
           this.ruta='/members/dashboard/asesor';
         }
-      
+        this.authenticate=true;
        // this.ruta2='/members/crear-solicitud';
         this.ruta2='/solicitar-contrato';
         this.urlAlertas='/members/alertas';
@@ -80,8 +81,9 @@ export class HomePage implements OnInit {
           this.urlAlertas='/alertas-ss';
           this.ruta='/login';
           this.ruta2='/solicitar-contrato';
+          this.authenticate=false;
       }
-      this.fixScroll();
+      this.utilities.fixScroll();
     })
 
     const that = this;
@@ -106,24 +108,6 @@ export class HomePage implements OnInit {
   }
  
 
-  fixScroll(){
-    var ele =$('#home-wapper');
-    var scrollOffset = ele.scrollTop;
-    $('.no-background').each( function( index, element ){
-      if (scrollOffset > 70) {
-        element.classList.add("set-bg");
-      } else {
-        element.classList.remove("set-bg");
-      }
-    }); 
-    $('.fa-arrow-left').each( function( index, element ){
-      if (scrollOffset > 70) {
-        element.classList.add("seeArrow");
-      } else {
-        element.classList.remove("seeArrow");
-      }
-    }); 
-  }
   
   getTime(){
     var tiempo=new Date().getTime();

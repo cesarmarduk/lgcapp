@@ -48,12 +48,19 @@
 						</ul>
 					</div>
 				</section>
+				<div class="form-mini-divider"></div>
+				<section class="container">
+					<div class="form-row">
+						<a style="text-align: center;background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);color:white" href="Javascript:void(0);" routerLink="/members/avisospoliza/{{perfil}}/{{id}}/{{folio}}" class="button circle block">Configurar Avisos <i class="fa fa-cogs"></i></a>
+					</div>
+				</section>
+				
 				<div class="info-box radio20All">
 					<div class="contact-item">
 						<i class="fa fa-calendar"></i> 
 							<b>Firma:</b> {{fecha_firma}} 
-							<a style="float:right" (click)="nuevaAlerta(folio,id)"  class="nueva-alerta" href="Javascript:void(0)" > 
-								<i class="fa fa-bell-o"></i>
+							<a style="float:right" routerLink="/members/alertas/agregar/{{folio}}/{{fecha_firma}}"  class="nueva-alerta" href="Javascript:void(0)" > 
+								+<i class="fa fa-bell-o"></i>
 							</a>
 							{{hora_firma}} 
 						

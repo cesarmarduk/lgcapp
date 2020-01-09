@@ -120,6 +120,10 @@ export class AuthenticationService {
       this.utilities.presentAlert('success','Ha Cerrado Sesion',false,4000);
       this.router.navigate(['home']);
       this.cerrarMenu();
+      
+      $('.ocultaEnlogOut').css('display','none');
+      $('.verEnlogOut').css('display','block');
+
     });
   }
  

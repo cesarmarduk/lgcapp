@@ -81,7 +81,7 @@
             <div class="form-divider"></div>
             <section class="container">
               <div class="form-row">
-                <a [routerLink]="['/members/crear-solicitud','inqmor',inqmor]" style="text-align: center;background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);color:white" href="Javascript:void(0);" class="button circle block">(+) Solicitud Contrato </a>
+                <a [routerLink]="['/members/crear-solicitud','inqmor',inqmor]" style="text-align: center;background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);color:white" href="Javascript:void(0);" class="button circle block">Solicitud Nueva Protección Jurídica </a>
                </div>
             </section>
             <section class="container">
@@ -103,7 +103,7 @@
                     <div class="content-item active" id="contentFirmadasInqmor">
     
                         <ul *ngIf="firmadas?.length != 0" class="transaction-list list-unstyled">
-                          <li *ngFor="let poliza of firmadas" routerLink="/members/poliza/{{poliza.id}}" style="cursor:pointer" >
+                          <li *ngFor="let poliza of firmadas" routerLink="/members/poliza/{{perfil}}/{{poliza.id}}" style="cursor:pointer" >
                             <div class="d-flex align-items-center justify-content-between">
                               <div class="d-flex align-items-center">
                                 <img class="img-xs" src="assets/img/inmueble.png" alt="coin image">
@@ -132,7 +132,7 @@
                       <div class="content-item" id="contentProcesoInqmor">
         
                         <ul *ngIf="proceso?.length != 0" class="transaction-list list-unstyled">
-                          <li *ngFor="let poliza of proceso" routerLink="/members/poliza/{{poliza.id}}" >
+                          <li *ngFor="let poliza of proceso" routerLink="/members/poliza/{{perfil}}/{{poliza.id}}" >
                             <div class="d-flex align-items-center justify-content-between">
                               <div class="d-flex align-items-center">
                                 <img class="img-xs" src="assets/img/inmueble.png" alt="coin image">
@@ -160,7 +160,7 @@
                       </div>
                       <div class="content-item" id="contentRechazadasInqmor">                      
                         <ul *ngIf="rechazadas?.length != 0" class="transaction-list list-unstyled">
-                          <li *ngFor="let poliza of rechazadas" routerLink="/members/poliza/{{poliza.id}}" >
+                          <li *ngFor="let poliza of rechazadas" routerLink="/members/poliza/{{perfil}}/{{poliza.id}}" >
                             <div class="d-flex align-items-center justify-content-between">
                               <div class="d-flex align-items-center">
                                 <img class="img-xs" src="assets/img/inmueble.png" alt="coin image">
@@ -188,7 +188,7 @@
                       </div>
                   <div class="content-item" id="contentFirmarInqmor">  
                     <ul *ngIf="xfirmar?.length != 0" class="transaction-list list-unstyled">
-                      <li *ngFor="let poliza of xfirmar" routerLink="/members/poliza/{{poliza.id}}" >
+                      <li *ngFor="let poliza of xfirmar" routerLink="/members/poliza/{{perfil}}/{{poliza.id}}" >
                         <div class="d-flex align-items-center justify-content-between">
                           <div class="d-flex align-items-center">
                             <img class="img-xs" src="assets/img/inmueble.png" alt="coin image">
@@ -216,7 +216,7 @@
                   </div>
                   <div class="content-item" id="contentRenovarInqmor">  
                     <ul *ngIf="renovar?.length != 0" class="transaction-list list-unstyled">
-                      <li *ngFor="let poliza of renovar" routerLink="/members/poliza/{{poliza.id}}" >
+                      <li *ngFor="let poliza of renovar" routerLink="/members/poliza/{{perfil}}/{{poliza.id}}" >
                         <div class="d-flex align-items-center justify-content-between">
                           <div class="d-flex align-items-center">
                             <img class="img-xs" src="assets/img/inmueble.png" alt="coin image">
@@ -244,7 +244,7 @@
                   </div>
                   <div class="content-item" id="contentReclamosInqmor">                  
                     <ul *ngIf="reclamo?.length != 0" class="transaction-list list-unstyled">
-                      <li *ngFor="let poliza of reclamo" routerLink="/members/poliza/{{poliza.id}}" >
+                      <li *ngFor="let poliza of reclamo" routerLink="/members/poliza/{{perfil}}/{{poliza.id}}" >
                         <div class="d-flex align-items-center justify-content-between">
                           <div class="d-flex align-items-center">
                             <img class="img-xs" src="assets/img/inmueble.png" alt="coin image">

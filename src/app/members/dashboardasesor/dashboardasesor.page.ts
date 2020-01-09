@@ -62,6 +62,7 @@ export class DashboardasesorPage implements OnInit {
   asesor:any;
   tipo:any;
   data:any;
+  perfil:string='asesor';
   constructor(private storage: Storage,private authService: AuthenticationService,
               private utilities: UtilitiesService,
               private http: HttpClient,

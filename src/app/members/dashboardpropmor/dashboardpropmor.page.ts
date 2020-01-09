@@ -62,6 +62,7 @@ export class DashboardpropmorPage implements OnInit {
   propmor:any;
   tipo:any;
   data:any;
+  perfil:string='propmor';
   constructor(private storage: Storage,private authService: AuthenticationService,
               private utilities: UtilitiesService,
               private http: HttpClient,

@@ -58,14 +58,20 @@
       <div  class="form-mini-divider"></div>
     </li>
 
-    <li class="sombra-baja" >
+    <li class="sombra-baja" *ngIf="notificaciones" >
       <div class="d-flex align-items-center justify-content-between">
           <div class="d-flex align-items-center">
             <a href="javascript:void(0)" routerLink="/notificaciones" class="text-muted">Leer todas las notificaciones</a>
           </div>
       </div>
     </li>
-    
+    <li class="sombra-baja" *ngIf="!notificaciones" >
+      <div class="d-flex align-items-center justify-content-between">
+          <div class="d-flex align-items-center">
+            <a href="javascript:void(0)"  class="text-muted">No hay notificaciones</a>
+          </div>
+      </div>
+    </li>
   </ul>
 </div>
 <!--NOTIFICATION BOX CONTENT END-->

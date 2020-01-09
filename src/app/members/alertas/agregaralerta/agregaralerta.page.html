@@ -14,15 +14,20 @@
           <section class="container">
               
                 <div class="form-divider"></div>
-                <div class="form-label-divider"><span class="back font-redlgc">Agregar Alerta </span></div>
+                <div class="form-label-divider"><span class="back font-redlgc">Agregar Alerta {{folio}}</span></div>
                 <div class="form-divider"></div>
+                <div *ngIf="folio">
+
+                    Fecha de firma: {{fecha_firma}}
+                </div>
                 
-              
-                <h4 class="title-main">Fecha</h4>
+             
+
+                <h4 class="title-main">Fecha </h4>
                 <div class="form-row-group with-icons">
                     <div class="form-row no-padding">
                         <i class="fa fa-calendar"></i>
-                        <input type="date" id="fecha_alert" name="fecha_alert" class="form-element" required value="">
+                        <input type="date" id="fecha_alert" name="fecha_alert" class="form-element" required>
                     </div>
                  
                 </div>
@@ -38,7 +43,7 @@
                 <div class="form-row-group with-icons">
                     <div class="form-row no-padding">
                         <i class="fa fa-tag"></i>
-                        <input type="text" id="titulo_alert" name="titulo_alert" class="form-element" required placeholder="Título" value="">
+                        <input type="text" id="titulo_alert" name="titulo_alert" class="form-element" required placeholder="Título" value="{{titleAlert}}">
                     </div>
                  
                 </div>
@@ -47,7 +52,7 @@
                 <div class="form-row-group with-icons">
                     <div class="form-row no-padding">
                         <i class="fa fa-comments"></i>
-                        <textarea id="descripcion_alert" name="descripcion_alert" placeholder="Descripción" class="form-element" rows="10"></textarea>
+                        <textarea id="descripcion_alert" name="descripcion_alert" placeholder="Descripción" class="form-element" rows="10">{{contentAlert}}</textarea>
                       
                     </div>
                  

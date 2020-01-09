@@ -62,6 +62,7 @@ export class DashboardinmobiliariaPage implements OnInit {
   inmobiliaria:any;
   tipo:any;
   data:any;
+  perfil:string='inmobiliaria';
   constructor(private storage: Storage,private authService: AuthenticationService,
               private utilities: UtilitiesService,
               private http: HttpClient,

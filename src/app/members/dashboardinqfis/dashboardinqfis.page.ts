@@ -63,6 +63,7 @@ export class DashboardinqfisPage implements OnInit {
   inqfis:any;
   tipo:any;
   data:any;
+  perfil:string='inqfis';
   constructor(private storage: Storage,private authService: AuthenticationService,
               private utilities: UtilitiesService,
               private http: HttpClient,

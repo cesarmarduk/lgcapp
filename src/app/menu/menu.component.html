@@ -6,6 +6,9 @@
 		<ul class="main-menu">
 			<li class='text-center'>
 				<img style="max-width:80% !important;padding: 10px" src="assets/img/logo.png" alt="">
+			  </li>
+			  <li >
+				<a href="javascript:void(0);" class="font-redlgc" routerLink="/home" ><i style="font-size:20px" class="font-redlgc fa fa-home" ></i><strong style="font-size:18px" class="special">Inicio</strong> </a>
 		  	</li>
 		 	<li >
 				<a href="javascript:void(0);" class="font-redlgc" routerLink="/calcular-proteccion" ><i style="font-size:20px" class="font-redlgc fa fa-calculator" ></i><strong style="font-size:18px" class="special">Calcular Proteccion</strong> </a>
@@ -19,7 +22,7 @@
 					 
 				</li>
 			<li *ngIf="authenticate==true" class="active">
-				<a href="javascript:void(0);" (click)="clickMenu($event);$event.stopPropagation()" class="muestramenu font-redlgc"><i style="font-size:20px" class="font-redlgc fa fa-shield" ></i><strong style="font-size:18px" class="special">Mis Contratos</strong> <span class="fa fa-angle-up"></span></a>
+				<a href="javascript:void(0);" (click)="clickMenu($event);$event.stopPropagation()" class="muestramenu font-redlgc"><i style="font-size:20px" class="font-redlgc fa fa-dashboard" ></i><strong style="font-size:18px" class="special">Mis Contratos</strong> <span class="fa fa-angle-up"></span></a>
 				<ul class="active" style="display:block">
 					<li *ngIf="perfilAsesor"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/asesor" >Asesor</a></li>
 					<li *ngIf="perfilInmo"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/inmobiliaria" >Inmobiliaria</a></li>
