@@ -6,16 +6,30 @@
 		<ul class="main-menu">
 			<li class='text-center'>
 				<img style="max-width:80% !important;padding: 10px" src="assets/img/logo.png" alt="">
-			  </li>
-			  <li >
+			</li>
+			<li >
 				<a href="javascript:void(0);" class="font-redlgc" routerLink="/home" ><i style="font-size:20px" class="font-redlgc fa fa-home" ></i><strong style="font-size:18px" class="special">Inicio</strong> </a>
 		  	</li>
-		 	<li >
-				<a href="javascript:void(0);" class="font-redlgc" routerLink="/calcular-proteccion" ><i style="font-size:20px" class="font-redlgc fa fa-calculator" ></i><strong style="font-size:18px" class="special">Calcular Proteccion</strong> </a>
-		  	</li>
 			<li >
-				<a href="javascript:void(0);" class="font-redlgc" routerLink="/directo"><i style="font-size:20px" class="font-redlgc fa fa-headphones" ></i><strong style="font-size:18px" class="special">LGC - Directo</strong> </a>
+				<a href="javascript:void(0);" (click)="clickMenu($event);$event.stopPropagation()" class=" font-redlgc"><i style="font-size:20px" class="font-redlgc fa fa-balance-scale" ></i><strong style="font-size:18px" class="special">Protecciones Jurídicas</strong> <span class="fa fa-angle-down"></span></a>
+				<ul  >
+					<li ><a href="javascript:void(0);" class="font-redlgc" routerLink="/proteccion-basica" >Protección Básica</a></li>
+					<li ><a href="javascript:void(0);" class="font-redlgc" routerLink="/proteccion-total" >Protección Total</a></li>
+					<li ><a href="javascript:void(0);" class="font-redlgc" routerLink="/proteccion-global" >Protección Global</a></li>
+					<li><a href="javascript:void(0);" class="font-redlgc" routerLink="/proteccion-full" >Protección Full</a></li>
+					<li ><a href="javascript:void(0);" class="font-redlgc" routerLink="/nuestros-precios" >Nuestros Precios</a></li>
+				</ul>
+				<!-- <a href="javascript:void(0);" class="font-redlgc" [(routerLink)]="ruta"><i style="font-size:20px" class="font-redlgc fa fa-shield" ></i><strong style="font-size:18px" class="special">Mis Contratos</strong> </a>
+				 -->
 			</li>
+			
+		 	<li >
+				<a href="javascript:void(0);" class="font-redlgc" routerLink="/calcular-proteccion" ><i style="font-size:20px" class="font-redlgc fa fa-calculator" ></i><strong style="font-size:18px" class="special">Calcula tu protección</strong> </a>
+			</li>
+			<li >
+				<a href="javascript:void(0);" class="font-redlgc" [(routerLink)]="ruta2"><i style="font-size:20px" class="font-redlgc fa fa-handshake-o" ></i><strong style="font-size:18px" class="special">Solicitar Contrato</strong> </a>
+			</li>
+		
 			<li *ngIf="authenticate==false">
 					
 					<a href="javascript:void(0);" class="font-redlgc" routerLink="/login"><i style="font-size:20px" class="font-redlgc fa fa-shield" ></i><strong style="font-size:18px" class="special">Mis Contratos</strong> </a>
@@ -34,49 +48,45 @@
 				<!-- <a href="javascript:void(0);" class="font-redlgc" [(routerLink)]="ruta"><i style="font-size:20px" class="font-redlgc fa fa-shield" ></i><strong style="font-size:18px" class="special">Mis Contratos</strong> </a>
 				 -->
 			</li>
-			<li >
-				<a href="javascript:void(0);" class="font-redlgc" routerLink="/proteccion-basica"><i style="font-size:20px" class="font-redlgc fa fa-key" ></i><strong style="font-size:18px" class="special">Protección Básica</strong> </a>
-			</li>
-			<li >
-				<a href="javascript:void(0);" class="font-redlgc" routerLink="/proteccion-total"><i style="font-size:20px" class="font-redlgc fa fa-legal" ></i><strong style="font-size:18px" class="special">Protección Total</strong> </a>
-			</li>
-			<li >
-				<a href="javascript:void(0);" class="font-redlgc" routerLink="/proteccion-global"><i style="font-size:20px" class="font-redlgc fa fa-globe" ></i><strong style="font-size:18px" class="special">Protección Global</strong> </a>
-			</li>
-			<li >
-				<a href="javascript:void(0);" class="font-redlgc" routerLink="/proteccion-full"><i style="font-size:20px" class="font-redlgc fa fa-balance-scale" ></i><strong style="font-size:18px" class="special">Protección Full</strong> </a>
-			</li>
-			<li >
-				<a href="javascript:void(0);" class="font-redlgc" [(routerLink)]="ruta2"><i style="font-size:20px" class="font-redlgc fa fa-handshake-o" ></i><strong style="font-size:18px" class="special">Solicitar Contrato</strong> </a>
-			</li>
-			<!-- <li >
-				<a href="javascript:void(0);" class="font-redlgc" routerLink="/credito-hipotecario"><i style="font-size:20px" class="font-redlgc fa fa-home" ></i><strong style="font-size:18px" class="special">Crédito Hipotecario</strong> </a>
-			</li> -->
-			<li >
-				<a href="javascript:void(0);" class="font-redlgc" routerLink="/calcular-credito"><i style="font-size:20px" class="font-redlgc fa fa-money" ></i><strong style="font-size:18px" class="special">Tu Hipoteca Fácil</strong> </a>
+			<li *ngIf="authenticate==true" >
+				<a href="javascript:void(0);" class="font-redlgc" routerLink="/members/alertas/agregar"><i style="font-size:20px" class="font-redlgc fa fa-clock-o" ></i><strong style="font-size:18px" class="special">Crear Citas / Alertas</strong> </a>
 			</li>
 			<li >
 				<a href="javascript:void(0);" class="font-redlgc" routerLink="/calcular-irs"><i style="font-size:20px" class="font-redlgc fa fa-table" ></i><strong style="font-size:18px" class="special">Calcular ISR</strong> </a>
 			</li>
-
+		
+			
+			
+			<!-- <li >
+				<a href="javascript:void(0);" class="font-redlgc" routerLink="/credito-hipotecario"><i style="font-size:20px" class="font-redlgc fa fa-home" ></i><strong style="font-size:18px" class="special">Crédito Hipotecario</strong> </a>
+			</li> -->
 			<li >
-				<a href="javascript:void(0);" class="font-redlgc" routerLink="/servicios"><i style="font-size:20px" class="font-redlgc fa fa-gears" ></i><strong style="font-size:18px" class="special">Servicios</strong> </a>
+				<a href="javascript:void(0);" class="font-redlgc" routerLink="/calcular-credito"><i style="font-size:20px" class="font-redlgc fa fa-money" ></i><strong style="font-size:18px" class="special">Tú Hipoteca Fácil</strong> </a>
 			</li>
+
+
+			<!-- <li >
+				<a href="javascript:void(0);" class="font-redlgc" routerLink="/servicios"><i style="font-size:20px" class="font-redlgc fa fa-gears" ></i><strong style="font-size:18px" class="special">Servicios</strong> </a>
+			</li> -->
 			<li >
-				<a href="javascript:void(0);" class="font-redlgc" routerLink="/sugerencias"><i style="font-size:20px" class="font-redlgc fa fa-inbox" ></i><strong style="font-size:18px" class="special">Sugerencias</strong> </a>
+				<a href="javascript:void(0);" class="font-redlgc" routerLink="/sugerencias"><i style="font-size:20px" class="font-redlgc fa fa-inbox" ></i><strong style="font-size:18px" class="special">Buzón de Sugerencias</strong> </a>
+			</li>
+			
+	
+		
+      	
+			<li >
+				<a href="javascript:void(0);" class="font-redlgc" routerLink="/directo"><i style="font-size:20px" class="font-redlgc fa fa-headphones" ></i><strong style="font-size:18px" class="special">LGC Directo</strong> </a>
 			</li>
 			<li >
 				<a href="javascript:void(0);" class="font-redlgc" routerLink="/contacto"><i style="font-size:20px" class="font-redlgc fa fa-whatsapp" ></i><strong style="font-size:18px" class="special">Contacto</strong> </a>
 			</li>
+			<hr *ngIf="authenticate==true" style="border: 0.5px solid rgb(88,17,15) !important;opacity: 0.5;">
 			<li *ngIf="authenticate==true" >
-				<a href="javascript:void(0);" class="font-redlgc" routerLink="/members/alertas/agregar"><i style="font-size:20px" class="font-redlgc fa fa-clock-o" ></i><strong style="font-size:18px" class="special">Agregar Alerta</strong> </a>
-			</li>
-		
-      		<li *ngIf="authenticate==true" >
 				<a href="javascript:void(0);" class="font-redlgc" routerLink="/members/settings"><i style="font-size:20px" class="font-redlgc fa fa-cogs" ></i><strong style="font-size:18px" class="special">Ajustes</strong> </a>
 			</li>
 			<li *ngIf="authenticate==true" >
-				<a href="javascript:void(0);" class="font-redlgc" (click)="logout()"><i style="font-size:20px" class="font-redlgc fa fa-power-off" ></i><strong style="font-size:18px" class="special">Log Out</strong> </a>
+				<a href="javascript:void(0);" class="font-redlgc" (click)="logout()"><i style="font-size:20px" class="font-redlgc fa fa-power-off" ></i><strong style="font-size:18px" class="special">Cerrar Sesión</strong> </a>
 			</li>
 		
 		 	<!--

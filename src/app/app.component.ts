@@ -16,6 +16,7 @@ import { OneSignal } from '@ionic-native/onesignal/ngx';
 export class AppComponent {
   public sinback  :boolean = true;
   spinnerStyle = Spinkit;
+  autenticado:boolean=false;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -46,6 +47,9 @@ export class AppComponent {
     
       this.router.navigate(['home']);
       this.authenticationService.authenticationState.subscribe(state => {
+        if(state){
+          this.autenticado=true;
+        }
       //  this.router.navigate(['home']);
        /*  if (state) {
           this.router.navigate(['members', 'dashboard']);

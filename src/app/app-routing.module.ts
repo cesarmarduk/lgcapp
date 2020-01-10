@@ -29,7 +29,8 @@ const routes: Routes = [
   { path: 'notificaciones', loadChildren: './notificaciones/notificaciones.module#NotificacionesPageModule' },
   { path: 'notificacion/:id', loadChildren: './notificacion/notificacion.module#NotificacionPageModule' },
   { path: 'proteccion-global', loadChildren: './proteccionglobal/proteccionglobal.module#ProteccionglobalPageModule' },
-  { path: 'proteccion-full', loadChildren: './proteccionfull/proteccionfull.module#ProteccionfullPageModule' },
+  { path: 'proteccion-full', loadChildren: './proteccionfull/proteccionfull.module#ProteccionfullPageModule' },  { path: 'nuestros-precios', loadChildren: './nuestros-precios/nuestros-precios.module#NuestrosPreciosPageModule' },
+
 
 
  

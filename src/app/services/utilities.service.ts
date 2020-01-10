@@ -15,27 +15,8 @@ const Swal = require('sweetalert2');
 @Injectable({
   providedIn: 'root'
 })
-/*
-'Content-Type':  'application/json',
-      'Accept': 'application/json',
-{
-  "/ApiRestApp/*": {
-    "target": "http://localhost",
-    "secure": false,
-    "changeOrigin": true
-  }
-}
 
 
-{
-  "/*": {
-    "target": "https://app.legalglobalconsulting.com/",
-    "secure": false,
-    "changeOrigin": true
-  }
-}
-
-*/
 export class UtilitiesService {
   public readonly baseApiUrl: string = 'https://app.legalglobalconsulting.com/'; // https://app.legalglobalconsulting.com/  http://localhost/ApiRestAPP/  
   public readonly user='admin';
@@ -149,7 +130,7 @@ export class UtilitiesService {
      var at=new Date(time + 1000);
    // }
     this.localNotifications.schedule({
-      id: id,
+      id: parseInt(id),
       title: title,
       text: text,
       sound: true ? 'file://assets/sounds/when.mp3': 'file://assets/sounds/when.m4r',//this.isAndroid 
@@ -157,7 +138,8 @@ export class UtilitiesService {
       icon: 'file://assets/img/icono.png',
       smallIcon:`res://${icon}.png`,
       trigger: { at: at },
-      foreground:true,    
+      foreground:true, 
+         
       clock:true,
       vibrate:true,
       color:'#58110F',
@@ -165,8 +147,33 @@ export class UtilitiesService {
 
      });
   }
-  cancelNotification(id){
-
+  editNotification(id,title,text,icon,time=null,attachments=null,data=null){
+    this.presentAlert('success',id,false,0); 
+    //  var at=new Date(new Date().getTime() + 1000);
+     // if(time!=null){
+      //  time=new Date(time).getTime();
+       var at=new Date(time + 1000);
+     // }
+      this.localNotifications.update({
+        id: parseInt(id),
+        title: title,
+        text: text,
+        sound: true ? 'file://assets/sounds/when.mp3': 'file://assets/sounds/when.m4r',//this.isAndroid 
+        data: data,
+        icon: 'file://assets/img/icono.png',
+        smallIcon:`res://${icon}.png`,
+        trigger: { at: at },
+        foreground:true,    
+        clock:true,
+        vibrate:true,
+        color:'#58110F',
+        attachments: attachments
+  
+       });
+  }
+  deleteNotification(id){
+    this.presentAlert('success',id,false,0); 
+    this.localNotifications.cancel(parseInt(id));
   }
 
   format (datos) {

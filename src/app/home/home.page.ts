@@ -3,11 +3,13 @@ import { UtilitiesService } from '../services/utilities.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { Storage } from '@ionic/storage';
 //import { NetworkService } from '../services/network.service';
 
 // Declaramos las variables para jQuery
 declare var jQuery:any;
 declare var $:any;
+const TOKEN_KEY = 'auth-token';
 class Slider {
   id: number;
   image: string;
@@ -46,13 +48,36 @@ export class HomePage implements OnInit {
   isConnected = false;
   authenticate: boolean = false; 
   constructor(private authService: AuthenticationService,private utilities: UtilitiesService,  
-              private _activatedRoute: ActivatedRoute) { //,private networkService: NetworkService
+              private _activatedRoute: ActivatedRoute,private storage: Storage) { //,private networkService: NetworkService
   
    
   
    }
 
   ngOnInit() {
+    this.storage.get(TOKEN_KEY).then(res => {
+      if (res) {
+        this.authenticate=true;
+        if(localStorage.getItem('inqfisLog')=='true'){
+          this.ruta='/members/dashboard/inqfis';
+        }
+        if(localStorage.getItem('inqmorLog')=='true'){
+          this.ruta='/members/dashboard/inqmor';
+        }
+        if(localStorage.getItem('propfisLog')=='true'){
+          this.ruta='/members/dashboard/propfis';
+        }
+        if(localStorage.getItem('propmorLog')=='true'){
+          this.ruta='/members/dashboard/propmor';
+        }
+        if(localStorage.getItem('inmobiliariaLog')=='true'){
+          this.ruta='/members/dashboard/inmobiliaria';
+        }
+        if(localStorage.getItem('asesorLog')=='true'){
+          this.ruta='/members/dashboard/asesor';
+        }
+      }
+    })
     this._activatedRoute.paramMap.subscribe(() => {
       if((this.authService.isAuthenticated()==true)){
         if(localStorage.getItem('inqfisLog')=='true'){

@@ -14,20 +14,14 @@
           <section class="container">
               
                 <div class="form-divider"></div>
-                <div class="form-label-divider"><span class="back font-redlgc">Agregar Alerta {{folio}}</span></div>
+                <div class="form-label-divider"><span class="back font-redlgc">Editar Alerta</span></div>
                 <div class="form-divider"></div>
-                <div *ngIf="folio">
-
-                    Fecha de firma: {{fecha_firma}}
-                </div>
-                
-             
-
+                <a href="javascript:void(0)" (click)="eliminarAlerta($event)" style="float:right;font-size: 20px"><i class="fa fa-bell-slash font-redlgc" >  </i> </a>  
                 <h4 class="title-main">Fecha </h4>
                 <div class="form-row-group with-icons">
                     <div class="form-row no-padding">
                         <i class="fa fa-calendar"></i>
-                        <input type="date" id="fecha_alert" name="fecha_alert" class="form-element" required [value]="fecha_firma">
+                        <input type="date" id="fecha_alert_edit" name="fecha_alert_edit" class="form-element" required [value]="fechaAlert">
                     </div>
                  
                 </div>
@@ -35,7 +29,7 @@
                 <div class="form-row-group with-icons">
                   <div class="form-row no-padding">
                           <i class="fa fa-clock-o"></i>
-                          <input type="time" id="hora_alert" name="hora_alert" class="form-element" required value="">
+                          <input type="time" id="hora_alert_edit" name="hora_alert_edit" class="form-element" required [value]="horaAlert">
                   </div>
                 </div>
              
@@ -43,7 +37,7 @@
                 <div class="form-row-group with-icons">
                     <div class="form-row no-padding">
                         <i class="fa fa-tag"></i>
-                        <input type="text" id="titulo_alert" name="titulo_alert" class="form-element" required placeholder="Título" value="{{titleAlert}}">
+                        <input type="text" id="titulo_alert_edit" name="titulo_alert_edit" class="form-element" required placeholder="Título" value="{{titleAlert}}">
                     </div>
                  
                 </div>
@@ -52,7 +46,7 @@
                 <div class="form-row-group with-icons">
                     <div class="form-row no-padding">
                         <i class="fa fa-comments"></i>
-                        <textarea id="descripcion_alert" name="descripcion_alert" placeholder="Descripción" class="form-element" rows="10">{{contentAlert}}</textarea>
+                        <textarea id="descripcion_alert_edit" name="descripcion_alert_edit" placeholder="Descripción" class="form-element" rows="10">{{contentAlert}}</textarea>
                       
                     </div>
                  
@@ -64,7 +58,7 @@
                 <div class="form-divider"></div>
 
                 <div class="form-row">
-                    <a style="text-align: center;background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);color:white" href="Javascript:void(0);" (click)="generarAlerta($event)" class="button circle block">OK</a>
+                    <a style="text-align: center;background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);color:white" href="Javascript:void(0);" (click)="editarAlerta($event)" class="button circle block">OK</a>
                 </div>
 
           </section>      

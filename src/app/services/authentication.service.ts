@@ -82,6 +82,8 @@ export class AuthenticationService {
                   localStorage.setItem('INFOINQMOR', JSON.stringify(this.response.infoInqMoral));
                 }
               }
+              $('.ocultaEnlogOut').css('display','block');
+              $('.verEnlogOut').css('display','none');
               this.authenticationState.next(true);
           }
           return data;

@@ -30,6 +30,7 @@ export class CrearincumplimientoPage implements OnInit {
 
   ngOnInit() {
     this.polId=this.rutaActiva.snapshot.params.pol;
+    this.folio=this.rutaActiva.snapshot.params.folio;
   }
   doSomethingOnScroll($event:Event  ){
     this.utilities.doSomethingOnScroll($event);

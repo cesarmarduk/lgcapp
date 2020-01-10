@@ -1,8 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UtilitiesService } from '../services/utilities.service';
+import { Storage } from '@ionic/storage';
+import { ActivatedRoute } from '@angular/router';
 // Declaramos las variables para jQuery
 declare var jQuery:any;
 declare var $:any;
+const TOKEN_KEY = 'auth-token';
 interface notificaciones {
   id:number;
   title:string;
@@ -25,12 +28,27 @@ export class NotificationsComponent implements OnInit {
   @Input() bell: boolean;
   @Input() place: boolean;
   @Input() urlAlertas:string;
+  autenticado:boolean=false;
   notificaciones:notificaciones;
-  constructor(private utilities: UtilitiesService) {
+  constructor(private utilities: UtilitiesService,private storage: Storage,private _activatedRoute: ActivatedRoute) {
 
    }
 
   ngOnInit() {
+    this.storage.get(TOKEN_KEY).then(res => {
+      if (res) {
+       this.autenticado=true;
+      }
+    })
+
+    this._activatedRoute.paramMap.subscribe(() => {
+      this.storage.get(TOKEN_KEY).then(res => {
+        if (res) {
+         this.autenticado=true;
+        }
+      })
+    })
+  
    this.utilities.peticionHttp<response>('get',`${this.utilities.baseApiUrl}api/Utilities/getNotificationBar`).pipe()
     .subscribe(
         data => {

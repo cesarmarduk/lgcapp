@@ -35,26 +35,25 @@
                     <thead>
                       <tr>
                     
-                        <th class="th">Fecha</th>
-                        <th class="th">Titulo</th>
-                        <th class="th">Descripcion</th>
-                        <th class="th"></th>
+                        <th class="th" width="30%">Fecha</th>
+                        <th class="th" width="35%">Titulo</th>
+                        <th class="th" width="35%">Descripcion</th>
+                    
                      
                       </tr>
                     </thead>
                     <tbody *ngIf="alertas?.length != 0">
-                        <tr id="dttr_{{ alerta.id }}" *ngFor="let alerta of alertas">
+                        <tr id="dttr_{{ alerta.id }}" *ngFor="let alerta of alertas" routerLink="/members/alertas/editar/{{alerta.id}}">
                       
-                            <td class="td_{{ alerta.id }}">{{ alerta.fecha }}</td>
-                            <td class="td_{{ alerta.id }}">{{ alerta.titulo }}</td>
-                            <td class="td_{{ alerta.id }}">{{ alerta.descripcion }}</td>
-                            <td class="td_{{ alerta.id }}"></td>
-                       
+                            <td class="td_{{ alerta.id }}" width="30%">{{ alerta.fecha }}</td>
+                            <td class="td_{{ alerta.id }}" width="35%">{{ alerta.titulo }}</td>
+                            <td class="td_{{ alerta.id }}" width="35%">{{ alerta.descripcion }}</td>
+                          
                         </tr>
                     </tbody>
                     <tbody *ngIf="alertas?.length == 0">
                       <tr>
-                        <td colspan="4" class="no-data-available">No data!</td>
+                        <td colspan="3" class="no-data-available">No data!</td>
                       </tr>
                     <tbody>
                   </table>

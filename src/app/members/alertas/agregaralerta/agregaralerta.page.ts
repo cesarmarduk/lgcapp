@@ -19,6 +19,7 @@ export class AgregaralertaPage implements OnInit {
   fecha_firma:any='';
   titleAlert:string='';
   contentAlert:string='';
+  fecha:any;
   constructor(
     private utilities: UtilitiesService,
     private rutaActiva: ActivatedRoute,
@@ -31,11 +32,20 @@ export class AgregaralertaPage implements OnInit {
 
   ngOnInit() {
     this.folio=this.rutaActiva.snapshot.params.folio;
-    
+   
     this.fecha_firma=this.rutaActiva.snapshot.params.fecha;
+  
     if(this.folio){
       this.titleAlert=`Firma de Protección ${this.folio}`;
       this.contentAlert=`Preparate para la firma de la Protección con Folio: ${this.folio}`;
+    }
+  }
+  validarFormatoFecha(campo) {
+    var RegExPattern = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
+    if ((campo.match(RegExPattern)) && (campo!='')) {
+          return true;
+    } else {
+          return false;
     }
   }
   generarAlerta($event:Event  ){
@@ -83,6 +93,7 @@ export class AgregaralertaPage implements OnInit {
                   }).pipe()
         .subscribe(
           data => {
+         
             this.utilities.openNotification(
               data.data,
               titulo,
@@ -90,8 +101,8 @@ export class AgregaralertaPage implements OnInit {
               'alarm_icon',
               time
             );
-           
-            this.utilities.presentAlert('success','Se ha enviado la informacion',false,0);
+            this.router.navigate(['home']);
+            this.utilities.presentAlert('success','Se ha Agregado la alerta',false,0);
           },
           error => {
             this.utilities.presentAlert('error','Ha ocurrido un error al enviar peticion',false,0); 
