@@ -87,7 +87,7 @@ export class AgregaralertaPage implements OnInit {
               data.data,
               titulo,
               descripcion,
-              'icon.png',
+              'alarm_icon',
               time
             );
            

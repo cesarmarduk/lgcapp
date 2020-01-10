@@ -37,7 +37,7 @@ const Swal = require('sweetalert2');
 
 */
 export class UtilitiesService {
-  public readonly baseApiUrl: string = 'http://localhost/ApiRestAPP/'; // https://app.legalglobalconsulting.com/  http://localhost/ApiRestAPP/  
+  public readonly baseApiUrl: string = 'https://app.legalglobalconsulting.com/'; // https://app.legalglobalconsulting.com/  http://localhost/ApiRestAPP/  
   public readonly user='admin';
   public readonly pwd='mexico100';
  
@@ -155,7 +155,7 @@ export class UtilitiesService {
       sound: true ? 'file://assets/sounds/when.mp3': 'file://assets/sounds/when.m4r',//this.isAndroid 
       data: data,
       icon: 'file://assets/img/icono.png',
-      smallIcon:'res://my_notification_icon.png',
+      smallIcon:`res://${icon}.png`,
       trigger: { at: at },
       foreground:true,    
       clock:true,
