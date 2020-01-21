@@ -3,17 +3,17 @@
   <div class="wrapper ">
       
     <div class="wrapper-inline" (scroll)="doSomethingOnScroll($event)">
-           <!-- <app-membersmenu></app-membersmenu> -->
-           <app-menu></app-menu>
+        <!-- <app-membersmenu></app-membersmenu> -->
+        <app-menu></app-menu>
         <app-notifications urlAlertas='/members/alertas' ></app-notifications>
       <!-- Page content start -->
       <main class="margin mt-0">
 
           <div class="dash-balance">
             <div class="dash-content relative">
-              <h3 class="w-text">Propietario (Empresas)</h3>
+              <h3 class="w-text">Agente Inmobiliario</h3>
               <div class="notification">
-                  <a href="javascript:void(0)" [routerLink]="['/members/crear-solicitud','propmor',propmor]"><i class="fa fa-plus"></i></a>
+                  <a href="javascript:void(0)" [routerLink]="['/members/crear-solicitud','agente',agente]"><i class="fa fa-plus"></i></a>
               </div>
             </div>
            
@@ -21,55 +21,45 @@
 
   
           <section class="bal-section container">
-          
+					
             <div class="resources-card-wrapper">
                 <div class="wallet-card mr-10 yellow-back">
-                    <span style="float:right" ><img style="float:right" width="20%" src="/assets/img/renovacion.png" alt=""></span>
+                    <span style="float:right" ><img style="float:right" width="15%" src="/assets/img/renovacion.png" alt=""></span>
                     <div class="form-divider" style="height:0px"></div>
                     <div class="flex-column flex-md-row">
                     
-                      <h1 class="w-text countRenovacionesPropmor">0</h1>
+                      <span class="w-text countRenovacionesAgente">0</span>
                       <p class="g-text mb-0 font-weight-medium"> Renovaciones </p>
                     </div>
-                
-                 
                 </div>
-      
                 <div class="wallet-card ml-10 green-back">
-                    <span style="float:right" ><img style="float:right" width="20%" src="/assets/img/activas.png" alt=""></span>
+                    <span style="float:right" ><img style="float:right" width="15%" src="/assets/img/activas.png" alt=""></span>
                     <div class="form-divider" style="height:0px"></div>
                     <div class="flex-column flex-md-row">
                     
-                      <h1 class="w-text countActivasPropmor">0</h1>
+                      <span class="w-text countActivasAgente">0</span>
                       <p class="g-text mb-0 font-weight-medium"> Activa(s)</p>
                     </div>
-                 
                 </div>
-            
             </div>
             <br>
-         
             <div class="resources-card-wrapper">
                 <div class="wallet-card mr-10 blue-back">
-                    <span style="float:right" ><img style="float:right" width="20%" src="/assets/img/notificacion.png" alt=""></span>
+                    <span style="float:right" ><img style="float:right" width="15%" src="/assets/img/notificacion.png" alt=""></span>
                     <div class="form-divider" style="height:0px"></div>
                     <div class="flex-column flex-md-row">
-                    
-                      <h1 class="w-text countFirmasPropmor">0</h1>
+                      <span class="w-text countFirmasAgente">0</span>
                       <p class="g-text mb-0 font-weight-medium"> Proximas Firmas </p>
                     </div>
-                
                 </div>
       
                 <div class="wallet-card ml-10 lgcGradiente">
-                    <span style="float:right" ><img style="float:right" width="20%" src="/assets/img/reclamo.png" alt=""></span>
+                    <span style="float:right" ><img style="float:right" width="15%" src="/assets/img/reclamo.png" alt=""></span>
                     <div class="form-divider" style="height:0px"></div>
                     <div class="flex-column flex-md-row">
-                   
-                      <h1 class="w-text countReclamosPropmor">0</h1>
+                      <span class="w-text countReclamosAgente">0</span>
                       <p class="g-text mb-0 font-weight-medium"> Reclamo(s)</p>
                     </div>
-                  
                 </div>
             
             </div>
@@ -77,26 +67,27 @@
           <br>
           <section class="container">
             <div class="form-row">
-              <a [routerLink]="['/members/crear-solicitud','propmor',propmor]" style="text-align: center;background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);color:white" href="Javascript:void(0);" class="button circle block">Solicitud Nueva Protección Jurídica </a>
+              <a [routerLink]="['/members/crear-solicitud','agente',agente]" style="text-align: center;background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);color:white" href="Javascript:void(0);" class="button circle block">Solicitud Nueva Protección Jurídica  </a>
              </div>
           </section>
+          <div class="form-divider"></div>
           <section class="container">
               <h4 class="title-main font-20 font-bold font-redlgc">Listado de protecciones</h4>
               <div class="tab-item">
               <div class="tab-menu fix-width">
-                <a class="menu-item " id="tabFirmadasPropmor" href="javascript:void(0);" data-content="contentFirmadasPropmor" style="width: 33%;"><i class="fa fa-handshake-o"></i> FIRMADAS</a>
-                <a class="menu-item" id="tabProcesoPropmor" href="javascript:void(0);" data-content="contentProcesoPropmor" style="width: 33%;"><i class="fa fa-hourglass-start"></i> EN PROCESO</a>
-                <a class="menu-item" id="tabRechazadasPropmor" href="javascript:void(0);" data-content="contentRechazadasPropmor" style="width: 33%;"><i class="fa fa-history"></i> RECHAZADAS</a>
+                <a class="menu-item " id="tabFirmadasAgente" href="javascript:void(0);" data-content="contentFirmadasAgente" style="width: 33%;"><i class="fa fa-handshake-o"></i> FIRMADAS</a>
+                <a class="menu-item" id="tabProcesoAgente" href="javascript:void(0);" data-content="contentProcesoAgente" style="width: 33%;"><i class="fa fa-hourglass-start"></i> EN PROCESO</a>
+                <a class="menu-item" id="tabRechazadasAgente" href="javascript:void(0);" data-content="contentRechazadasAgente" style="width: 33%;"><i class="fa fa-history"></i> RECHAZADAS</a>
               </div>
               <div class="tab-menu fix-width">
-                <a class="menu-item" id="tabFirmarPropmor" href="javascript:void(0);" data-content="contentFirmarPropmor" style="width: 33%;"><i class="fa fa-check-square-o"></i> x FIRMAR</a>
-                <a class="menu-item" id="tabRenovarPropmor" href="javascript:void(0);" data-content="contentRenovarPropmor" style="width: 33%;"><i class="fa fa-refresh"></i> RENOVAR</a>
-       
-                <a class="menu-item" id="tabReclamosPropmor" href="javascript:void(0);" data-content="contentReclamosPropmor" style="width: 33%;"><i class="fa fa-exclamation"></i> RECLAMO</a>
+                <a class="menu-item" id="tabFirmarAgente" href="javascript:void(0);" data-content="contentFirmarAgente" style="width: 33%;"><i class="fa fa-check-square-o"></i> x FIRMAR</a>
+                <a class="menu-item" id="tabRenovarAgente" href="javascript:void(0);" data-content="contentRenovarAgente" style="width: 33%;"><i class="fa fa-refresh"></i> RENOVAR</a>
+        
+                <a class="menu-item" id="tabReclamosAgente" href="javascript:void(0);" data-content="contentReclamosAgente" style="width: 33%;"><i class="fa fa-exclamation"></i> RECLAMO</a>
               
               </div>
               <div class="tab-content">
-                  <div class="content-item active" id="contentFirmadasPropmor">
+                  <div class="content-item " id="contentFirmadasAgente">
   
                       <ul *ngIf="firmadas?.length != 0" class="transaction-list list-unstyled">
                         <li *ngFor="let poliza of firmadas" routerLink="/members/poliza/{{perfil}}/{{poliza.id}}" style="cursor:pointer" >
@@ -125,7 +116,7 @@
                         </li>
                       </ul>
                     </div>
-                    <div class="content-item" id="contentProcesoPropmor">
+                    <div class="content-item" id="contentProcesoAgente">
       
                       <ul *ngIf="proceso?.length != 0" class="transaction-list list-unstyled">
                         <li *ngFor="let poliza of proceso" routerLink="/members/poliza/{{perfil}}/{{poliza.id}}" >
@@ -154,7 +145,7 @@
                         </li>
                       </ul>      
                     </div>
-                    <div class="content-item" id="contentRechazadasPropmor">                      
+                    <div class="content-item" id="contentRechazadasAgente">                      
                       <ul *ngIf="rechazadas?.length != 0" class="transaction-list list-unstyled">
                         <li *ngFor="let poliza of rechazadas" routerLink="/members/poliza/{{perfil}}/{{poliza.id}}" >
                           <div class="d-flex align-items-center justify-content-between">
@@ -182,7 +173,7 @@
                         </li>
                       </ul>
                     </div>
-                <div class="content-item" id="contentFirmarPropmor">  
+                <div class="content-item" id="contentFirmarAgente">  
                   <ul *ngIf="xfirmar?.length != 0" class="transaction-list list-unstyled">
                     <li *ngFor="let poliza of xfirmar" routerLink="/members/poliza/{{perfil}}/{{poliza.id}}" >
                       <div class="d-flex align-items-center justify-content-between">
@@ -210,7 +201,7 @@
                     </li>
                   </ul>  
                 </div>
-                <div class="content-item" id="contentRenovarPropmor">  
+                <div class="content-item" id="contentRenovarAgente">  
                   <ul *ngIf="renovar?.length != 0" class="transaction-list list-unstyled">
                     <li *ngFor="let poliza of renovar" routerLink="/members/poliza/{{perfil}}/{{poliza.id}}" >
                       <div class="d-flex align-items-center justify-content-between">
@@ -238,7 +229,7 @@
                     </li>
                   </ul>  
                 </div>
-                <div class="content-item" id="contentReclamosPropmor">                  
+                <div class="content-item" id="contentReclamosAgente">                  
                   <ul *ngIf="reclamo?.length != 0" class="transaction-list list-unstyled">
                     <li *ngFor="let poliza of reclamo" routerLink="/members/poliza/{{perfil}}/{{poliza.id}}" >
                       <div class="d-flex align-items-center justify-content-between">
@@ -278,7 +269,7 @@
               
               
               <div class="table-responsive">
-                  <table datatable [dtOptions]="dtOptions" class="row-border hover" id="inmobiliaria-tabla" style="width: 100% !important">
+                  <table datatable [dtOptions]="dtOptions" class="row-border hover" id="agente-tabla" style="width: 100% !important">
                     <thead>
                       <tr>
                         <th class="th sorting_disabled" style="max-width: 40px"></th>
@@ -301,7 +292,7 @@
                     </tbody>
                     <tbody *ngIf="polizas?.length == 0">
                       <tr>
-                        <td colspan="6" class="no-data-available">No hay Contratos como Inmobiliaria!</td>
+                        <td colspan="6" class="no-data-available">No hay Contratos como Agentebiliaria!</td>
                       </tr>
                     <tbody>
                   </table>

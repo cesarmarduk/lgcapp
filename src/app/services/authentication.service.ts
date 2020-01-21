@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 declare var jQuery:any;
 declare var $:any;
 const TOKEN_KEY = 'auth-token';
+const AGENTE = 'agenteLog';
 const ASESOR = 'asesorLog';
 const INMOBILIARIA = 'inmobiliariaLog';
 const PROPFIS = 'propfisLog';
@@ -57,6 +58,10 @@ export class AuthenticationService {
               this.response=data.data;
               if(this.response.logueado==true){
                 this.storage.set(TOKEN_KEY, 'KEY');
+                localStorage.setItem(AGENTE, this.response.Agente);
+                if(this.response.Agente){                
+                  localStorage.setItem('INFOAGENTE', JSON.stringify(this.response.infoAgente));
+                }
                 localStorage.setItem(ASESOR,this.response.Asesor);
                 if(this.response.Asesor){               
                   localStorage.setItem('INFOASESOR', JSON.stringify(this.response.infoAsesor));
@@ -107,12 +112,14 @@ export class AuthenticationService {
     return this.storage.remove(TOKEN_KEY).then(() => {
       this.storage.remove(CURRENTUSER);
       this.authenticationState.next(false);
+      localStorage.removeItem('INFOAGENTE');
       localStorage.removeItem('INFOASESOR');
       localStorage.removeItem('INFOINMOBILIARIA');
       localStorage.removeItem('INFOPROPFIS');
       localStorage.removeItem('INFOPROPMOR');
       localStorage.removeItem('INFOINQFIS');
       localStorage.removeItem('INFOINQMOR');
+      localStorage.removeItem(AGENTE);
       localStorage.removeItem(ASESOR);
       localStorage.removeItem(INMOBILIARIA);
       localStorage.removeItem(PROPFIS);

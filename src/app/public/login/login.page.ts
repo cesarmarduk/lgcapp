@@ -43,13 +43,7 @@ export class LoginPage implements OnInit {
  
   ngOnInit() {
    
-    this._activatedRoute.paramMap.subscribe(() => {
-      this.storage.get(TOKEN_KEY).then(res => {
-        if (!res) {
-          this.router.navigate(['home']);
-        }
-      })
-    })
+  
   }
  
 
@@ -85,6 +79,9 @@ export class LoginPage implements OnInit {
         }
         if(localStorage.getItem('asesorLog')=='true'){
           this.url='/members/dashboard/asesor';
+        }
+        if(localStorage.getItem('agenteLog')=='true'){
+          this.url='/members/dashboard/agente';
         }
         this.router.navigateByUrl(this.url);
            if(data['status']==true){

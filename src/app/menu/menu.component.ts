@@ -28,6 +28,7 @@ export class MenuComponent implements OnInit {
   perfilPropMor:boolean = false;
   perfilInqFis:boolean = false;
   perfilInqMor:boolean = false;
+  perfilAgente:boolean = false;
   constructor(private authService: AuthenticationService,private utilities: UtilitiesService,private _activatedRoute: ActivatedRoute,private storage: Storage) {
   
 
@@ -59,6 +60,10 @@ export class MenuComponent implements OnInit {
         }
         if(localStorage.getItem('asesorLog')=='true'){
           this.perfilAsesor=true;
+      
+        }
+        if(localStorage.getItem('agenteLog')=='true'){
+          this.perfilAgente=true;
       
         }
       }
@@ -107,7 +112,10 @@ export class MenuComponent implements OnInit {
         this.perfilAsesor=true;
         this.authenticate=true;
       }
-      
+      if(localStorage.getItem('agenteLog')=='true'){
+        this.perfilAgente=true;
+        this.authenticate=true;
+      }
       this.authenticate=true;
       this.rutaLog='';
       this.titulo  = 'Cerrar Sesion';

@@ -18,6 +18,8 @@ const routes: Routes = [
   { path: 'incumplimientos/:pol/:folio', loadChildren: './incumplimientos/incumplimientos.module#IncumplimientosPageModule' },
   { path: 'avisospoliza/:perfil/:pol/:folio', loadChildren: './avisospoliza/avisospoliza.module#AvisospolizaPageModule' },
   { path: 'alertas/editar/:id', loadChildren: './alertas/editar/editar.module#EditarPageModule' },
+  { path: 'dashboard/agente', loadChildren: './dashboardagente/dashboardagente.module#DashboardagentePageModule' },
+
 
 
 

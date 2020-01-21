@@ -14,6 +14,7 @@ export class MembersmenuComponent implements OnInit {
   perfilPropMor:boolean = false;
   perfilInqFis:boolean = false;
   perfilInqMor:boolean = false;
+  perfilAgente:boolean = false;
   constructor(private authService: AuthenticationService) { }
 
   ngOnInit() {
@@ -35,6 +36,9 @@ export class MembersmenuComponent implements OnInit {
     }
     if(localStorage.getItem('asesorLog')=='true'){
       this.perfilAsesor=true;
+    }
+    if(localStorage.getItem('agenteLog')=='true'){
+      this.perfilAgente=true;
     }
 
   }

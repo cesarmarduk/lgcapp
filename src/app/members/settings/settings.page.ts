@@ -45,6 +45,7 @@ export class SettingsPage implements OnInit {
   propfisInfo:any;
   propmorInfo:any;
   asesorInfo:any;
+  agenteInfo:any;
   inmobiliariaInfo:any;
   cambioStatus:string;
   renovaciones:string;
@@ -66,6 +67,10 @@ export class SettingsPage implements OnInit {
     if(localStorage.getItem("asesorLog")=='true'){
       this.asesorInfo=JSON.parse(localStorage.getItem("INFOASESOR"));
       this.data.idAsesor=this.asesorInfo.id;
+    }
+    if(localStorage.getItem("agenteLog")=='true'){
+      this.agenteInfo=JSON.parse(localStorage.getItem("INFOAGENTE"));
+      this.data.idAgente=this.agenteInfo.id;
     }
     if(localStorage.getItem("inmobiliariaLog")=='true'){
       this.inmobiliariaInfo=JSON.parse(localStorage.getItem("INFOINMOBILIARIA"));
@@ -155,6 +160,10 @@ export class SettingsPage implements OnInit {
       if(localStorage.getItem("asesorLog")=='true'){
         this.asesorInfo=JSON.parse(localStorage.getItem("INFOASESOR"));
         this.data.idAsesor=this.asesorInfo.id;
+      }
+      if(localStorage.getItem("agenteLog")=='true'){
+        this.agenteInfo=JSON.parse(localStorage.getItem("INFOAGENTE"));
+        this.data.idAgente=this.agenteInfo.id;
       }
       if(localStorage.getItem("inmobiliariaLog")=='true'){
         this.inmobiliariaInfo=JSON.parse(localStorage.getItem("INFOINMOBILIARIA"));

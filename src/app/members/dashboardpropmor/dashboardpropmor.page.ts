@@ -37,7 +37,7 @@ class polizasResponse {
   polizasReclamo: any[];
 
 }
-
+const AGENTE = 'agenteLog';
 const ASESOR = 'asesorLog';
 const INMOBILIARIA = 'inmobiliariaLog';
 const PROPFIS = 'propfisLog';

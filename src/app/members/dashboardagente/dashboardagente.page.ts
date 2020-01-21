@@ -45,11 +45,11 @@ const PROPMOR = 'propmorLog';
 const INQFIS = 'inqfisLog';
 const INQMOR = 'inqmorLog';
 @Component({
-  selector: 'app-dashboardasesor',
-  templateUrl: './dashboardasesor.page.html',
-  styleUrls: ['./dashboardasesor.page.css'],
+  selector: 'app-dashboardagente',
+  templateUrl: './dashboardagente.page.html',
+  styleUrls: ['./dashboardagente.page.scss'],
 })
-export class DashboardasesorPage implements OnInit {
+export class DashboardagentePage implements OnInit {
   dt;
   dtOptions: DataTables.Settings = {};
   firmadas: Proteccion[];
@@ -58,11 +58,11 @@ export class DashboardasesorPage implements OnInit {
   xfirmar: Proteccion[];
   renovar: Proteccion[];
   reclamo: Proteccion[];
-  asesorInfo:any;
-  asesor:any;
+  agenteInfo:any;
+  agente:any;
   tipo:any;
   data:any;
-  perfil:string='asesor';
+  perfil:string='agente';
   constructor(private storage: Storage,private authService: AuthenticationService,
               private utilities: UtilitiesService,
               private http: HttpClient,
@@ -72,12 +72,12 @@ export class DashboardasesorPage implements OnInit {
   ngOnInit() {
     const that = this;
     that.authService.checkToken();
-    that.asesorInfo=JSON.parse(localStorage.getItem("INFOASESOR"));
-    that.asesor=this.asesorInfo.id; 
+    that.agenteInfo=JSON.parse(localStorage.getItem("INFOAGENTE"));
+    that.agente=this.agenteInfo.id; 
     that.tipo='crm_poliza';
     that.data={
       tipo:that.tipo,
-      asesor:that.asesor
+      agente:that.agente
 
     }
     that.utilities.peticionHttp<polizasResponse>('post',`${this.utilities.baseApiUrl}api/polizas/getCrmPolizas/`,that.data).pipe()
@@ -92,31 +92,31 @@ export class DashboardasesorPage implements OnInit {
           that.reclamo=data.polizasReclamo;
 
           if(that.firmadas.length>0){
-            $('#tabFirmadasAse').addClass('active');
-            $('#contentFirmadasAse').addClass('active');
+            $('#tabFirmadasAgente').addClass('active');
+            $('#contentFirmadasAgente').addClass('active');
           }else if(that.proceso.length>0){
-            $('#tabProcesoAse').addClass('active');
-            $('#contentProcesoAse').addClass('active');
+            $('#tabProcesoAgente').addClass('active');
+            $('#contentProcesoAgente').addClass('active');
           }else if(that.rechazadas.length>0){
-            $('#tabRechazadasAse').addClass('active');
-            $('#contentRechazadasAse').addClass('active');
+            $('#tabRechazadasAgente').addClass('active');
+            $('#contentRechazadasAgente').addClass('active');
           }else if(that.xfirmar.length>0){
-            $('#tabFirmarAse').addClass('active');
-            $('#contentFirmarsAse').addClass('active');
+            $('#tabFirmarAgente').addClass('active');
+            $('#contentFirmarsAgente').addClass('active');
           }else if(that.renovar.length>0){
-            $('#tabRenovarAse').addClass('active');
-            $('#contentRenovarAse').addClass('active');
+            $('#tabRenovarAgente').addClass('active');
+            $('#contentRenovarAgente').addClass('active');
           }else if(that.reclamo.length>0){
-            $('#tabReclamosAse').addClass('active');
-            $('#contentReclamosAse').addClass('active');
+            $('#tabReclamosAgente').addClass('active');
+            $('#contentReclamosAgente').addClass('active');
           }else{
-            $('#tabFirmadasAse').addClass('active');
-            $('#contentFirmadasAse').addClass('active');
+            $('#tabFirmadasAgente').addClass('active');
+            $('#contentFirmadasAgente').addClass('active');
           }
-          $('.countRenovacionesAse').html(that.renovar.length);
-          $('.countActivasAse').html(that.proceso.length+that.firmadas.length);
-          $('.countFirmasAse').html(that.xfirmar.length);
-          $('.countReclamosAse').html(that.reclamo.length);
+          $('.countRenovacionesAgente').html(that.renovar.length);
+          $('.countActivasAgente').html(that.proceso.length+that.firmadas.length);
+          $('.countFirmasAgente').html(that.xfirmar.length);
+          $('.countReclamosAgente').html(that.reclamo.length);
       
         },
         error => {

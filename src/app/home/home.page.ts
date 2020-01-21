@@ -79,6 +79,9 @@ export class HomePage implements OnInit {
         if(localStorage.getItem('asesorLog')=='true'){
           this.ruta='/members/dashboard/asesor';
         }
+        if(localStorage.getItem('agenteLog')=='true'){
+          this.ruta='/members/dashboard/agente';
+        }
       }
     })
     this._activatedRoute.paramMap.subscribe(() => {
@@ -100,6 +103,9 @@ export class HomePage implements OnInit {
         }
         if(localStorage.getItem('asesorLog')=='true'){
           this.ruta='/members/dashboard/asesor';
+        }
+        if(localStorage.getItem('agenteLog')=='true'){
+          this.ruta='/members/dashboard/agente';
         }
         this.authenticate=true;
        // this.ruta2='/members/crear-solicitud';
