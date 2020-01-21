@@ -36,7 +36,10 @@ export class HomePage implements OnInit {
     loopedSlides:3,
     loopAdditionalSlides :3,
     loop: false,
-    spaceBetween: 0
+    spaceBetween: 0,
+    preloadImages:true,
+    updateOnImagesReady:true,
+    
   };
   public slider1:string='assets/img/slider/1.png';
   public slider2:string='assets/img/slider/2.png';
