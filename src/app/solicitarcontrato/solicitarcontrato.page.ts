@@ -22,11 +22,13 @@ export class SolicitarcontratoPage implements OnInit {
   fileUploadProgress: string = null;
   uploadedFilePath: string = null;
   title: string;
+  fechaPro:any;
   constructor(private utilities: UtilitiesService,private rutaActiva: ActivatedRoute,private http: HttpClient) { 
 
     this.title = 'SOLICITAR CONTRATO';
   }
   ngOnInit() {
+    this.fechaPro=this.utilities.getFecha();
   }
   fileProgress(fileInput: any) {
     this.fileData = <File>fileInput.target.files[0];

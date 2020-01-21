@@ -34,6 +34,9 @@ export class AgregaralertaPage implements OnInit {
     this.folio=this.rutaActiva.snapshot.params.folio;
    
     this.fecha_firma=this.rutaActiva.snapshot.params.fecha;
+    if(this.fecha_firma==undefined||this.fecha_firma==''||this.fecha_firma=='--------------'){
+      this.fecha_firma=this.utilities.getFecha();
+    }
   
     if(this.folio){
       this.titleAlert=`Firma de Protección ${this.folio}`;

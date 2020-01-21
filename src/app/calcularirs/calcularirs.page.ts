@@ -14,12 +14,17 @@ interface calculoResponse {
 export class CalcularirsPage implements OnInit {
   data:any;
   title: string;
+  fechaVent:any;
+  fechaAdj:any;
   constructor(private utilities: UtilitiesService) { 
 
     this.title = 'CALCULAR ISR';
   }
 
   ngOnInit() {
+    this.fechaAdj=this.utilities.getFecha();
+    this.fechaVent= this.fechaAdj
+   
   }
   doSomethingOnScroll($event:Event  ){
     this.utilities.doSomethingOnScroll($event);
