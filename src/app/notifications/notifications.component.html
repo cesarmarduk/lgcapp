@@ -15,10 +15,10 @@
     <img src="assets/img/content/notification2.png" class="not-icon2" alt="">
     
   </div>
-  <div style='width: 8px;' class="search-button " > 
+  <div style='width: 8px;' *ngIf="autenticado==true" class="search-button ocultaEnlogOut" > 
    -
   </div>
-  <div class="search-button " >
+  <div class="search-button ocultaEnlogOut" *ngIf="autenticado==true">
       <img src="assets/img/content/alarm1.png" [(routerLink)]="urlAlertas" class="not-icon1" alt="">
       <img src="assets/img/content/alarm2.png" [(routerLink)]="urlAlertas" class="not-icon2" alt="">
   </div>
