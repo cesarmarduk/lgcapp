@@ -10,15 +10,15 @@
   </div>
 
  
-  <div *ngIf="!bell" class="search-button" data-search="open">
+  <div class="search-button" data-search="open">
     <img src="assets/img/content/notification1.png" class="not-icon1" alt="">
     <img src="assets/img/content/notification2.png" class="not-icon2" alt="">
     
   </div>
-  <div *ngIf="autenticado==true" class="search-button ocultaEnlogOut" >
+  <div style='width: 8px;' class="search-button " > 
    -
   </div>
-  <div *ngIf="autenticado==true" class="search-button ocultaEnlogOut" >
+  <div class="search-button " >
       <img src="assets/img/content/alarm1.png" [(routerLink)]="urlAlertas" class="not-icon1" alt="">
       <img src="assets/img/content/alarm2.png" [(routerLink)]="urlAlertas" class="not-icon2" alt="">
   </div>
@@ -29,7 +29,7 @@
   </div>
 
 </header>
-<!-- Header area end -->
+<!-- Header area end  *ngIf="autenticado==true" -->
 
 <!--NOTIFICATION BOX CONTENT START-->
 <div class="search-form"  >

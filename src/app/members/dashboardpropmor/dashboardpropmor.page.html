@@ -25,59 +25,56 @@
             <div class="resources-card-wrapper">
                 <div class="wallet-card mr-10 yellow-back">
                     <span style="float:right" ><img style="float:right" width="20%" src="/assets/img/renovacion.png" alt=""></span>
-                    <div class="form-divider"></div>
+                    <div class="form-divider" style="height:0px"></div>
                     <div class="flex-column flex-md-row">
                     
                       <h1 class="w-text countRenovacionesPropmor">0</h1>
                       <p class="g-text mb-0 font-weight-medium"> Renovaciones </p>
                     </div>
-                    <div class="form-divider"></div>
+                
                  
                 </div>
       
                 <div class="wallet-card ml-10 green-back">
                     <span style="float:right" ><img style="float:right" width="20%" src="/assets/img/activas.png" alt=""></span>
-                    <div class="form-divider"></div>
+                    <div class="form-divider" style="height:0px"></div>
                     <div class="flex-column flex-md-row">
                     
                       <h1 class="w-text countActivasPropmor">0</h1>
                       <p class="g-text mb-0 font-weight-medium"> Activa(s)</p>
                     </div>
-                    <div class="form-divider"></div>
                  
                 </div>
             
             </div>
-           
-            <div class="form-divider"></div>
+            <br>
+         
             <div class="resources-card-wrapper">
                 <div class="wallet-card mr-10 blue-back">
                     <span style="float:right" ><img style="float:right" width="20%" src="/assets/img/notificacion.png" alt=""></span>
-                    <div class="form-divider"></div>
+                    <div class="form-divider" style="height:0px"></div>
                     <div class="flex-column flex-md-row">
                     
                       <h1 class="w-text countFirmasPropmor">0</h1>
                       <p class="g-text mb-0 font-weight-medium"> Proximas Firmas </p>
                     </div>
-                    <div class="form-divider"></div>
-                  
+                
                 </div>
       
                 <div class="wallet-card ml-10 lgcGradiente">
                     <span style="float:right" ><img style="float:right" width="20%" src="/assets/img/reclamo.png" alt=""></span>
-                    <div class="form-divider"></div>
+                    <div class="form-divider" style="height:0px"></div>
                     <div class="flex-column flex-md-row">
                    
                       <h1 class="w-text countReclamosPropmor">0</h1>
                       <p class="g-text mb-0 font-weight-medium"> Reclamo(s)</p>
                     </div>
-                    <div class="form-divider"></div>
-                 
+                  
                 </div>
             
             </div>
           </section>
-          <div class="form-divider"></div>
+          <br>
           <section class="container">
             <div class="form-row">
               <a [routerLink]="['/members/crear-solicitud','propmor',propmor]" style="text-align: center;background: linear-gradient(36deg, rgba(88,17,15,1) 0%, rgba(150,16,13,1) 59%, rgba(150,16,13,1) 100%);color:white" href="Javascript:void(0);" class="button circle block">Solicitud Nueva Protección Jurídica </a>
@@ -87,15 +84,15 @@
               <h4 class="title-main font-20 font-bold font-redlgc">Listado de protecciones</h4>
               <div class="tab-item">
               <div class="tab-menu fix-width">
-                <a class="menu-item active" href="javascript:void(0);" data-content="contentFirmadasPropmor" style="width: 33%;"><i class="fa fa-handshake-o"></i> FIRMADAS</a>
-                <a class="menu-item" href="javascript:void(0);" data-content="contentProcesoPropmor" style="width: 33%;"><i class="fa fa-hourglass-start"></i> EN PROCESO</a>
-                <a class="menu-item" href="javascript:void(0);" data-content="contentRechazadasPropmor" style="width: 33%;"><i class="fa fa-history"></i> RECHAZADAS</a>
+                <a class="menu-item " id="tabFirmadasPropmor" href="javascript:void(0);" data-content="contentFirmadasPropmor" style="width: 33%;"><i class="fa fa-handshake-o"></i> FIRMADAS</a>
+                <a class="menu-item" id="tabProcesoPropmor" href="javascript:void(0);" data-content="contentProcesoPropmor" style="width: 33%;"><i class="fa fa-hourglass-start"></i> EN PROCESO</a>
+                <a class="menu-item" id="tabRechazadasPropmor" href="javascript:void(0);" data-content="contentRechazadasPropmor" style="width: 33%;"><i class="fa fa-history"></i> RECHAZADAS</a>
               </div>
               <div class="tab-menu fix-width">
-                <a class="menu-item" href="javascript:void(0);" data-content="contentFirmarPropmor" style="width: 33%;"><i class="fa fa-check-square-o"></i> x FIRMAR</a>
-                <a class="menu-item" href="javascript:void(0);" data-content="contentRenovarPropmor" style="width: 33%;"><i class="fa fa-refresh"></i> RENOVAR</a>
+                <a class="menu-item" id="tabFirmarPropmor" href="javascript:void(0);" data-content="contentFirmarPropmor" style="width: 33%;"><i class="fa fa-check-square-o"></i> x FIRMAR</a>
+                <a class="menu-item" id="tabRenovarPropmor" href="javascript:void(0);" data-content="contentRenovarPropmor" style="width: 33%;"><i class="fa fa-refresh"></i> RENOVAR</a>
        
-                <a class="menu-item" href="javascript:void(0);" data-content="contentReclamosPropmor" style="width: 33%;"><i class="fa fa-exclamation"></i> RECLAMO</a>
+                <a class="menu-item" id="tabReclamosPropmor" href="javascript:void(0);" data-content="contentReclamosPropmor" style="width: 33%;"><i class="fa fa-exclamation"></i> RECLAMO</a>
               
               </div>
               <div class="tab-content">

@@ -93,7 +93,28 @@ export class DashboardinqfisPage implements OnInit {
           that.xfirmar=data.polizasXFirmar;
           that.renovar=data.polizasRenovar;
           that.reclamo=data.polizasReclamo;
-
+          if(that.firmadas.length>0){
+            $('#tabFirmadasInqfis').addClass('active');
+            $('#contentFirmadasInqfis').addClass('active');
+          }else if(that.proceso.length>0){
+            $('#tabProcesoInqfis').addClass('active');
+            $('#contentProcesoInqfis').addClass('active');
+          }else if(that.rechazadas.length>0){
+            $('#tabRechazadasInqfis').addClass('active');
+            $('#contentRechazadasInqfis').addClass('active');
+          }else if(that.xfirmar.length>0){
+            $('#tabFirmarInqfis').addClass('active');
+            $('#contentFirmarsInqfis').addClass('active');
+          }else if(that.renovar.length>0){
+            $('#tabRenovarInqfis').addClass('active');
+            $('#contentRenovarInqfis').addClass('active');
+          }else if(that.reclamo.length>0){
+            $('#tabReclamosInqfis').addClass('active');
+            $('#contentReclamosInqfis').addClass('active');
+          }else{
+            $('#tabFirmadasInqfis').addClass('active');
+            $('#contentFirmadasInqfis').addClass('active');
+          }
           $('.countRenovacionesInqfis').html(that.renovar.length);
           $('.countActivasInqfis').html(that.proceso.length+that.firmadas.length);
           $('.countFirmasInqfis').html(that.xfirmar.length);

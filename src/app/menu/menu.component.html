@@ -4,7 +4,7 @@
 	  <!-- Menu navigation start -->
 	  <div class="nav-container">
 		<ul class="main-menu">
-			<li class='text-center'>
+			<li class='text-center' style="margin-top:15px">
 				<img style="max-width:80% !important;padding: 10px" src="assets/img/logo.png" alt="">
 			</li>
 			<li >
@@ -40,10 +40,10 @@
 				<ul class="active" style="display:block">
 					<li *ngIf="perfilAsesor"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/asesor" >Asesor</a></li>
 					<li *ngIf="perfilInmo"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/inmobiliaria" >Inmobiliaria</a></li>
-					<li *ngIf="perfilPropMor"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/propmor" >Propietario Moral</a></li>
-					<li *ngIf="perfilPropFis"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/propfis" >Propietario Físico</a></li>
-					<li *ngIf="perfilInqMor"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/inqmor" >Inquilino Moral</a></li>
-					<li *ngIf="perfilInqFis"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/inqfis" >Inquilino Físico</a></li>
+					<li *ngIf="perfilPropMor"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/propmor" >Propietario (Empresas)</a></li>
+					<li *ngIf="perfilPropFis"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/propfis" >Propietario</a></li>
+					<li *ngIf="perfilInqMor"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/inqmor" >Inquilino (Empresas)</a></li>
+					<li *ngIf="perfilInqFis"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/inqfis" >Inquilino</a></li>
 				</ul>
 				<!-- <a href="javascript:void(0);" class="font-redlgc" [(routerLink)]="ruta"><i style="font-size:20px" class="font-redlgc fa fa-shield" ></i><strong style="font-size:18px" class="special">Mis Contratos</strong> </a>
 				 -->

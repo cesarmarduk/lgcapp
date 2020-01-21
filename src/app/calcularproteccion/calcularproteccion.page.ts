@@ -62,11 +62,8 @@ export class CalcularproteccionPage implements OnInit {
           if(data.data!=''){
             this.calculo=`$ ${data.data}`;
             $(".oculto").css('display','block');
-            if(vigencia=='2'){
-              vigencia='menos de 3';
-          
-            }
-            this.validez=`Válida por ${vigencia} meses`;
+            vigencia=parseInt(vigencia)/12;
+            this.validez=`Válida por ${vigencia} año(s)`;
             if(tipo_pro=='1'){
               this.tipo=`PROTECCIÓN BÁSICA`;
             }

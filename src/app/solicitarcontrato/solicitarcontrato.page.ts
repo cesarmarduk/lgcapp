@@ -131,8 +131,28 @@ export class SolicitarcontratoPage implements OnInit {
     this.http.post<resp>(`${this.utilities.baseApiUrl}api/Polizas/crearSolicitud`, formData,this.utilities.httpOptionsFile).subscribe(
       (response) => {
         console.log(response);
-        this.utilities.presentAlert(response.status,response.message,false,0);
-
+        this.utilities.presentAlert(response.status,response.message,true,0);
+        var tipo_contrato=$('#tipo_contrato_con').val('');
+        var ciudad=$('#ciudad_con').val('');
+        var monto_renta=$('#monto_renta_con').val('');
+        var fecha_probable=$('#fecha_probable_con').val('');
+        var nombre_contacto=$('#nombre_contacto_con').val('');
+        var telefono_contacto=$('#telefono_contacto_con').val('');
+        var email_contacto=$('#email_contacto_con').val('');
+        var nombre_arrendador=$('#nombre_arrendador_con').val('');
+        var telefono_arrendador=$('#telefono_arrendador_con').val('');
+        var email_arrendador=$('#email_arrendador_con').val('');
+        var nombre_inquilino=$('#nombre_inquilino_con').val('');
+        var telefono_inquilino=$('#telefono_inquilino_con').val('');
+        var email_inquilino=$('#email_inquilino_con').val('');
+        var nombre_garante=$('#nombre_garante_con').val('');
+        var telefono_garante=$('#telefono_garante_con').val('');
+        var email_garante=$('#email_garante_con').val('');
+        var aval=$('input[name=aval_con]:checked').val('');
+        var descripcion_escritura=$('#descripcion_escritura_con').val('');
+        var tipo_arrendador=$('#tipo_arrendador_con').val('');
+        var tipo_inquilino=$('#tipo_inquilino_con').val('');
+        var tipo_garante=$('#tipo_garante_con').val('');
       },
       (error) =>   this.utilities.presentAlert(error.status,error.message,false,0)
     )

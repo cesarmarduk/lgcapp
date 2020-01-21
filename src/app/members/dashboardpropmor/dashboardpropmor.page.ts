@@ -94,7 +94,28 @@ export class DashboardpropmorPage implements OnInit {
           that.xfirmar=data.polizasXFirmar;
           that.renovar=data.polizasRenovar;
           that.reclamo=data.polizasReclamo;
-
+          if(that.firmadas.length>0){
+            $('#tabFirmadasPropmor').addClass('active');
+            $('#contentFirmadasPropmor').addClass('active');
+          }else if(that.proceso.length>0){
+            $('#tabProcesoPropmor').addClass('active');
+            $('#contentProcesoPropmor').addClass('active');
+          }else if(that.rechazadas.length>0){
+            $('#tabRechazadasPropmor').addClass('active');
+            $('#contentRechazadasPropmor').addClass('active');
+          }else if(that.xfirmar.length>0){
+            $('#tabFirmarPropmor').addClass('active');
+            $('#contentFirmarsPropmor').addClass('active');
+          }else if(that.renovar.length>0){
+            $('#tabRenovarPropmor').addClass('active');
+            $('#contentRenovarPropmor').addClass('active');
+          }else if(that.reclamo.length>0){
+            $('#tabReclamosPropmor').addClass('active');
+            $('#contentReclamosPropmor').addClass('active');
+          }else{
+            $('#tabFirmadasPropmor').addClass('active');
+            $('#contentFirmadasPropmor').addClass('active');
+          }
           $('.countRenovacionesPropmor').html(that.renovar.length);
           $('.countActivasPropmor').html(that.proceso.length+that.firmadas.length);
           $('.countFirmasPropmor').html(that.xfirmar.length);
