@@ -141,7 +141,15 @@ export class CrearsolicitudPage implements OnInit {
     this.http.post<resp>(`${this.utilities.baseApiUrl}api/Polizas/crearSolicitud`, formData,this.utilities.httpOptionsFile).subscribe(
       (response) => {
         console.log(response);
+<<<<<<< HEAD
         this.utilities.presentAlert(response.status,response.message,true,0);
+=======
+<<<<<<< HEAD
+        this.utilities.presentAlert(response.status,response.message,true,0);
+=======
+        this.utilities.presentAlert(response.status,response.message,false,0);
+>>>>>>> 59abfb1db615b61b1551398d7f36427fafe63b9c
+>>>>>>> dc0b2b6d0a0d8b7ce34e7e78318af3daa266218c
         var tipo_contrato=$('#tipo_contrato_sol').val('');
         var ciudad=$('#ciudad_sol').val('');
         var monto_renta=$('#monto_renta_sol').val('');
