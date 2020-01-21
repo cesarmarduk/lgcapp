@@ -47,7 +47,7 @@ export class HomePage implements OnInit {
   public ruta : string = '/login';
   public ruta2 : string = '/solicitar-contrato';
   public lugar : string = 'home';
-  public urlAlertas : string = '/alertas-ss';
+  public urlAlertas : string = '/members/alertas';
   isConnected = false;
   authenticate: boolean = false; 
   constructor(private authService: AuthenticationService,private utilities: UtilitiesService,  
@@ -106,7 +106,7 @@ export class HomePage implements OnInit {
         this.ruta2='/solicitar-contrato';
         this.urlAlertas='/members/alertas';
       }else{
-          this.urlAlertas='/alertas-ss';
+          this.urlAlertas='/members/alertas';
           this.ruta='/login';
           this.ruta2='/solicitar-contrato';
           this.authenticate=false;
