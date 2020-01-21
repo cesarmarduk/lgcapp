@@ -38,6 +38,7 @@ export class NotificationsComponent implements OnInit {
     this.storage.get(TOKEN_KEY).then(res => {
       if (res) {
        this.autenticado=true;
+     
       }
     })
 

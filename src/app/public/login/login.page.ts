@@ -3,10 +3,12 @@ import { UtilitiesService } from './../../services/utilities.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-
+import { Storage } from '@ionic/storage';
+import { ActivatedRoute } from '@angular/router';
 import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser';
 declare var jQuery:any;
 declare var $:any;
+const TOKEN_KEY = 'auth-token';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -33,7 +35,7 @@ export class LoginPage implements OnInit {
   public slider1:string='assets/img/slider/1.png';
   public slider2:string='assets/img/slider/2.png';
   public slider3:string='assets/img/slider/3.png';
-  constructor(private authService: AuthenticationService, private router: Router,private utilities: UtilitiesService
+  constructor(private authService: AuthenticationService, private router: Router,private utilities: UtilitiesService,private storage: Storage,private _activatedRoute: ActivatedRoute
         ) {
    
     this.authService.checkToken();
@@ -41,7 +43,13 @@ export class LoginPage implements OnInit {
  
   ngOnInit() {
    
-  
+    this._activatedRoute.paramMap.subscribe(() => {
+      this.storage.get(TOKEN_KEY).then(res => {
+        if (!res) {
+          this.router.navigate(['home']);
+        }
+      })
+    })
   }
  
 
