@@ -30,16 +30,20 @@ export class AppComponent {
  
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleLightContent();
-      this.statusBar.styleDefault();
-      if (this.platform.is('android')) {
-        this.statusBar.overlaysWebView(false);
-        this.statusBar.backgroundColorByHexString('#000000');
-       
-      }
+      
+    
       if (this.platform.is('cordova')) {
-        this.setupPush();
+        this.statusBar.styleLightContent();
+        this.statusBar.styleDefault();
+        this.statusBar.overlaysWebView(false);
+        this.statusBar.backgroundColorByHexString('#B80100');
+         
       }
+      
+      if (this.platform.is('cordova')) {
+          this.setupPush();
+      }
+        
       
       setTimeout(()=>{
         this.splashScreen.hide();

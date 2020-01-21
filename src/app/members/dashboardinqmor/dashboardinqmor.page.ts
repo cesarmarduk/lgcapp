@@ -95,7 +95,28 @@ export class DashboardinqmorPage implements OnInit {
           that.xfirmar=data.polizasXFirmar;
           that.renovar=data.polizasRenovar;
           that.reclamo=data.polizasReclamo;
-
+          if(that.firmadas.length>0){
+            $('#tabFirmadasInqmor').addClass('active');
+            $('#contentFirmadasInqmor').addClass('active');
+          }else if(that.proceso.length>0){
+            $('#tabProcesoInqmor').addClass('active');
+            $('#contentProcesoInqmor').addClass('active');
+          }else if(that.rechazadas.length>0){
+            $('#tabRechazadasInqmor').addClass('active');
+            $('#contentRechazadasInqmor').addClass('active');
+          }else if(that.xfirmar.length>0){
+            $('#tabFirmarInqmor').addClass('active');
+            $('#contentFirmarsInqmor').addClass('active');
+          }else if(that.renovar.length>0){
+            $('#tabRenovarInqmor').addClass('active');
+            $('#contentRenovarInqmor').addClass('active');
+          }else if(that.reclamo.length>0){
+            $('#tabReclamosInqmor').addClass('active');
+            $('#contentReclamosInqmor').addClass('active');
+          }else{
+            $('#tabFirmadasInqmor').addClass('active');
+            $('#contentFirmadasInqmor').addClass('active');
+          }
           $('.countRenovacionesInqmor').html(that.renovar.length);
           $('.countActivasInqmor').html(that.proceso.length+that.firmadas.length);
           $('.countFirmasInqmor').html(that.xfirmar.length);

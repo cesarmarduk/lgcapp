@@ -45,7 +45,7 @@
     "datatables.net-dt": "^1.10.20",
     "jquery": "^3.4.1",
     "ng-http-loader": "^6.0.1",
-    "onesignal-cordova-plugin": "^2.8.1",
+    "onesignal-cordova-plugin": "^2.8.2",
     "rxjs": "~6.5.1",
     "sweetalert2": "^9.5.4",
     "swiper": "^5.2.1",

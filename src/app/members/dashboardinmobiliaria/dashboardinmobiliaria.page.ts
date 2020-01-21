@@ -90,7 +90,29 @@ export class DashboardinmobiliariaPage implements OnInit {
           that.xfirmar=data.polizasXFirmar;
           that.renovar=data.polizasRenovar;
           that.reclamo=data.polizasReclamo;
-
+          console.log(that.proceso.length);
+          if(that.firmadas.length>0){
+            $('#tabFirmadasInmo').addClass('active');
+            $('#contentFirmadasInmo').addClass('active');
+          }else if(that.proceso.length>0){
+            $('#tabProcesoInmo').addClass('active');
+            $('#contentProcesoInmo').addClass('active');
+          }else if(that.rechazadas.length>0){
+            $('#tabRechazadasInmo').addClass('active');
+            $('#contentRechazadasInmo').addClass('active');
+          }else if(that.xfirmar.length>0){
+            $('#tabFirmarInmo').addClass('active');
+            $('#contentFirmarsInmo').addClass('active');
+          }else if(that.renovar.length>0){
+            $('#tabRenovarInmo').addClass('active');
+            $('#contentRenovarInmo').addClass('active');
+          }else if(that.reclamo.length>0){
+            $('#tabReclamosInmo').addClass('active');
+            $('#contentReclamosInmo').addClass('active');
+          }else{
+            $('#tabFirmadasInmo').addClass('active');
+            $('#contentFirmadasInmo').addClass('active');
+          }
           $('.countRenovacionesInmo').html(that.renovar.length);
           $('.countActivasInmo').html(that.proceso.length+that.firmadas.length);
           $('.countFirmasInmo').html(that.xfirmar.length);

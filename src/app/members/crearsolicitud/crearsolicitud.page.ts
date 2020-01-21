@@ -142,7 +142,27 @@ export class CrearsolicitudPage implements OnInit {
       (response) => {
         console.log(response);
         this.utilities.presentAlert(response.status,response.message,false,0);
-
+        var tipo_contrato=$('#tipo_contrato_sol').val('');
+        var ciudad=$('#ciudad_sol').val('');
+        var monto_renta=$('#monto_renta_sol').val('');
+        var fecha_probable=$('#fecha_probable_sol').val('');
+        var nombre_contacto=$('#nombre_contacto_sol').val('');
+        var telefono_contacto=$('#telefono_contacto_sol').val('');
+        var email_contacto=$('#email_contacto_sol').val('');
+        var nombre_arrendador=$('#nombre_arrendador_sol').val('');
+        var telefono_arrendador=$('#telefono_arrendador_sol').val('');
+        var email_arrendador=$('#email_arrendador_sol').val('');
+        var nombre_inquilino=$('#nombre_inquilino_sol').val('');
+        var telefono_inquilino=$('#telefono_inquilino_sol').val('');
+        var email_inquilino=$('#email_inquilino_sol').val('');
+        var nombre_garante=$('#nombre_garante_sol').val('');
+        var telefono_garante=$('#telefono_garante_sol').val('');
+        var email_garante=$('#email_garante_sol').val('');
+        var aval=$('input[name=aval]:checked').val('');
+        var descripcion_escritura=$('#descripcion_escritura_sol').val('');
+        var tipo_arrendador=$('#tipo_arrendador_sol').val('');
+        var tipo_inquilino=$('#tipo_inquilino_sol').val('');
+        var tipo_garante=$('#tipo_garante_sol').val('');
       },
       (error) =>   this.utilities.presentAlert(error.status,error.message,false,0)
     )

@@ -91,6 +91,28 @@ export class DashboardasesorPage implements OnInit {
           that.renovar=data.polizasRenovar;
           that.reclamo=data.polizasReclamo;
 
+          if(that.firmadas.length>0){
+            $('#tabFirmadasAse').addClass('active');
+            $('#contentFirmadasAse').addClass('active');
+          }else if(that.proceso.length>0){
+            $('#tabProcesoAse').addClass('active');
+            $('#contentProcesoAse').addClass('active');
+          }else if(that.rechazadas.length>0){
+            $('#tabRechazadasAse').addClass('active');
+            $('#contentRechazadasAse').addClass('active');
+          }else if(that.xfirmar.length>0){
+            $('#tabFirmarAse').addClass('active');
+            $('#contentFirmarsAse').addClass('active');
+          }else if(that.renovar.length>0){
+            $('#tabRenovarAse').addClass('active');
+            $('#contentRenovarAse').addClass('active');
+          }else if(that.reclamo.length>0){
+            $('#tabReclamosAse').addClass('active');
+            $('#contentReclamosAse').addClass('active');
+          }else{
+            $('#tabFirmadasAse').addClass('active');
+            $('#contentFirmadasAse').addClass('active');
+          }
           $('.countRenovacionesAse').html(that.renovar.length);
           $('.countActivasAse').html(that.proceso.length+that.firmadas.length);
           $('.countFirmasAse').html(that.xfirmar.length);
