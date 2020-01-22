@@ -38,12 +38,13 @@
 			<li *ngIf="authenticate==true" class="active">
 				<a href="javascript:void(0);" (click)="clickMenu($event);$event.stopPropagation()" class="muestramenu font-redlgc"><i style="font-size:20px" class="font-redlgc fa fa-dashboard" ></i><strong style="font-size:18px" class="special">Mis Contratos</strong> <span class="fa fa-angle-up"></span></a>
 				<ul class="active" style="display:block">
-					<li *ngIf="perfilAgente"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/agente" >Agente</a></li>
-					<li *ngIf="perfilAsesor"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/asesor" >Asesor</a></li>
-					<li *ngIf="perfilInmo"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/inmobiliaria" >Inmobiliaria</a></li>
-					<li *ngIf="perfilPropMor"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/propmor" >Propietario (Empresas)</a></li>
+
+					<li *ngIf="perfilAsesor"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/asesor" >Asesor Inmobiliario</a></li>
+					<li *ngIf="perfilInmo"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/inmobiliaria" >Inmobiliaria <b *ngIf="perfilAgente" >(Jefe)</b></a></li>
+					<li *ngIf="perfilAgente"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/agente" >Inmobiliaria <b *ngIf="perfilInmo" >(Empleado)</b> </a></li>
+					<li *ngIf="perfilPropMor"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/propmor" >Propietario <b>(Empresas)</b></a></li>
 					<li *ngIf="perfilPropFis"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/propfis" >Propietario</a></li>
-					<li *ngIf="perfilInqMor"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/inqmor" >Inquilino (Empresas)</a></li>
+					<li *ngIf="perfilInqMor"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/inqmor" >Inquilino <b>(Empresas)</b></a></li>
 					<li *ngIf="perfilInqFis"><a href="javascript:void(0);" class="font-redlgc" routerLink="/members/dashboard/inqfis" >Inquilino</a></li>
 				</ul>
 				<!-- <a href="javascript:void(0);" class="font-redlgc" [(routerLink)]="ruta"><i style="font-size:20px" class="font-redlgc fa fa-shield" ></i><strong style="font-size:18px" class="special">Mis Contratos</strong> </a>
