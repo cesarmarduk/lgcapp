@@ -76,7 +76,7 @@ export class AvisospolizaPage implements OnInit {
       this.data).pipe()
     .subscribe(
       data => {
-        if(this.perfil=="propmor"||this.perfil=="propfis"||this.perfil=="asesor"||this.perfil=="inmobiliaria"){
+        if(this.perfil=="propmor"||this.perfil=="propfis"||this.perfil=="asesor"||this.perfil=="inmobiliaria"||this.perfil=="agente"){
           if(data.cambio_status_prop=='1'){
             $('#cambio_status_prop').parent('div').addClass('checked');
           }
@@ -94,7 +94,7 @@ export class AvisospolizaPage implements OnInit {
           }    
         }
 
-        if(this.perfil=="inqmor"||this.perfil=="inqfis"||this.perfil=="asesor"||this.perfil=="inmobiliaria"){
+        if(this.perfil=="inqmor"||this.perfil=="inqfis"||this.perfil=="asesor"||this.perfil=="inmobiliaria"||this.perfil=="agente"){
           if(data.cambio_status_inq=='1'){
             $('#cambio_status_inq').parent('div').addClass('checked');
           }

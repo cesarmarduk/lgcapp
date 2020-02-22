@@ -18,10 +18,10 @@
                   <div class="form-label-divider"><span class="font-redlgc">Avisos en {{folio}} </span></div>
                   <div class="form-divider"></div>
 
-                  <div class="list-box"  *ngIf="perfil=='propfis'||perfil=='propmor'||perfil=='asesor'||perfil=='inmobiliaria'">
+                  <div class="list-box"  *ngIf="perfil=='propfis'||perfil=='propmor'||perfil=='asesor'||perfil=='inmobiliaria'||perfil=='agente'">
                       <div class="list-item">
                         
-                          <span class="list-item-title">Cambio de estatus <b *ngIf="perfil=='asesor'||perfil=='inmobiliaria'"> (Propietario)</b></span>
+                          <span class="list-item-title">Cambio de estatus <b *ngIf="perfil=='asesor'||perfil=='inmobiliaria'||perfil=='agente'"> (Propietario)</b></span>
 
                           <div  class="sweet-check " (click)="changeStatus('cambio_status_prop',$event)">
                               <input type="checkbox" name="cambio_status_prop" id="cambio_status_prop" value="1">
@@ -31,10 +31,10 @@
                           </div>
                       </div>
                   </div>
-                  <div class="list-box"  *ngIf="perfil=='inqfis'||perfil=='inqmor'||perfil=='asesor'||perfil=='inmobiliaria'">
+                  <div class="list-box"  *ngIf="perfil=='inqfis'||perfil=='inqmor'||perfil=='asesor'||perfil=='inmobiliaria'||perfil=='agente'">
                     <div class="list-item">
                       
-                        <span class="list-item-title">Cambio de estatus <b *ngIf="perfil=='asesor'||perfil=='inmobiliaria'"> (Inquilino)</b></span>
+                        <span class="list-item-title">Cambio de estatus <b *ngIf="perfil=='asesor'||perfil=='inmobiliaria'||perfil=='agente'"> (Inquilino)</b></span>
 
                         <div  class="sweet-check " (click)="changeStatus('cambio_status_inq',$event)">
                             <input type="checkbox" name="cambio_status_inq" id="cambio_status_inq" value="1">
@@ -44,10 +44,10 @@
                         </div>
                     </div>
                   </div>
-                  <div class="list-box" *ngIf="perfil=='propfis'||perfil=='propmor'||perfil=='asesor'||perfil=='inmobiliaria'">
+                  <div class="list-box" *ngIf="perfil=='propfis'||perfil=='propmor'||perfil=='asesor'||perfil=='inmobiliaria'||perfil=='agente'">
                     <div class="list-item">
                       
-                        <span class="list-item-title">Confirmacion de pagos <b *ngIf="perfil=='asesor'||perfil=='inmobiliaria'">(Propietario)</b> </span>
+                        <span class="list-item-title">Confirmacion de pagos <b *ngIf="perfil=='asesor'||perfil=='inmobiliaria'||perfil=='agente'">(Propietario)</b> </span>
 
                         <div class="sweet-check " (click)="changeStatus('confirmacion_prop',$event)">
                             <input type="checkbox" name="confirmacion_prop" id="confirmacion_prop" value="1">
@@ -57,10 +57,10 @@
                         </div>
                     </div>
                   </div>
-                  <div class="list-box" *ngIf="perfil=='inqfis'||perfil=='inqmor'||perfil=='asesor'||perfil=='inmobiliaria'">
+                  <div class="list-box" *ngIf="perfil=='inqfis'||perfil=='inqmor'||perfil=='asesor'||perfil=='inmobiliaria'||perfil=='agente'">
                     <div class="list-item">
                       
-                        <span class="list-item-title">Recordatorios de pagos <b *ngIf="perfil=='asesor'||perfil=='inmobiliaria'">(Inquilino)</b> </span>
+                        <span class="list-item-title">Recordatorios de pagos <b *ngIf="perfil=='asesor'||perfil=='inmobiliaria'||perfil=='agente'">(Inquilino)</b> </span>
 
                         <div class="sweet-check " (click)="changeStatus('recordatorio_inq',$event)">
                             <input type="checkbox" name="recordatorio_inq" id="recordatorio_inq" value="1">
@@ -70,10 +70,10 @@
                         </div>
                     </div>
                   </div>
-                  <div class="list-box" *ngIf="perfil=='propfis'||perfil=='propmor'||perfil=='asesor'||perfil=='inmobiliaria'">
+                  <div class="list-box" *ngIf="perfil=='propfis'||perfil=='propmor'||perfil=='asesor'||perfil=='inmobiliaria'||perfil=='agente'">
                       <div class="list-item">
                         
-                          <span class="list-item-title">Renovaciones <b *ngIf="perfil=='asesor'||perfil=='inmobiliaria'"> (Propietario)</b></span>
+                          <span class="list-item-title">Renovaciones <b *ngIf="perfil=='asesor'||perfil=='inmobiliaria'||perfil=='agente'"> (Propietario)</b></span>
 
                           <div class="sweet-check " (click)="changeStatus('renovacion_prop',$event)">
                               <input type="checkbox" name="renovacion_prop" id="renovacion_prop" value="1">
@@ -83,10 +83,10 @@
                           </div>
                       </div>
                   </div>
-                  <div class="list-box" *ngIf="perfil=='inqfis'||perfil=='inqmor'||perfil=='asesor'||perfil=='inmobiliaria'">
+                  <div class="list-box" *ngIf="perfil=='inqfis'||perfil=='inqmor'||perfil=='asesor'||perfil=='inmobiliaria'||perfil=='agente'">
                     <div class="list-item">
                       
-                        <span class="list-item-title">Renovaciones <b *ngIf="perfil=='asesor'||perfil=='inmobiliaria'"> (Inquilino)</b></span>
+                        <span class="list-item-title">Renovaciones <b *ngIf="perfil=='asesor'||perfil=='inmobiliaria'||perfil=='agente'"> (Inquilino)</b></span>
 
                         <div class="sweet-check " (click)="changeStatus('renovacion_inq',$event)">
                             <input type="checkbox" name="renovacion_inq" id="renovacion_inq" value="1">
@@ -96,10 +96,10 @@
                         </div>
                     </div>
                   </div>
-                  <div class="list-box" *ngIf="perfil=='propfis'||perfil=='propmor'||perfil=='asesor'||perfil=='inmobiliaria'">
+                  <div class="list-box" *ngIf="perfil=='propfis'||perfil=='propmor'||perfil=='asesor'||perfil=='inmobiliaria'||perfil=='agente'">
                       <div class="list-item">
                         
-                          <span class="list-item-title">Seguimiento del Servicio <b *ngIf="perfil=='asesor'||perfil=='inmobiliaria'"> (Propietario)</b></span>
+                          <span class="list-item-title">Seguimiento del Servicio <b *ngIf="perfil=='asesor'||perfil=='inmobiliaria'||perfil=='agente'"> (Propietario)</b></span>
 
                           <div class="sweet-check " (click)="changeStatus('seguimiento_prop',$event)">
                               <input type="checkbox" name="seguimiento_prop" id="seguimiento_prop" value="1">
@@ -109,10 +109,10 @@
                           </div>
                       </div>
                   </div>
-                  <div class="list-box" *ngIf="perfil=='inqfis'||perfil=='inqmor'||perfil=='asesor'||perfil=='inmobiliaria'">
+                  <div class="list-box" *ngIf="perfil=='inqfis'||perfil=='inqmor'||perfil=='asesor'||perfil=='inmobiliaria'||perfil=='agente'">
                       <div class="list-item">
                         
-                          <span class="list-item-title">Seguimiento del Servicio <b *ngIf="perfil=='asesor'||perfil=='inmobiliaria'"> (Inquilino)</b></span>
+                          <span class="list-item-title">Seguimiento del Servicio <b *ngIf="perfil=='asesor'||perfil=='inmobiliaria'||perfil=='agente'"> (Inquilino)</b></span>
 
                           <div class="sweet-check" (click)="changeStatus('seguimiento_inq',$event)">
                               <input type="checkbox" name="seguimiento_inq" id="seguimiento_inq" value="1">
@@ -122,10 +122,10 @@
                           </div>
                       </div>
                   </div>
-                  <div class="list-box" *ngIf="perfil=='propfis'||perfil=='propmor'||perfil=='asesor'||perfil=='inmobiliaria'">
+                  <div class="list-box" *ngIf="perfil=='propfis'||perfil=='propmor'||perfil=='asesor'||perfil=='inmobiliaria'||perfil=='agente'">
                       <div class="list-item">
                         
-                          <span class="list-item-title">Reclamaciones <b *ngIf="perfil=='asesor'||perfil=='inmobiliaria'"> (Propietario)</b></span>
+                          <span class="list-item-title">Reclamaciones <b *ngIf="perfil=='asesor'||perfil=='inmobiliaria'||perfil=='agente'"> (Propietario)</b></span>
 
                           <div class="sweet-check" (click)="changeStatus('reclamacion_prop',$event)">
                               <input type="checkbox" name="reclamacion_prop" id="reclamacion_prop" value="1">
@@ -136,10 +136,10 @@
                       </div>
                   </div>
 
-                  <div class="list-box" *ngIf="perfil=='inqfis'||perfil=='inqmor'||perfil=='asesor'||perfil=='inmobiliaria'">
+                  <div class="list-box" *ngIf="perfil=='inqfis'||perfil=='inqmor'||perfil=='asesor'||perfil=='inmobiliaria'||perfil=='agente'">
                       <div class="list-item">
                         
-                          <span class="list-item-title">Reclamaciones <b *ngIf="perfil=='asesor'||perfil=='inmobiliaria'"> (Inquilino)</b> </span>
+                          <span class="list-item-title">Reclamaciones <b *ngIf="perfil=='asesor'||perfil=='inmobiliaria'||perfil=='agente'"> (Inquilino)</b> </span>
 
                           <div class="sweet-check " (click)="changeStatus('reclamacion_inq',$event)">
                               <input type="checkbox" name="reclamacion_inq" id="reclamacion_inq" value="1">
